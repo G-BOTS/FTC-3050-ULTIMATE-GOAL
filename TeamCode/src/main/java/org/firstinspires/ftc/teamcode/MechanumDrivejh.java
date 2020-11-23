@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp
-public class MechanumDrive extends LinearOpMode
+public class MechanumDrivejh extends LinearOpMode
 {
     // Declare Motors (and other Variables here)
 
