@@ -1,6 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -9,23 +12,26 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-public class MecDrivGy {
+@Autonomous
+@Disabled
+
+public class MecDrivGy extends LinearOpMode{
     /* Declare OpMode members. */
-    HardwareUltimate robot   = new HardwareUltimate();   // Use  ultimate goal hardware
+    HardwareUltimate robot = new HardwareUltimate();   // Use  ultimate goal hardware
     private ElapsedTime runtime = new ElapsedTime();
 
-    static final double     COUNTS_PER_MOTOR_REV    = 1440 ;    // eg: TETRIX Motor Encoder
-    static final double     DRIVE_GEAR_REDUCTION    = 0.5;     // This is < 1.0 if geared UP for 16 to 24 tooth sprockets
-    static final double     WHEEL_DIAMETER_INCHES   = 2.83 ;     // For figuring circumference
-    static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
+    static final double COUNTS_PER_MOTOR_REV = 1440;    // eg: TETRIX Motor Encoder
+    static final double DRIVE_GEAR_REDUCTION = 0.5;     // This is < 1.0 if geared UP for 16 to 24 tooth sprockets
+    static final double WHEEL_DIAMETER_INCHES = 2.83;     // For figuring circumference
+    static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
-    static final double     DRIVE_SPEED             = 0.6;
-    static final double     TURN_SPEED              = 0.4;
-    static final double     INTAKE_SPEED = 0.6;
+    static final double DRIVE_SPEED = 0.6;
+    static final double TURN_SPEED = 0.4;
+    static final double INTAKE_SPEED = 0.6;
     BNO055IMU imu;
     Orientation lastAngles = new Orientation();
-    double                  globalAngle, power = 0.50, correction;
-    boolean                 aButton, bButton, touched;
+    double globalAngle, power = 0.50, correction;
+    boolean aButton, bButton, touched;
 
 
     //DigitalChannel digitalTouch;
@@ -44,28 +50,28 @@ public class MecDrivGy {
         // digitalTouch.setMode(DigitalChannel.Mode.INPUT);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Resetting Encoders");    //
-        telemetry.update();
+        //telemetry.addData("Status", "Resetting Encoders");    //
+        //telemetry.update();
 
-        robot.leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        /*robot.leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.leftElv.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         robot.rightElv.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         robot.horiElv.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
+        */
         // Send telemetry message to indicate successful Encoder reset
-        telemetry.addData("Path0",  "Starting at %7d :%7d",
+        /*telemetry.addData("Path0", "Starting at %7d :%7d",
                 robot.leftDrive.getCurrentPosition(),
                 robot.rightDrive.getCurrentPosition());
-        telemetry.update();
+        telemetry.update();*/
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
 
-        parameters.mode                = BNO055IMU.SensorMode.IMU;
-        parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
-        parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-        parameters.loggingEnabled      = false;
+        parameters.mode = BNO055IMU.SensorMode.IMU;
+        parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.loggingEnabled = false;
 
         // Retrieve and initialize the IMU. We expect the IMU to be attached to an I2C port
         // on a Core Device Interface Module, configured to be a sensor of type "AdaFruit IMU",
@@ -76,8 +82,7 @@ public class MecDrivGy {
 
         telemetry.addData("Mode", "calibrating...");
         telemetry.update();
-        while (!isStopRequested() && !imu.isGyroCalibrated())
-        {
+        while (!isStopRequested() && !imu.isGyroCalibrated()) {
             sleep(50);
             idle();
         }
@@ -93,22 +98,22 @@ public class MecDrivGy {
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
 
-        encoderDrive(DRIVE_SPEED,   24, 24, 4.0);  // S1:  24 Drive forward 4 Sec timeout
-        rotate(-45,TURN_SPEED);
+        encoderDrive(DRIVE_SPEED, 24, 24, 4.0);  // S1:  24 Drive forward 4 Sec timeout
+        rotate(-45, TURN_SPEED);
 
-        robot.rightIntake.setPower(INTAKE_SPEED);
-        robot.leftIntake.setPower(INTAKE_SPEED);
-        encoderDrive(DRIVE_SPEED,   4, 4, 4.0);  // S1: Drive forward 4 Sec timeout
-        robot.rightIntake.setPower(0.0);
-        robot.leftIntake.setPower(0.0);
-        rotate(45,TURN_SPEED);
-        encoderDrive(DRIVE_SPEED,   -9, -9, 4.0);  // S2: hook foundationand drive backwards  with 4 Sec timeout
-        rotate(82,TURN_SPEED);
+        robot.rightBack.setPower(INTAKE_SPEED);
+        robot.leftBack.setPower(INTAKE_SPEED);
+        encoderDrive(DRIVE_SPEED, 4, 4, 4.0);  // S1: Drive forward 4 Sec timeout
+        robot.rightBack.setPower(0.0);
+        robot.leftBack.setPower(0.0);
+        rotate(45, TURN_SPEED);
+        encoderDrive(DRIVE_SPEED, -9, -9, 4.0);  // S2: hook foundationand drive backwards  with 4 Sec timeout
+        rotate(82, TURN_SPEED);
         encoderDrive(DRIVE_SPEED, 54, 54, 8.0);  // S4: 50 forward 24 Inches with 4 Sec timeout
-        rotate(-82,TURN_SPEED);
-        encoderDrive(DRIVE_SPEED,   9, 9, 8.0);  // S6: forward 24 Inches with 4 Sec timeout
+        rotate(-82, TURN_SPEED);
+        encoderDrive(DRIVE_SPEED, 9, 9, 8.0);  // S6: forward 24 Inches with 4 Sec timeout
 
-        robot.left_hand.setPosition(0.31);
+        /*robot.left_hand.setPosition(0.31);
         robot.right_hand.setPosition(0.69);
         robot.pickup.setPosition(0.25);
         sleep(500);
@@ -132,17 +137,19 @@ public class MecDrivGy {
         sleep(1000);
         robot.rightElv.setPower(0.8);//down
         robot.leftElv.setPower(0.8);
-        sleep (1000);
+        sleep(1000);
         robot.rightElv.setPower(0.0);
         robot.leftElv.setPower(0.0);
 
-        rotate(-179,TURN_SPEED);
+        rotate(-179, TURN_SPEED);
 
-        encoderDrive(DRIVE_SPEED,  6,  6 , 5.0);  // S8: Forward 24 Inches with 5 Sec timeout
+        encoderDrive(DRIVE_SPEED, 6, 6, 5.0);  // S8: Forward 24 Inches with 5 Sec timeout
         robot.left_hand.setPosition(0.8);
         robot.right_hand.setPosition(0.2);
         sleep(300);
-        encoderDrive(DRIVE_SPEED,   -9.5, -9.5, 5.0);  // S9: Turn left 12 Inches with 4 Sec timeout
+        encoderDrive(DRIVE_SPEED, -9.5, -9.5, 5.0);  // S9: Turn left 12 Inches with 4 Sec timeout
+
+         */
 
 
         telemetry.addData("Path", "Complete");
@@ -167,19 +174,19 @@ public class MecDrivGy {
         if (opModeIsActive()) {
 
             // Determine new target position, and pass to motor controller
-            newLeftTarget = robot.leftDrive.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
-            newRightTarget = robot.rightDrive.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
-            robot.leftDrive.setTargetPosition(newLeftTarget);
-            robot.rightDrive.setTargetPosition(newRightTarget);
+            newLeftTarget = robot.leftFront.getCurrentPosition() + (int) (leftInches * COUNTS_PER_INCH);
+            newRightTarget = robot.rightFront.getCurrentPosition() + (int) (rightInches * COUNTS_PER_INCH);
+            robot.leftFront.setTargetPosition(newLeftTarget);
+            robot.rightFront.setTargetPosition(newRightTarget);
 
             // Turn On RUN_TO_POSITION
-            robot.leftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.rightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.leftFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.rightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // reset the timeout time and start motion.
             runtime.reset();
-            robot.leftDrive.setPower(Math.abs(speed));
-            robot.rightDrive.setPower(Math.abs(speed));
+            robot.leftFront.setPower(Math.abs(speed));
+            robot.rightFront.setPower(Math.abs(speed));
 
             // keep looping while we are still active, and there is time left, and both motors are running.
             // Note: We use (isBusy() && isBusy()) in the loop test, which means that when EITHER motor hits
@@ -189,27 +196,29 @@ public class MecDrivGy {
             // onto the next step, use (isBusy() || isBusy()) in the loop test.
             while (opModeIsActive() &&
                     (runtime.seconds() < timeoutS) &&
-                    (robot.leftDrive.isBusy() && robot.rightDrive.isBusy())) {
+                    (robot.leftFront.isBusy() && robot.rightFront.isBusy())) {
 
                 // Display it for the driver.
-                telemetry.addData("Path1",  "Running to %7d :%7d", newLeftTarget,  newRightTarget);
-                telemetry.addData("Path2",  "Running at %7d :%7d",
-                        robot.leftDrive.getCurrentPosition(),
-                        robot.rightDrive.getCurrentPosition());
+                telemetry.addData("Path1", "Running to %7d :%7d", newLeftTarget, newRightTarget);
+                telemetry.addData("Path2", "Running at %7d :%7d",
+                        robot.leftFront.getCurrentPosition(),
+                        robot.rightFront.getCurrentPosition());
                 telemetry.update();
             }
 
             // Stop all motion;
-            robot.leftDrive.setPower(0);
-            robot.rightDrive.setPower(0);
+            robot.leftFront.setPower(0);
+            robot.rightFront.setPower(0);
 
             // Turn off RUN_TO_POSITION
-            robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             //  sleep(250);   // optional pause after each move
         }
     }
+
+
     private void resetAngle()
     {
         lastAngles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
@@ -294,8 +303,10 @@ public class MecDrivGy {
         else return;
 
         // set power to rotate.
-        robot.leftDrive.setPower(leftPower);
-        robot.rightDrive.setPower(rightPower);
+
+            robot.leftBack.setPower(leftPower);
+            robot.rightBack.setPower(rightPower);
+
 
         // rotate until turn is completed.
         if (degrees < 0)
@@ -309,8 +320,8 @@ public class MecDrivGy {
             while (opModeIsActive() && getAngle() < degrees) {}
 
         // turn the motors off.
-        robot.leftDrive.setPower(0);
-        robot.rightDrive.setPower(0);
+        robot.leftBack.setPower(0);
+        robot.rightBack.setPower(0);
 
         // wait for rotation to stop.
         sleep(1000);
