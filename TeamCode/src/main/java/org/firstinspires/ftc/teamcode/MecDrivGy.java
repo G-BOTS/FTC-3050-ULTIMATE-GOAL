@@ -97,49 +97,15 @@ public class MecDrivGy extends LinearOpMode{
         waitForStart();
 
         // Step through each leg of the path,
-        // Note: Reverse movement is obtained by setting a negative distance (not speed)
+
 
         gyroDrive(0.6, 0.6, 0.6, 0.6,1000);  // drive forward
         gyroDrive(-0.6, -0.6, -0.6, -0.6,1000);  // drive backward
         gyroDrive(0.6, -0.6, -0.6, 0.6,1000);  // Strafe left
         gyroDrive(-0.6, 0.6, 0.6, -0.6,1000);  // Strafe right
-        /*robot.left_hand.setPosition(0.31);
-        robot.right_hand.setPosition(0.69);
-        robot.pickup.setPosition(0.25);
-        sleep(500);
-        robot.rightElv.setPower(-0.8);//up
-        robot.leftElv.setPower(-0.8);
-        sleep(1000);
-        robot.rightElv.setPower(0.0);
-        robot.leftElv.setPower(0.0);
-        robot.horiElv.setPower(-0.8);//out
-        sleep(1000);
-        robot.rightElv.setPower(0.2);//down
-        robot.leftElv.setPower(0.2);
-        robot.horiElv.setPower(0);
-        sleep(1000);
-        robot.rightElv.setPower(0.0);
-        robot.leftElv.setPower(0.0);
-        robot.pickup.setPosition(0.8);// drop block
-        robot.rightElv.setPower(-0.8);//up
-        robot.leftElv.setPower(-0.8);
-        robot.horiElv.setPower(0.8);//in
-        sleep(1000);
-        robot.rightElv.setPower(0.8);//down
-        robot.leftElv.setPower(0.8);
-        sleep(1000);
-        robot.rightElv.setPower(0.0);
-        robot.leftElv.setPower(0.0);
+        gyroDrive(-0.6,0.6,-0.6,0.6,1000);// robot rotates left
+        gyroDrive(0.6,-0.6,0.6,-0.6,1000);// robot rotates right
 
-        rotate(-179, TURN_SPEED);
-
-        encoderDrive(DRIVE_SPEED, 6, 6, 5.0);  // S8: Forward 24 Inches with 5 Sec timeout
-        robot.left_hand.setPosition(0.8);
-        robot.right_hand.setPosition(0.2);
-        sleep(300);
-        encoderDrive(DRIVE_SPEED, -9.5, -9.5, 5.0);  // S9: Turn left 12 Inches with 4 Sec timeout
-
-         */
 
 
         telemetry.addData("Path", "Complete");
@@ -164,13 +130,14 @@ public class MecDrivGy extends LinearOpMode{
         if (opModeIsActive()) {
 
             // Determine new target position, and pass to motor controller
+            runtime.reset();
             robot.leftBack.setPower(LBP);
             robot.rightBack.setPower(RBP);
             robot.leftFront.setPower(LFP);
            robot.rightFront.setPower(RFP);
-            sleep(duration);
-            // reset the timeout time and start motion.
-            runtime.reset();
+
+
+
             //robot.leftFront.setPower(Math.abs(speed));
            // robot.rightFront.setPower(Math.abs(speed));
 
@@ -181,8 +148,9 @@ public class MecDrivGy extends LinearOpMode{
             // However, if you require that BOTH motors have finished their moves before the robot continues
             // onto the next step, use (isBusy() || isBusy()) in the loop test.
             while (opModeIsActive() &&
-                    //(runtime.seconds() < timeoutS) &&
+                    (runtime.seconds() < duration) &&
                     (robot.leftFront.isBusy() && robot.rightFront.isBusy())) {
+
 
                 // Display it for the driver.
                 telemetry.addData("Path1", "Running to %7d :%7d");
@@ -195,6 +163,8 @@ public class MecDrivGy extends LinearOpMode{
             // Stop all motion;
             robot.leftFront.setPower(0);
             robot.rightFront.setPower(0);
+            robot.leftBack.setPower(0);
+            robot.rightBack.setPower(0);
 
             // Turn off RUN_TO_POSITION
             robot.leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
