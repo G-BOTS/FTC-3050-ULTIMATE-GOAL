@@ -82,19 +82,19 @@ public class HardwareUltimate {
         //sensorColor = hwMap.get(ColorSensor.class, "sensor_color_distance");
         //sensorColorleft = hwMap.get(ColorSensor.class,"sensor_color_left");
 //
-        leftBack.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
+        leftBack.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
         leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);   // Set Idle Behavior
         leftBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        rightBack.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        rightBack.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
         rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        leftFront.setDirection(DcMotor.Direction.FORWARD);
+        leftFront.setDirection(DcMotor.Direction.REVERSE);
         leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         leftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        rightFront.setDirection(DcMotor.Direction.REVERSE);
+        rightFront.setDirection(DcMotor.Direction.FORWARD);
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 

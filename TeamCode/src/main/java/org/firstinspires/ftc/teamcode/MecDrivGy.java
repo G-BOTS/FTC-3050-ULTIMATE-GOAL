@@ -13,7 +13,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 @Autonomous
-@Disabled
+//@Disabled
 
 public class MecDrivGy extends LinearOpMode{
     /* Declare OpMode members. */
@@ -99,10 +99,10 @@ public class MecDrivGy extends LinearOpMode{
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
 
-        gyroDrive(-0.6, -0.6, -0.6, -0.6,2500);  // drive forward
-        gyroDrive(0.6, 0.6, 0.6, 0.6,2500);  // drive backward
-        gyroDrive(-0.6, 0.6, 0.6, -0.6,2500);  // Strafe left
-        gyroDrive(0.6, -0.6, -0.6, 0.6,2500);  // Strafe right
+        gyroDrive(0.6, 0.6, 0.6, 0.6,1000);  // drive forward
+        gyroDrive(-0.6, -0.6, -0.6, -0.6,1000);  // drive backward
+        gyroDrive(0.6, -0.6, -0.6, 0.6,1000);  // Strafe left
+        gyroDrive(-0.6, 0.6, 0.6, -0.6,1000);  // Strafe right
         /*robot.left_hand.setPosition(0.31);
         robot.right_hand.setPosition(0.69);
         robot.pickup.setPosition(0.25);
