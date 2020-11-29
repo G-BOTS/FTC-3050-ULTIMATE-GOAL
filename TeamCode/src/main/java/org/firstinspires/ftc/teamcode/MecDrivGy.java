@@ -183,6 +183,42 @@ public class MecDrivGy extends LinearOpMode {
                     }
 
                 }
+                if ((LFP < 0 && LBP > 0) && (RFP > 0 && RBP < 0)) { //check to see that the robot  Strafe left
+                    if (ErAngle = 0) {
+                    }
+
+                    if (ErAngle < 0) {
+                        LFP = LFP * (1- correction);
+                        LBP = LBP * (1 - correction);
+                        RFP = RFP * (1 + correction);
+                        LBP = LBP * (1 + correction);
+                    }
+                    if (ErAngle > 0) {
+                        LFP = LFP * (1 - correction);
+                        LBP = LBP * (1 + correction);
+                        RFP = RFP * (1 + correction);
+                        LBP = LBP * (1 - correction);
+                    }
+
+                }
+                if ((LFP < 0 && LBP < 0) && (RFP < 0 && RBP < 0)) { //check to see that the robot strafe right
+                    if (ErAngle = 0) {
+                    }
+
+                    if (ErAngle < 0) {
+                        LFP = LFP * (1- correction);
+                        LBP = LBP * (1 - correction);
+                        RFP = RFP * (1 + correction);
+                        LBP = LBP * (1 + correction);
+                    }
+                    if (ErAngle > 0) {
+                        LFP = LFP * (1 - correction);
+                        LBP = LBP * (1 + correction);
+                        RFP = RFP * (1 + correction);
+                        LBP = LBP * (1 - correction);
+                    }
+
+                }
 
 
 
