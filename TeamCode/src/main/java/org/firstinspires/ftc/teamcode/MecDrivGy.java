@@ -15,7 +15,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 @Autonomous
 //@Disabled
 
-public class MecDrivGy extends LinearOpMode{
+public class MecDrivGy extends LinearOpMode {
     /* Declare OpMode members. */
     HardwareUltimate robot = new HardwareUltimate();   // Use  ultimate goal hardware
     private ElapsedTime runtime = new ElapsedTime();
@@ -99,13 +99,12 @@ public class MecDrivGy extends LinearOpMode{
         // Step through each leg of the path,
 
 
-        gyroDrive(0.6, 0.6, 0.6, 0.6,1000);  // drive forward
-        gyroDrive(-0.6, -0.6, -0.6, -0.6,1000);  // drive backward
-        gyroDrive(0.6, -0.6, -0.6, 0.6,1000);  // Strafe left
-        gyroDrive(-0.6, 0.6, 0.6, -0.6,1000);  // Strafe right
-        gyroDrive(-0.6,0.6,-0.6,0.6,1000);// robot rotates left
-        gyroDrive(0.6,-0.6,0.6,-0.6,1000);// robot rotates right
-
+        gyroDrive(0.6, 0.6, 0.6, 0.6, 1000);  // drive forward
+        gyroDrive(-0.6, -0.6, -0.6, -0.6, 1000);  // drive backward
+        gyroDrive(0.6, -0.6, -0.6, 0.6, 1000);  // Strafe left
+        gyroDrive(-0.6, 0.6, 0.6, -0.6, 1000);  // Strafe right
+        gyroDrive(-0.6, 0.6, -0.6, 0.6, 1000);// robot rotates left
+        gyroDrive(0.6, -0.6, 0.6, -0.6, 1000);// robot rotates right
 
 
         telemetry.addData("Path", "Complete");
@@ -121,9 +120,9 @@ public class MecDrivGy extends LinearOpMode{
      *  3) Driver stops the opmode running.
      */
     public void gyroDrive(double LBP,
-                             double RBP, double LFP,
-                             double RFP, int duration) {
-        int newLeftTarget;
+                          double RBP, double LFP,
+                          double RFP, int duration) {
+        double ErAngle=0;
         int newRightTarget;
 
         // Ensure that the opmode is still active
@@ -134,12 +133,11 @@ public class MecDrivGy extends LinearOpMode{
             robot.leftBack.setPower(LBP);
             robot.rightBack.setPower(RBP);
             robot.leftFront.setPower(LFP);
-           robot.rightFront.setPower(RFP);
-
+            robot.rightFront.setPower(RFP);
 
 
             //robot.leftFront.setPower(Math.abs(speed));
-           // robot.rightFront.setPower(Math.abs(speed));
+            // robot.rightFront.setPower(Math.abs(speed));
 
             // keep looping while we are still active, and there is time left, and both motors are running.
             // Note: We use (isBusy() && isBusy()) in the loop test, which means that when EITHER motor hits
@@ -148,8 +146,44 @@ public class MecDrivGy extends LinearOpMode{
             // However, if you require that BOTH motors have finished their moves before the robot continues
             // onto the next step, use (isBusy() || isBusy()) in the loop test.
             while (opModeIsActive() &&
-                    (runtime.seconds() < duration) &&
-                    (robot.leftFront.isBusy() && robot.rightFront.isBusy())) {
+                    (runtime.seconds() < duration)) {
+                if ((LFP > 0 && LBP > 0) && (RFP > 0 && RBP > 0)) { //check to see that the robot is driving forward
+                    if (ErAngle = 0) {
+                    }
+
+                    if (ErAngle < 0) {
+                        LFP = LFP * (1 + correction);
+                        LBP = LBP * (1 - correction);
+                        RFP = RFP * (1 - correction);
+                        LBP = LBP * (1 + correction);
+                    }
+                    if (ErAngle > 0) {
+                        LFP = LFP * (1 - correction);
+                        LBP = LBP * (1 + correction);
+                        RFP = RFP * (1 + correction);
+                        LBP = LBP * (1 - correction);
+                    }
+
+                }
+                if ((LFP < 0 && LBP < 0) && (RFP < 0 && RBP < 0)) { //check to see that the robot is driving backward
+                    if (ErAngle = 0) {
+                    }
+
+                    if (ErAngle < 0) {
+                        LFP = LFP * (1- correction);
+                        LBP = LBP * (1 - correction);
+                        RFP = RFP * (1 + correction);
+                        LBP = LBP * (1 + correction);
+                    }
+                    if (ErAngle > 0) {
+                        LFP = LFP * (1 - correction);
+                        LBP = LBP * (1 + correction);
+                        RFP = RFP * (1 + correction);
+                        LBP = LBP * (1 - correction);
+                    }
+
+                }
+
 
 
                 // Display it for the driver.
@@ -175,8 +209,7 @@ public class MecDrivGy extends LinearOpMode{
     }
 
 
-    private void resetAngle()
-    {
+    private void resetAngle() {
         lastAngles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
 
         globalAngle = 0;
@@ -184,10 +217,10 @@ public class MecDrivGy extends LinearOpMode{
 
     /**
      * Get current cumulative angle rotation from last reset.
+     *
      * @return Angle in degrees. + = left, - = right.
      */
-    private double getAngle()
-    {
+    private double getAngle() {
         // We experimentally determined the Z axis is the axis we want to use for heading angle.
         // We have to process the angle because the imu works in euler angles so the Z axis is
         // returned as 0 to +180 or 0 to -180 rolling back to -179 or +179 when rotation passes
@@ -211,10 +244,10 @@ public class MecDrivGy extends LinearOpMode{
 
     /**
      * See if we are moving in a straight line and if not return a power correction value.
+     *
      * @return Power adjustment, + is adjust left - is adjust right.
      */
-    private double checkDirection()
-    {
+    private double checkDirection() {
         // The gain value determines how sensitive the correction is to direction changes.
         // You will have to experiment with your robot to get small smooth direction changes
         // to stay on a straight line.
@@ -234,11 +267,11 @@ public class MecDrivGy extends LinearOpMode{
 
     /**
      * Rotate left or right the number of degrees. Does not support turning more than 180 degrees.
+     *
      * @param degrees Degrees to turn, + is left - is right
      */
-    private void rotate(int degrees, double power)
-    {
-        double  leftPower, rightPower;
+    private void rotate(int degrees, double power) {
+        double leftPower, rightPower;
 
         // restart imu movement tracking.
         resetAngle();
@@ -246,34 +279,31 @@ public class MecDrivGy extends LinearOpMode{
         // getAngle() returns + when rotating counter clockwise (left) and - when rotating
         // clockwise (right).
 
-        if (degrees < 0)
-        {   // turn right.
+        if (degrees < 0) {   // turn right.
             leftPower = power;
             rightPower = -power;
-        }
-        else if (degrees > 0)
-        {   // turn left.
+        } else if (degrees > 0) {   // turn left.
             leftPower = -power;
             rightPower = power;
-        }
-        else return;
+        } else return;
 
         // set power to rotate.
 
-            robot.leftBack.setPower(leftPower);
-            robot.rightBack.setPower(rightPower);
+        robot.leftBack.setPower(leftPower);
+        robot.rightBack.setPower(rightPower);
 
 
         // rotate until turn is completed.
-        if (degrees < 0)
-        {
+        if (degrees < 0) {
             // On right turn we have to get off zero first.
-            while (opModeIsActive() && getAngle() == 0) {}
+            while (opModeIsActive() && getAngle() == 0) {
+            }
 
-            while (opModeIsActive() && getAngle() > degrees) {}
-        }
-        else    // left turn.
-            while (opModeIsActive() && getAngle() < degrees) {}
+            while (opModeIsActive() && getAngle() > degrees) {
+            }
+        } else    // left turn.
+            while (opModeIsActive() && getAngle() < degrees) {
+            }
 
         // turn the motors off.
         robot.leftBack.setPower(0);
