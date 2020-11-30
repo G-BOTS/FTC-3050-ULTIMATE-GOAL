@@ -122,7 +122,7 @@ public class MecDrivGy extends LinearOpMode {
     public void gyroDrive(double LBP,
                           double RBP, double LFP,
                           double RFP, int duration) {
-        double ErAngle=0;
+        double ErAngle = 0;
         int newRightTarget;
 
         // Ensure that the opmode is still active
@@ -149,19 +149,20 @@ public class MecDrivGy extends LinearOpMode {
                     (runtime.seconds() < duration)) {
                 if ((LFP > 0 && LBP > 0) && (RFP > 0 && RBP > 0)) { //check to see that the robot is driving forward
                     if (ErAngle = 0) {
+
                     }
 
                     if (ErAngle < 0) {
                         LFP = LFP * (1 + correction);
                         LBP = LBP * (1 - correction);
                         RFP = RFP * (1 - correction);
-                        LBP = LBP * (1 + correction);
+                        RBP = RBP * (1 + correction);
                     }
                     if (ErAngle > 0) {
                         LFP = LFP * (1 - correction);
                         LBP = LBP * (1 + correction);
                         RFP = RFP * (1 + correction);
-                        LBP = LBP * (1 - correction);
+                       RBP = RBP * (1 - correction);
                     }
 
                 }
@@ -173,13 +174,13 @@ public class MecDrivGy extends LinearOpMode {
                         LFP = LFP * (1- correction);
                         LBP = LBP * (1 - correction);
                         RFP = RFP * (1 + correction);
-                        LBP = LBP * (1 + correction);
+                        RBP = RBP * (1 + correction);
                     }
                     if (ErAngle > 0) {
                         LFP = LFP * (1 - correction);
                         LBP = LBP * (1 + correction);
                         RFP = RFP * (1 + correction);
-                        LBP = LBP * (1 - correction);
+                        RBP = RBP * (1 - correction);
                     }
 
                 }
@@ -189,15 +190,15 @@ public class MecDrivGy extends LinearOpMode {
 
                     if (ErAngle < 0) {
                         LFP = LFP * (1- correction);
-                        LBP = LBP * (1 - correction);
-                        RFP = RFP * (1 + correction);
                         LBP = LBP * (1 + correction);
+                        RFP = RFP * (1 - correction);
+                       RBP = RBP * (1 + correction);
                     }
                     if (ErAngle > 0) {
-                        LFP = LFP * (1 - correction);
-                        LBP = LBP * (1 + correction);
-                        RFP = RFP * (1 + correction);
+                        LFP = LFP * (1 + correction);
                         LBP = LBP * (1 - correction);
+                        RFP = RFP * (1 + correction);
+                        RBP = RBP * (1 - correction);
                     }
 
                 }
@@ -207,15 +208,15 @@ public class MecDrivGy extends LinearOpMode {
 
                     if (ErAngle < 0) {
                         LFP = LFP * (1- correction);
-                        LBP = LBP * (1 - correction);
-                        RFP = RFP * (1 + correction);
                         LBP = LBP * (1 + correction);
+                        RFP = RFP * (1 - correction);
+                        RBP = RBP * (1 + correction);
                     }
                     if (ErAngle > 0) {
-                        LFP = LFP * (1 - correction);
-                        LBP = LBP * (1 + correction);
-                        RFP = RFP * (1 + correction);
+                        LFP = LFP * (1 + correction);
                         LBP = LBP * (1 - correction);
+                        RFP = RFP * (1 + correction);
+                        RBP = RBP * (1 - correction);
                     }
 
                 }
