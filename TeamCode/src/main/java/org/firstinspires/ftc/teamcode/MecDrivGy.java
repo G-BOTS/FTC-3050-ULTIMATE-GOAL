@@ -30,7 +30,7 @@ public class MecDrivGy extends LinearOpMode {
     static final double INTAKE_SPEED = 0.6;
     BNO055IMU imu;
     Orientation lastAngles = new Orientation();
-    double globalAngle, power = 0.50, correction;
+    double globalAngle, power = 0.50, correction, ErAngle;
     boolean aButton, bButton, touched;
 
 
@@ -122,7 +122,7 @@ public class MecDrivGy extends LinearOpMode {
     public void gyroDrive(double LBP,
                           double RBP, double LFP,
                           double RFP, int duration) {
-        double ErAngle = 0;
+         ErAngle = 0;
         int newRightTarget;
 
         // Ensure that the opmode is still active
@@ -130,10 +130,7 @@ public class MecDrivGy extends LinearOpMode {
 
             // Determine new target position, and pass to motor controller
             runtime.reset();
-            robot.leftBack.setPower(LBP);
-            robot.rightBack.setPower(RBP);
-            robot.leftFront.setPower(LFP);
-            robot.rightFront.setPower(RFP);
+
 
 
             //robot.leftFront.setPower(Math.abs(speed));
@@ -148,7 +145,7 @@ public class MecDrivGy extends LinearOpMode {
             while (opModeIsActive() &&
                     (runtime.seconds() < duration)) {
                 if ((LFP > 0 && LBP > 0) && (RFP > 0 && RBP > 0)) { //check to see that the robot is driving forward
-                    if (ErAngle = 0) {
+                    if (ErAngle == 0) {
 
                     }
 
@@ -167,7 +164,7 @@ public class MecDrivGy extends LinearOpMode {
 
                 }
                 if ((LFP < 0 && LBP < 0) && (RFP < 0 && RBP < 0)) { //check to see that the robot is driving backward
-                    if (ErAngle = 0) {
+                    if (ErAngle == 0) {
                     }
 
                     if (ErAngle < 0) {
@@ -185,7 +182,7 @@ public class MecDrivGy extends LinearOpMode {
 
                 }
                 if ((LFP < 0 && LBP > 0) && (RFP > 0 && RBP < 0)) { //check to see that the robot  Strafe left
-                    if (ErAngle = 0) {
+                    if (ErAngle == 0) {
                     }
 
                     if (ErAngle < 0) {
@@ -203,7 +200,7 @@ public class MecDrivGy extends LinearOpMode {
 
                 }
                 if ((LFP < 0 && LBP < 0) && (RFP < 0 && RBP < 0)) { //check to see that the robot strafe right
-                    if (ErAngle = 0) {
+                    if (ErAngle == 0) {
                     }
 
                     if (ErAngle < 0) {
@@ -218,6 +215,10 @@ public class MecDrivGy extends LinearOpMode {
                         RFP = RFP * (1 + correction);
                         RBP = RBP * (1 - correction);
                     }
+                    robot.leftBack.setPower(LBP);
+                    robot.rightBack.setPower(RBP);
+                    robot.leftFront.setPower(LFP);
+                    robot.rightFront.setPower(RFP);
 
                 }
 
