@@ -30,7 +30,7 @@ public class MecDrivGy extends LinearOpMode {
     static final double INTAKE_SPEED = 0.6;
     BNO055IMU imu;
     Orientation lastAngles = new Orientation();
-    double globalAngle, power = 0.50, correction, ErAngle;
+    double globalAngle, power = 0.50, correction, ErAngle, TestCorrection;
     boolean aButton, bButton, touched;
 
 
@@ -100,14 +100,22 @@ public class MecDrivGy extends LinearOpMode {
 
 
         gyroDrive(0.6, 0.6, 0.6, 0.6, 1000);  // drive forward
+        telemetry.addData("1", "Complete");
+        telemetry.update();
         gyroDrive(-0.6, -0.6, -0.6, -0.6, 1000);  // drive backward
+        telemetry.addData("2", "Complete");
+        telemetry.update();
         gyroDrive(0.6, -0.6, -0.6, 0.6, 1000);  // Strafe left
+        telemetry.addData("3", "Complete");
+        telemetry.update();
         gyroDrive(-0.6, 0.6, 0.6, -0.6, 1000);  // Strafe right
+        telemetry.addData("4", "Complete");
+        telemetry.update();
         gyroDrive(-0.6, 0.6, -0.6, 0.6, 1000);// robot rotates left
+        telemetry.addData("5", "Complete");
+        telemetry.update();
         gyroDrive(0.6, -0.6, 0.6, -0.6, 1000);// robot rotates right
-
-
-        telemetry.addData("Path", "Complete");
+        telemetry.addData("6", "Complete");
         telemetry.update();
     }
 
@@ -130,6 +138,8 @@ public class MecDrivGy extends LinearOpMode {
 
             // Determine new target position, and pass to motor controller
             runtime.reset();
+            ErAngle = 5;
+            correction = 0.2;
 
 
 
@@ -215,21 +225,23 @@ public class MecDrivGy extends LinearOpMode {
                         RFP = RFP * (1 + correction);
                         RBP = RBP * (1 - correction);
                     }
-                    robot.leftBack.setPower(LBP);
-                    robot.rightBack.setPower(RBP);
-                    robot.leftFront.setPower(LFP);
-                    robot.rightFront.setPower(RFP);
+
 
                 }
+                robot.leftBack.setPower(LBP);
+                robot.rightBack.setPower(RBP);
+                robot.leftFront.setPower(LFP);
+                robot.rightFront.setPower(RFP);
+
 
 
 
                 // Display it for the driver.
-                telemetry.addData("Path1", "Running to %7d :%7d");
+                /*telemetry.addData("Path1", "Running to %7d :%7d");
                 telemetry.addData("Path2", "Running at %7d :%7d",
                         robot.leftFront.getCurrentPosition(),
                         robot.rightFront.getCurrentPosition());
-                telemetry.update();
+                telemetry.update();*/
             }
 
             // Stop all motion;
@@ -239,8 +251,8 @@ public class MecDrivGy extends LinearOpMode {
             robot.rightBack.setPower(0);
 
             // Turn off RUN_TO_POSITION
-            robot.leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            robot.rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            //robot.leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+           // robot.rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             //  sleep(250);   // optional pause after each move
         }
@@ -285,7 +297,7 @@ public class MecDrivGy extends LinearOpMode {
      *
      * @return Power adjustment, + is adjust left - is adjust right.
      */
-    private double checkDirection() {
+    /*private double checkDirection() {
         // The gain value determines how sensitive the correction is to direction changes.
         // You will have to experiment with your robot to get small smooth direction changes
         // to stay on a straight line.
@@ -301,7 +313,7 @@ public class MecDrivGy extends LinearOpMode {
         correction = correction * gain;
 
         return correction;
-    }
+    }*/
 
     /**
      * Rotate left or right the number of degrees. Does not support turning more than 180 degrees.
