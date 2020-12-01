@@ -252,11 +252,8 @@ public class MecDrivGy extends LinearOpMode {
             robot.leftBack.setPower(0);
             robot.rightBack.setPower(0);
 
-            // Turn off RUN_TO_POSITION
-            //robot.leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-           // robot.rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-            //  sleep(250);   // optional pause after each move
+
         }
     }
 
