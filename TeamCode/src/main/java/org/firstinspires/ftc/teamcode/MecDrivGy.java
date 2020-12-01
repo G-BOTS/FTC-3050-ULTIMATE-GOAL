@@ -53,20 +53,7 @@ public class MecDrivGy extends LinearOpMode {
         //telemetry.addData("Status", "Resetting Encoders");    //
         //telemetry.update();
 
-        /*robot.leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);*/
-        robot.leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        robot.rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        robot.leftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        robot.rightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        // Send telemetry message to indicate successful Encoder reset
-        /*telemetry.addData("Path0", "Starting at %7d :%7d",
-                robot.leftDrive.getCurrentPosition(),
-                robot.rightDrive.getCurrentPosition());
-        telemetry.update();*/
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
 
         parameters.mode = BNO055IMU.SensorMode.IMU;
@@ -131,7 +118,7 @@ public class MecDrivGy extends LinearOpMode {
                           double RBP, double LFP,
                           double RFP, int duration) {
          ErAngle = 0;
-        int newRightTarget;
+        Double LFPP=0.0,LBPP=0.0,RFPP = 0.0,RBPP=0.0;
 
         // Ensure that the opmode is still active
         if (opModeIsActive()) {
@@ -152,86 +139,101 @@ public class MecDrivGy extends LinearOpMode {
             // always end the motion as soon as possible.
             // However, if you require that BOTH motors have finished their moves before the robot continues
             // onto the next step, use (isBusy() || isBusy()) in the loop test.
-            while (opModeIsActive() &&
-                    (runtime.seconds() < duration)) {
+            while (opModeIsActive() && (runtime.seconds() < duration)) {
                 if ((LFP > 0 && LBP > 0) && (RFP > 0 && RBP > 0)) { //check to see that the robot is driving forward
                     if (ErAngle == 0) {
+                        LFPP = LFP ;
+                        LBPP = LBP ;
+                        RFPP = RFP ;
+                        RBPP = RBP ;
 
                     }
 
                     if (ErAngle < 0) {
-                        LFP = LFP * (1 + correction);
-                        LBP = LBP * (1 - correction);
-                        RFP = RFP * (1 - correction);
-                        RBP = RBP * (1 + correction);
+                        LFPP = LFP * (1 + correction);
+                        LBPP = LBP * (1 - correction);
+                        RFPP = RFP * (1 - correction);
+                        RBPP = RBP * (1 + correction);
                     }
                     if (ErAngle > 0) {
-                        LFP = LFP * (1 - correction);
-                        LBP = LBP * (1 + correction);
-                        RFP = RFP * (1 + correction);
-                       RBP = RBP * (1 - correction);
+                        LFPP = LFP * (1 - correction);
+                        LBPP = LBP * (1 + correction);
+                        RFPP = RFP * (1 + correction);
+                       RBPP= RBP * (1 - correction);
                     }
 
                 }
                 if ((LFP < 0 && LBP < 0) && (RFP < 0 && RBP < 0)) { //check to see that the robot is driving backward
                     if (ErAngle == 0) {
+                        LFPP = LFP ;
+                        LBPP = LBP ;
+                        RFPP = RFP ;
+                        RBPP = RBP ;
                     }
 
                     if (ErAngle < 0) {
-                        LFP = LFP * (1- correction);
-                        LBP = LBP * (1 - correction);
-                        RFP = RFP * (1 + correction);
-                        RBP = RBP * (1 + correction);
+                        LFPP = LFP * (1- correction);
+                        LBPP = LBP * (1 - correction);
+                        RFPP = RFP * (1 + correction);
+                        RBPP = RBP * (1 + correction);
                     }
                     if (ErAngle > 0) {
-                        LFP = LFP * (1 - correction);
-                        LBP = LBP * (1 + correction);
-                        RFP = RFP * (1 + correction);
-                        RBP = RBP * (1 - correction);
+                        LFPP = LFP * (1 - correction);
+                        LBPP = LBP * (1 + correction);
+                        RFPP = RFP * (1 + correction);
+                        RBPP = RBP * (1 - correction);
                     }
 
                 }
                 if ((LFP < 0 && LBP > 0) && (RFP > 0 && RBP < 0)) { //check to see that the robot  Strafe left
                     if (ErAngle == 0) {
+                        LFPP = LFP ;
+                        LBPP = LBP ;
+                        RFPP = RFP ;
+                        RBPP = RBP ;
                     }
 
                     if (ErAngle < 0) {
-                        LFP = LFP * (1- correction);
-                        LBP = LBP * (1 + correction);
-                        RFP = RFP * (1 - correction);
-                       RBP = RBP * (1 + correction);
+                        LFPP = LFP * (1- correction);
+                        LBPP = LBP * (1 + correction);
+                        RFPP = RFP * (1 - correction);
+                       RBPP = RBP * (1 + correction);
                     }
                     if (ErAngle > 0) {
-                        LFP = LFP * (1 + correction);
-                        LBP = LBP * (1 - correction);
-                        RFP = RFP * (1 + correction);
-                        RBP = RBP * (1 - correction);
+                        LFPP = LFP * (1 + correction);
+                        LBPP= LBP * (1 - correction);
+                        RFPP = RFP * (1 + correction);
+                        RBPP= RBP * (1 - correction);
                     }
 
                 }
                 if ((LFP < 0 && LBP < 0) && (RFP < 0 && RBP < 0)) { //check to see that the robot strafe right
                     if (ErAngle == 0) {
+                        LFPP = LFP ;
+                        LBPP = LBP ;
+                        RFPP = RFP ;
+                        RBPP = RBP ;
                     }
 
                     if (ErAngle < 0) {
-                        LFP = LFP * (1- correction);
-                        LBP = LBP * (1 + correction);
-                        RFP = RFP * (1 - correction);
-                        RBP = RBP * (1 + correction);
+                        LFPP = LFP * (1- correction);
+                        LBPP = LBP * (1 + correction);
+                        RFPP = RFP * (1 - correction);
+                        RBPP = RBP * (1 + correction);
                     }
                     if (ErAngle > 0) {
-                        LFP = LFP * (1 + correction);
-                        LBP = LBP * (1 - correction);
-                        RFP = RFP * (1 + correction);
-                        RBP = RBP * (1 - correction);
+                        LFPP = LFP * (1 + correction);
+                        LBPP = LBP * (1 - correction);
+                        RFPP = RFP * (1 + correction);
+                        RBPP = RBP * (1 - correction);
                     }
 
 
                 }
-                robot.leftBack.setPower(LBP);
-                robot.rightBack.setPower(RBP);
-                robot.leftFront.setPower(LFP);
-                robot.rightFront.setPower(RFP);
+                robot.leftBack.setPower(LBPP);
+                robot.rightBack.setPower(RBPP);
+                robot.leftFront.setPower(LFPP);
+                robot.rightFront.setPower(RFPP);
 
 
 
