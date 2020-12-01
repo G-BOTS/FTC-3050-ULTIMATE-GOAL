@@ -58,7 +58,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
  */
 
 @TeleOp(name = "Sky: TeleopSky mod", group = "Pushbot")
-//@Disabled
+@Disabled
 public class Teleopskymod extends OpMode {
 
     /* Declare OpMode members. */

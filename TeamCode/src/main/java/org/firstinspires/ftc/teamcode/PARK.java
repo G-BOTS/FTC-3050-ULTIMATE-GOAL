@@ -16,7 +16,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import java.nio.file.Watchable;
 
 @Autonomous
-//@Disabled
+@Disabled
 
 public class PARK extends LinearOpMode {
     /* Declare OpMode members. */
