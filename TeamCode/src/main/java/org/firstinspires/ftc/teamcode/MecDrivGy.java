@@ -85,7 +85,7 @@ public class MecDrivGy extends LinearOpMode {
         waitForStart();
 
         // Step through each leg of the path,
-        telemetry.addData(  "direction",getAngle());
+        telemetry.addData("direction", getAngle());
         telemetry.update();
 
 
@@ -120,8 +120,8 @@ public class MecDrivGy extends LinearOpMode {
     public void gyroDrive(double LBP,
                           double RBP, double LFP,
                           double RFP, int duration) {
-         ErAngle = 0;
-        Double LFPP=0.0,LBPP=0.0,RFPP = 0.0,RBPP=0.0;
+        ErAngle = 0;
+        Double LFPP = 0.0, LBPP = 0.0, RFPP = 0.0, RBPP = 0.0;
 
         // Ensure that the opmode is still active
         if (opModeIsActive()) {
@@ -130,7 +130,6 @@ public class MecDrivGy extends LinearOpMode {
             runtime.reset();
             ErAngle = 5;
             correction = 0.2;
-
 
 
             //robot.leftFront.setPower(Math.abs(speed));
@@ -142,15 +141,14 @@ public class MecDrivGy extends LinearOpMode {
             // always end the motion as soon as possible.
             // However, if you require that BOTH motors have finished their moves before the robot continues
             // onto the next step, use (isBusy() || isBusy()) in the loop test.
-            while (opModeIsActive() && (runtime.seconds() < duration)) {
+            while (runtime.seconds() <1) {
                 if ((LFP > 0 && LBP > 0) && (RFP > 0 && RBP > 0)) { //check to see that the robot is driving forward
-                    ErAngle=getAngle()-0;
+                    ErAngle = getAngle() - 0;
                     if (ErAngle == 0) {
-                        LFPP = LFP ;
-                        LBPP = LBP ;
-                        RFPP = RFP ;
-                        RBPP = RBP ;
-
+                        LFPP = LFP;
+                        LBPP = LBP;
+                        RFPP = RFP;
+                        RBPP = RBP;
                     }
 
                     if (ErAngle < 0) {
@@ -163,22 +161,23 @@ public class MecDrivGy extends LinearOpMode {
                         LFPP = LFP * (1 - correction);
                         LBPP = LBP * (1 + correction);
                         RFPP = RFP * (1 + correction);
-                       RBPP= RBP * (1 - correction);
+                        RBPP = RBP * (1 - correction);
                     }
-                    ErAngle=0;
+                    ErAngle = 0;
+                    telemetry.addData("direction",getAngle());
 
                 }
                 if ((LFP < 0 && LBP < 0) && (RFP < 0 && RBP < 0)) { //check to see that the robot is driving backward
-                    ErAngle=getAngle()-180;
+                    ErAngle = getAngle() - 180;
                     if (ErAngle == 0) {
-                        LFPP = LFP ;
-                        LBPP = LBP ;
-                        RFPP = RFP ;
-                        RBPP = RBP ;
+                        LFPP = LFP;
+                        LBPP = LBP;
+                        RFPP = RFP;
+                        RBPP = RBP;
                     }
 
                     if (ErAngle < 0) {
-                        LFPP = LFP * (1- correction);
+                        LFPP = LFP * (1 - correction);
                         LBPP = LBP * (1 - correction);
                         RFPP = RFP * (1 + correction);
                         RBPP = RBP * (1 + correction);
@@ -189,44 +188,21 @@ public class MecDrivGy extends LinearOpMode {
                         RFPP = RFP * (1 + correction);
                         RBPP = RBP * (1 - correction);
                     }
-                    ErAngle=0;
+                    ErAngle = 0;
+                    telemetry.addData("direction",getAngle());
 
                 }
                 if ((LFP < 0 && LBP > 0) && (RFP > 0 && RBP < 0)) { //check to see that the robot  Strafe left
-                    ErAngle=getAngle()-270;
+                    ErAngle = getAngle() - 270;
                     if (ErAngle == 0) {
-                        LFPP = LFP ;
-                        LBPP = LBP ;
-                        RFPP = RFP ;
-                        RBPP = RBP ;
+                        LFPP = LFP;
+                        LBPP = LBP;
+                        RFPP = RFP;
+                        RBPP = RBP;
                     }
 
                     if (ErAngle < 0) {
-                        LFPP = LFP * (1- correction);
-                        LBPP = LBP * (1 + correction);
-                        RFPP = RFP * (1 - correction);
-                       RBPP = RBP * (1 + correction);
-                    }
-                    if (ErAngle > 0) {
-                        LFPP = LFP * (1 + correction);
-                        LBPP= LBP * (1 - correction);
-                        RFPP = RFP * (1 + correction);
-                        RBPP= RBP * (1 - correction);
-                    }
-                    ErAngle=0;
-
-                }
-                if ((LFP < 0 && LBP < 0) && (RFP < 0 && RBP < 0)) { //check to see that the robot strafe right
-                    ErAngle=getAngle()-90;
-                    if (ErAngle == 0) {
-                        LFPP = LFP ;
-                        LBPP = LBP ;
-                        RFPP = RFP ;
-                        RBPP = RBP ;
-                    }
-
-                    if (ErAngle < 0) {
-                        LFPP = LFP * (1- correction);
+                        LFPP = LFP * (1 - correction);
                         LBPP = LBP * (1 + correction);
                         RFPP = RFP * (1 - correction);
                         RBPP = RBP * (1 + correction);
@@ -237,7 +213,33 @@ public class MecDrivGy extends LinearOpMode {
                         RFPP = RFP * (1 + correction);
                         RBPP = RBP * (1 - correction);
                     }
-                    ErAngle=0;
+                    ErAngle = 0;
+                    telemetry.addData("direction",getAngle());
+
+                }
+                if ((LFP > 0 && LBP < 0) && (RFP < 0 && RBP > 0)) { //check to see that the robot strafe right
+                    ErAngle = getAngle() - 90;
+                    if (ErAngle == 0) {
+                        LFPP = LFP;
+                        LBPP = LBP;
+                        RFPP = RFP;
+                        RBPP = RBP;
+                    }
+
+                    if (ErAngle < 0) {
+                        LFPP = LFP * (1 - correction);
+                        LBPP = LBP * (1 + correction);
+                        RFPP = RFP * (1 - correction);
+                        RBPP = RBP * (1 + correction);
+                    }
+                    if (ErAngle > 0) {
+                        LFPP = LFP * (1 + correction);
+                        LBPP = LBP * (1 - correction);
+                        RFPP = RFP * (1 + correction);
+                        RBPP = RBP * (1 - correction);
+                    }
+                    ErAngle = 0;
+                    telemetry.addData("direction",getAngle());
 
 
                 }
@@ -245,8 +247,6 @@ public class MecDrivGy extends LinearOpMode {
                 robot.rightBack.setPower(RBPP);
                 robot.leftFront.setPower(LFPP);
                 robot.rightFront.setPower(RFPP);
-
-
 
 
                 // Display it for the driver.
@@ -262,7 +262,6 @@ public class MecDrivGy extends LinearOpMode {
             robot.rightFront.setPower(0);
             robot.leftBack.setPower(0);
             robot.rightBack.setPower(0);
-
 
 
         }
