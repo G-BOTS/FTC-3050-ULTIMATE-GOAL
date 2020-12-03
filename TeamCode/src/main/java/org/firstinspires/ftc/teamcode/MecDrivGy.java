@@ -74,6 +74,12 @@ public class MecDrivGy extends LinearOpMode {
             sleep(50);
             idle();
         }
+        robot.Elevator.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.Elevator.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         telemetry.addData("Mode", "waiting for start");
         telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
@@ -88,25 +94,22 @@ public class MecDrivGy extends LinearOpMode {
         telemetry.addData("direction", getAngle());
         telemetry.update();
 
+        ElevatorUp(.4,200);
 
-        gyroDrive(0.6, 0.6, 0.6, 0.6, 1000);  // drive forward
-        telemetry.addData("1", "Complete");
-        telemetry.update();
-        gyroDrive(-0.6, -0.6, -0.6, -0.6, 1000);  // drive backward
-        telemetry.addData("2", "Complete");
-        telemetry.update();
-        gyroDrive(0.6, -0.6, -0.6, 0.6, 1000);  // Strafe left
-        telemetry.addData("3", "Complete");
-        telemetry.update();
-        gyroDrive(-0.6, 0.6, 0.6, -0.6, 1000);  // Strafe right
-        telemetry.addData("4", "Complete");
-        telemetry.update();
-        gyroDrive(-0.6, 0.6, -0.6, 0.6, 1000);// robot rotates left
-        telemetry.addData("5", "Complete");
-        telemetry.update();
-        gyroDrive(0.6, -0.6, 0.6, -0.6, 1000);// robot rotates right
-        telemetry.addData("6", "Complete");
-        telemetry.update();
+        gyroDrive(0.6, 0.6, 0.6, 0.6, 1850);  // drive forward
+
+        //gyroDrive(-0.6, -0.6, -0.6, -0.6, 1000);  // drive backward
+
+        //gyroDrive(0.6, -0.6, -0.6, 0.6, 1000);  // Strafe left
+
+        gyroDrive(-0.6, 0.4, 0.8, -0.6, 400);  // Strafe right
+        ArmOut(200);
+        ElevatorUp(-.04,0);
+
+       // gyroDrive(-0.6, 0.6, -0.6, 0.6, 1000);// robot rotates left
+
+        //gyroDrive(0.6, -0.6, 0.6, -0.6, 1000);// robot rotates right
+
     }
 
     /*
@@ -374,5 +377,39 @@ public class MecDrivGy extends LinearOpMode {
         // reset angle tracking on new heading.
         resetAngle();
     }
+    public void ElevatorUp(double elPower, int elTarget) {
+        if (opModeIsActive() || robot.Elevator.isBusy()) {
+            robot.Elevator.setTargetPosition(elTarget);
+            robot.Elevator.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.Elevator.setPower(elPower);
+            while (opModeIsActive() && robot.Elevator.isBusy()) {
+                telemetry.addData("horielv", robot.Elevator.getCurrentPosition());
+                telemetry.update();
+            }
+
+        }
+        robot.Elevator.setPower(0);
+        robot.Elevator.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+    }
+
+    public void ArmOut(int outTarget) {
+        if (opModeIsActive()) {
+            robot.arm.setTargetPosition(outTarget);
+            robot.arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.arm.setPower(0.25);
+
+
+            while (opModeIsActive() && robot.arm.isBusy() ) {
+                telemetry.addData("arm", robot.arm.getCurrentPosition());
+                telemetry.update();
+            }
+
+        }
+        robot.arm.setPower(0);
+        robot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+    }
+
 }
 
