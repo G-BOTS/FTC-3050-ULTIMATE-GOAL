@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -15,12 +16,12 @@ public class HardwareUltimate {
     public DcMotor rightFront = null;
     public DcMotor Elevator = null;
     public DcMotor arm = null;
-   // public DcMotor rightIntake = null;
+    // public DcMotor rightIntake = null;
     //public DcMotor  armDrive    = null;
     //public DcMotor  leftIntake  = null;
 
     public Servo WobbleClaw; // = null;
-    //public Servo right_hand;//  = null;
+    public CRServo ExtArm;//  = null;
     //public Servo pickup;
     //public Servo capstone;
     //public Servo dropper;
@@ -117,7 +118,7 @@ public class HardwareUltimate {
         leftFront.setPower(0);
         rightFront.setPower(0);
         Elevator.setPower(0);
-        arm.setPower(0);
+        //arm.setPower(0);
         //rightIntake.setPower(0);
 
         // Set all motors to run without encoders.
@@ -130,14 +131,14 @@ public class HardwareUltimate {
 
         // Define and initialize ALL installed servos.
         WobbleClaw = hwMap.get(Servo.class, "WobbleClaw");
-        //right_hand = hwMap.get(Servo.class, "right_hand");
+        ExtArm = hwMap.get(CRServo.class, "Ext_Arm");
         //pickup = hwMap.get(Servo.class, "pick_up");
         //capstone = hwMap.get(Servo.class, "cap_stone");
 //
-        WobbleClaw.setPosition (-.8);
+        WobbleClaw.setPosition(-.8);
         //left_hand.setPosition(0.95);
         //right_hand.setPosition(0.1);
-       //pickup.setPosition(0.8);
+        //pickup.setPosition(0.8);
         //capstone.setPosition(0.4);
         // this set the servos
 //

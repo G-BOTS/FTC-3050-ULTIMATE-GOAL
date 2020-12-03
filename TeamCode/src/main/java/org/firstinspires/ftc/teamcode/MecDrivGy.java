@@ -103,11 +103,14 @@ public class MecDrivGy extends LinearOpMode {
         //gyroDrive(0.6, -0.6, -0.6, 0.6, 1000);  // Strafe left
 
         gyroDrive(-0.6, 0.4, 0.8, -0.6, 400);  // Strafe right
-        ArmOut(200);
+        robot.ExtArm.setPower(1);
+        sleep(1000);
         ElevatorUp(-.04,0);
+        robot.WobbleClaw.setPosition(0.4);
+        robot.ExtArm.setPower(-1);
+        sleep(1000);
 
        // gyroDrive(-0.6, 0.6, -0.6, 0.6, 1000);// robot rotates left
-
         //gyroDrive(0.6, -0.6, 0.6, -0.6, 1000);// robot rotates right
 
     }

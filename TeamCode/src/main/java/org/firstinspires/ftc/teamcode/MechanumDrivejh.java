@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class MechanumDrivejh extends LinearOpMode
 {
     // Declare Motors (and other Variables here)
-
+    HardwareUltimate robot = new HardwareUltimate();   // Use  ultimate goal hardware
     ElapsedTime runtime = new ElapsedTime();
     public DcMotor leftBack;
     public DcMotor rightBack;
@@ -33,6 +33,7 @@ public class MechanumDrivejh extends LinearOpMode
         telemetry.update();
 
         //Set up the Hardware (get)
+        robot.init(hardwareMap);
 
         // leftBack motor
         leftBack = hardwareMap.get(DcMotor.class, "left_Back");     // Get from Hwmap
