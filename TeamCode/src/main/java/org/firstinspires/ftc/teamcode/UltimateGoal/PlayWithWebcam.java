@@ -115,6 +115,7 @@ public class PlayWithWebcam extends LinearOpMode {
                             if(recognition.getLabel().equals("Single")) {
                                 telemetry.addData("Target zone", "B");
                             }else if (recognition.getLabel().equals("Quad")) {
+                                telemetry.addData("Target zone","C");
                             }else{
                                 telemetry.addData("Target zone","UKNOWN");
                             }
