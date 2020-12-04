@@ -94,6 +94,15 @@ public class PlayWithWebcam extends LinearOpMode {
                     List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
                     if (updatedRecognitions != null) {
                         telemetry.addData("# Object Detected", updatedRecognitions.size());
+                        if (updatedRecognitions.size() ==0) {
+                            //empty list. no objects  recognized.
+                            telemetry.addData("TFOD","No Items detected.");
+                            telemetry.addData("Target Zone", "A");
+
+
+                        } else{
+
+                        // list is not empty
                         // step through the list of recognitions and display boundary info.
                         int i = 0;
                         for (Recognition recognition : updatedRecognitions) {
@@ -102,6 +111,14 @@ public class PlayWithWebcam extends LinearOpMode {
                                     recognition.getLeft(), recognition.getTop());
                             telemetry.addData(String.format("  right,bottom (%d)", i), "%.03f , %.03f",
                                     recognition.getRight(), recognition.getBottom());
+                            //check lable to see which target zone to go after
+                            if(recognition.getLabel().equals("Single")) {
+                                telemetry.addData("Target zone", "B");
+                            }else if (recognition.getLabel().equals("Quad")) {
+                            }else{
+                                telemetry.addData("Target zone","UKNOWN");
+                            }
+                            }
                         }
                         telemetry.update();
                     }
