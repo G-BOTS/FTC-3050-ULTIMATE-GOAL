@@ -89,6 +89,22 @@ public class MechanumDrivejh extends LinearOpMode
             {
                 WobbleClaw.setPosition(.4);
             }
+            if (gamepad2.left_bumper)
+            {
+                robot.ExtArm.setPower(.8);
+            }
+            if (gamepad2.right_bumper)
+            {
+                robot.ExtArm.setPower(-0.8);
+            }
+            if(gamepad2.left_trigger>0.2);
+            {
+                robot.Elevator.setPower(0.8);
+            }
+            if(gamepad2.right_trigger>0.2);
+            {
+                robot.Elevator.setPower(-0.8);
+            }
         }
     }
 }

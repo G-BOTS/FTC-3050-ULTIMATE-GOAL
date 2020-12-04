@@ -95,7 +95,7 @@ public class MecDrivGy extends LinearOpMode {
         telemetry.update();
 
         ElevatorUp(.4,200);
-
+        robot.WobbleClaw.setPosition(0.6);
         gyroDrive(0.6, 0.6, 0.6, 0.6, 1850);  // drive forward
 
         //gyroDrive(-0.6, -0.6, -0.6, -0.6, 1000);  // drive backward
