@@ -54,7 +54,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  */
 
 @TeleOp(name="Sky: ThreadSky", group="Pushbot")
-//@Disabled
+@Disabled
 //public class Elevator implements Runnable{
 
 //}

@@ -21,7 +21,7 @@ import java.nio.file.Watchable;
 import java.util.Locale;
 
 @Autonomous
-//@Disabled
+@Disabled
 
 public class BlueColorCAL extends LinearOpMode {
     /* Declare OpMode members. */
