@@ -144,7 +144,6 @@ public class BlueA2W extends LinearOpMode
         rightFront.setPower(-0.6);
         sleep(2200);
 
-        //Stop all motors and pause for 2 seconds
         leftBack.setPower(.0);
         rightBack.setPower(.0);
         leftFront.setPower(.0);
@@ -165,7 +164,7 @@ public class BlueA2W extends LinearOpMode
         rightFront.setPower(.0);
         sleep(400);
 
-        //rotate 90 deg to the left
+        //back for 1.2seconds
         leftBack.setPower(0.6);
         rightBack.setPower(-0.6);
         leftFront.setPower(-0.6);
