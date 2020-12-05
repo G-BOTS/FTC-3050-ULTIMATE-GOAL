@@ -51,12 +51,20 @@ public class MechanumDrivejh extends LinearOpMode {
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);      // Set Idle Behavior
         rightFront.setDirection(DcMotorSimple.Direction.REVERSE);              // Set Motor Rotation Direction
 
+        //Elevator  motor
+        robot.Elevator = hardwareMap.get(DcMotor.class, "ele_Vator");  // Get from Hwmap
+        robot.Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);      // Set Idle Behavior
+        robot.Elevator.setDirection(DcMotorSimple.Direction.FORWARD);           // Set Motor Rotation Direction
+        robot.Elevator.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODERS);
+
         // WobbleClaw Servo
         WobbleClaw = hardwareMap.get(Servo.class, "WobbleClaw");
         WobbleClaw.setPosition(.6);
 
         waitForStart();
         runtime.reset();
+        robot.Elevator.setPower(0);
 
         //This is where you put the code to get the robot moving
         while (opModeIsActive()) {
@@ -91,19 +99,7 @@ public class MechanumDrivejh extends LinearOpMode {
                 robot.ExtArm.setPower(0);
             }
 
-            if (gamepad2.y) {
-               robot.Elevator.setPower(0.2);
-            }else {
-                robot.Elevator.setPower(0);
-            }
 
-            if (gamepad2.a) {
-                robot.Elevator.setPower(-0.2);
-            }else {
-                robot.Elevator.setPower(0);
-
-
-            }
         }
     }
 }

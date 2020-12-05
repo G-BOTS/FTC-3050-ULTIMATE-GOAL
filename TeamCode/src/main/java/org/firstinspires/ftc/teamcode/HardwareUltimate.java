@@ -99,9 +99,9 @@ public class HardwareUltimate {
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        Elevator.setDirection(DcMotor.Direction.FORWARD);
-        Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //Elevator.setDirection(DcMotor.Direction.FORWARD);
+       // Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+       // Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //arm.setDirection(DcMotor.Direction.FORWARD);
         //arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
