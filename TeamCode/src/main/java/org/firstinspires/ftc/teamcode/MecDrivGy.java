@@ -75,11 +75,11 @@ public class MecDrivGy extends LinearOpMode {
             idle();
         }
         robot.Elevator.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        //robot.arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.Elevator.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        //robot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        robot.arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+       // robot.arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         telemetry.addData("Mode", "waiting for start");
         telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
@@ -104,11 +104,11 @@ public class MecDrivGy extends LinearOpMode {
 
         gyroDrive(-0.6, 0.4, 0.8, -0.6, 400);  // Strafe right
         robot.ExtArm.setPower(1);
-        sleep(1000);
+        sleep(500);
         ElevatorUp(-.04,0);
         robot.WobbleClaw.setPosition(0.4);
         robot.ExtArm.setPower(-1);
-        sleep(1000);
+        sleep(500);
 
        // gyroDrive(-0.6, 0.6, -0.6, 0.6, 1000);// robot rotates left
         //gyroDrive(0.6, -0.6, 0.6, -0.6, 1000);// robot rotates right
@@ -134,8 +134,8 @@ public class MecDrivGy extends LinearOpMode {
 
             // Determine new target position, and pass to motor controller
             runtime.reset();
-            ErAngle = 5;
-            correction = 0.2;
+            ErAngle = 0;
+            correction = 0;
 
 
             //robot.leftFront.setPower(Math.abs(speed));
@@ -396,7 +396,7 @@ public class MecDrivGy extends LinearOpMode {
 
     }
 
-    public void ArmOut(int outTarget) {
+   /* public void ArmOut(int outTarget) {
         if (opModeIsActive()) {
             robot.arm.setTargetPosition(outTarget);
             robot.arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -412,7 +412,7 @@ public class MecDrivGy extends LinearOpMode {
         robot.arm.setPower(0);
         robot.arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-    }
+    }*/
 
 }
 

@@ -15,7 +15,7 @@ public class HardwareUltimate {
     public DcMotor leftFront = null;
     public DcMotor rightFront = null;
     public DcMotor Elevator = null;
-    public DcMotor arm = null;
+    //public DcMotor arm = null;
     // public DcMotor rightIntake = null;
     //public DcMotor  armDrive    = null;
     //public DcMotor  leftIntake  = null;
@@ -75,7 +75,7 @@ public class HardwareUltimate {
         leftFront = hwMap.get(DcMotor.class, "left_Front");
         rightFront = hwMap.get(DcMotor.class, "right_Front");
         Elevator = hwMap.get(DcMotor.class, "ele_Vator");
-        arm = hwMap.get(DcMotor.class, "wob_Arm");
+        //arm = hwMap.get(DcMotor.class, "wob_Arm");
         //rightElv = hwMap.get(DcMotor.class, "right_elevator");
         //armDrive = hwMap.get(DcMotor.class, "arm_drive" );
 
@@ -103,9 +103,9 @@ public class HardwareUltimate {
         Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        arm.setDirection(DcMotor.Direction.FORWARD);
-        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //arm.setDirection(DcMotor.Direction.FORWARD);
+        //arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
         //leftIntake.setDirection(DcMotor.Direction.FORWARD);
