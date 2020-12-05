@@ -56,7 +56,7 @@ public class MechanumDrivejh extends LinearOpMode {
         robot.Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);      // Set Idle Behavior
         robot.Elevator.setDirection(DcMotorSimple.Direction.FORWARD);           // Set Motor Rotation Direction
         robot.Elevator.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODERS);
+        robot.Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // WobbleClaw Servo
         WobbleClaw = hardwareMap.get(Servo.class, "WobbleClaw");
@@ -81,22 +81,26 @@ public class MechanumDrivejh extends LinearOpMode {
 
             }
             if (gamepad2.x) {
-                WobbleClaw.setPosition(-.8);
+                WobbleClaw.setPosition(-0.8);
             }
 
             if (gamepad2.b) {
-                WobbleClaw.setPosition(.4);
+                WobbleClaw.setPosition(0.4);
             }
-            if (gamepad2.left_bumper) {
-                robot.ExtArm.setPower(.8);
-            } else {
-                robot.ExtArm.setPower(0);
+            if (gamepad2.dpad_left ){
+                robot.ExtArm.setPower(0.9);
+            } else if (gamepad2.dpad_right) {
+                robot.ExtArm.setPower(-0.9);
+            }else {
+                robot.ExtArm.setPower(0.0);
             }
 
-            if (gamepad2.right_bumper) {
-                robot.ExtArm.setPower(-0.8);
-            } else {
-                robot.ExtArm.setPower(0);
+            if (gamepad2.dpad_up) {
+                robot.Elevator.setPower(0.8);
+            } else if (gamepad2.dpad_down){
+                robot.Elevator.setPower(-0.4);
+            }else {
+                robot.Elevator.setPower(0.0);
             }
 
 

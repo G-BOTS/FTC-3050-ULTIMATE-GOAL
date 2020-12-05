@@ -38,7 +38,7 @@ import org.firstinspires.ftc.teamcode.HardwareUltimate;
 
 /**
  * This file provides basic Telop driving for a Pushbot robot.
- * The code is structured as an Iterative OpMode
+ * The code is structured as an Iterative OpMod
  *
  * This OpMode uses the common Pushbot hardware class to define the devices on the robot.
  * All device access is managed through the HardwarePushbot class.
