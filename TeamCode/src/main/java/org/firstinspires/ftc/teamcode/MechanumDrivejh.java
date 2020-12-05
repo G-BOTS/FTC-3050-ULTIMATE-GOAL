@@ -93,12 +93,12 @@ public class MechanumDrivejh extends LinearOpMode {
 
             if (gamepad2.y) {
                robot.Elevator.setPower(0.2);
-            }else          {
+            }else {
                 robot.Elevator.setPower(0);
             }
 
             if (gamepad2.a) {
-                robot.Elevator.setPower(0.2);
+                robot.Elevator.setPower(-0.2);
             }else {
                 robot.Elevator.setPower(0);
 
