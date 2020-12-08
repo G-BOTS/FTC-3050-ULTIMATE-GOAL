@@ -3,9 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
 
 
 @TeleOp(name = "BlueA2Wnew", group = "Linear Opmode")
@@ -30,7 +28,17 @@ public class BlueA2Wnew extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-           // MecDriv(0.6, 0.6, 0.6, 0.6);
+            MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
+            MecDriv(-0.6,-0.6,-0.6,-0.6,1250);//backward
+            MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
+            MecDriv(-0.6,-0.6,-0.6,-0.6,1250);//backwardMec
+            MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
+            MecDriv(-0.6,-0.6,-0.6,-0.6,1250);//backward
+            MecDriv(-0.6, 0.6, -0.6, 0.6, 1000);// robot rotates left
+            MecDriv(0.6, -0.6, 0.6, -0.6, 1000);// robot rotates right
+
+
+
 
             // Choose to drive using either Tank Mode, or POV Mode
             // Comment out the method that's not used.  The default below is POV.
@@ -58,12 +66,14 @@ public class BlueA2Wnew extends LinearOpMode {
         }
     }
 
-}/*public Void MecDriv(double RFP, double RBP, double LBP, double LFP) {
+    public void MecDriv(double RFP, double RBP, double LBP, double LFP, double duration) {
+        runtime.reset();
+        while (getRuntime()<duration) {
+            robot.rightFront.setPower(RFP);
+            robot.rightBack.setPower(RBP);
+            robot.leftBack.setPower(LBP);
+            robot.leftFront.setPower(LFP);
 
-
-        robot.rightFront.setPower(RFP);
-        robot.rightBack.setPower(RBP);
-        robot.leftBack.setPower(LBP);
-        robot.leftFront.setPower(LFP);
+        }
     }
-*/
+}
