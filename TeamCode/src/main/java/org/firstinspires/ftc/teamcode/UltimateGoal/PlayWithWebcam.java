@@ -41,7 +41,7 @@ public class PlayWithWebcam extends LinearOpMode {
      * Once you've obtained a license key, copy the string from the Vuforia web site
      * and paste it in to your code on the next line, between the double quotes.
      */
-    private static final String VUFORIA_KEY = "Adiq0Gb/////AAAAme76+E2WhUFamptVVqcYOs8rfAWw8b48caeMVM89dEw04s+/mRV9TqcNvLkSArWax6t5dAy9ISStJNcnGfxwxfoHQIRwFTqw9i8eNoRrlu+8X2oPIAh5RKOZZnGNM6zNOveXjb2bu8yJTQ1cMCdiydnQ/Vh1mSlku+cAsNlmfcL0b69Mt2K4AsBiBppIesOQ3JDcS3g60JeaW9p+VepTG1pLPazmeBTBBGVx471G7sYfkTO0c/W6hyw61qmR+y7GJwn/ECMmXZhhHkNJCmJQy3tgAeJMdKHp62RJqYg5ZLW0FsIh7cOPRkNjpC0GmMCMn8AbtfadVZDwn+MPiF02ZbthQN1N+NEUtURP0BWB1CmA";
+    private static final String VUFORIA_KEY =  "AdKIp+T/////AAABmYPVsDPCLU20p8suBdQalWIp12ODjycJXOCcfz+/zoQ9rgkF0LSYI/Fd47Ffy4Ok2MOrj+nuH+J1/NaLHbZfno//cYR7ORMwr4ZplM6I02Ty67BT5eQ7Z4UPlb60bSkyvU+O9VpliRaoWBfGhlJvN+ZUETt6nI7WxKvZrK6mRNTZrxq/5+jpulmwQYNePSc3O1blJks8fzPVpq7CkbEJMr/DMyD/TIBcab50XvYO8UY7XGC+cdY+VxBiO2Wb8M1UCjHs7g2MHue3LWUGesHikiJXAV9izcjK+ZlCAMPXrIGjYRhrgyA3dx9nO43QjxXQ3raPYMd6c/A0ubDVa14SAp5JE0BU1EpqQIuOvq/TSbdt";
 
     /**
      * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
