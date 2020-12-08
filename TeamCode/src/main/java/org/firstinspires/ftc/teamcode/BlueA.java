@@ -50,7 +50,7 @@ public class BlueA extends LinearOpMode
 
         // WobbleClaw Servo
         WobbleClaw = hardwareMap.get(Servo.class, "WobbleClaw");
-        WobbleClaw.setPosition (-.8);
+        WobbleClaw.setPosition (-.9);
         ExtArm = hardwareMap.get(CRServo.class,"Ext_Arm");
 
         // get the robot moving here
@@ -64,7 +64,7 @@ public class BlueA extends LinearOpMode
         rightBack.setPower(-.6);
         leftFront.setPower(-.6);
         rightFront.setPower(-.6);
-        sleep(1850);
+        sleep(1650);//previus 1850
 
         //Stop all motors and pause for 2 seconds
         leftBack.setPower(.0);
@@ -91,10 +91,10 @@ public class BlueA extends LinearOpMode
         sleep(1000);
         ExtArm.setPower(0.0);
         sleep(250);
-        WobbleClaw.setPosition (.6); //Drop off Wobble Goal in Target Zone A
+        WobbleClaw.setPosition (0.6); //Drop off Wobble Goal in Target Zone A
         sleep(250);
-        ExtArm.setPower(-0.2);
-        sleep(200);
+        ExtArm.setPower(-0.9);
+        sleep(500);
         ExtArm.setPower(0.0);
 
    //Stop all motors and pause for 2 seconds

@@ -60,7 +60,7 @@ public class MechanumDrivejh extends LinearOpMode {
 
         // WobbleClaw Servo
         WobbleClaw = hardwareMap.get(Servo.class, "WobbleClaw");
-        WobbleClaw.setPosition(.6);
+        WobbleClaw.setPosition(-.9);
 
         waitForStart();
         runtime.reset();
@@ -81,16 +81,16 @@ public class MechanumDrivejh extends LinearOpMode {
 
             }
             if (gamepad2.x) {
-                WobbleClaw.setPosition(-0.8);
+                WobbleClaw.setPosition(-0.9);
             }
 
             if (gamepad2.b) {
                 WobbleClaw.setPosition(0.4);
             }
             if (gamepad2.dpad_left ){
-                robot.ExtArm.setPower(0.9);
+                robot.ExtArm.setPower(1);
             } else if (gamepad2.dpad_right) {
-                robot.ExtArm.setPower(-0.9);
+                robot.ExtArm.setPower(-1);
             }else {
                 robot.ExtArm.setPower(0.0);
             }

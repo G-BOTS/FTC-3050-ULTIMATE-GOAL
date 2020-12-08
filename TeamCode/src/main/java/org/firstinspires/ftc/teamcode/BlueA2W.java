@@ -157,7 +157,6 @@ public class BlueA2W extends LinearOpMode
         rightFront.setPower(-0.6);
         sleep(2200);
 
-
         leftBack.setPower(.0);
         rightBack.setPower(.0);
         leftFront.setPower(.0);
@@ -166,16 +165,15 @@ public class BlueA2W extends LinearOpMode
 
         //back for 1.2seconds
         leftBack.setPower(0.6);
-        rightBack.setPower(-0.6);
-        leftFront.setPower(-0.6);
-        rightFront.setPower(0.6);
-        sleep(2200);
-
-// bakwards for litle bit
-        leftBack.setPower(0.6);
         rightBack.setPower(0.6);
         leftFront.setPower(0.6);
         rightFront.setPower(0.6);
+        sleep(2200);
+
+        leftBack.setPower(0.0);
+        rightBack.setPower(0.0);
+        leftFront.setPower(0.0);
+        rightFront.setPower(0.0);
         sleep(400);
 
 
