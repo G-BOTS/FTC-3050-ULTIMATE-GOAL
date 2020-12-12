@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -7,8 +8,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 
-@TeleOp(name = "BlueA2Wnew", group = "Linear Opmode")
- @Disabled
+@Autonomous
+//@Disabled
 public class BlueA2Wnew extends LinearOpMode {
 
     // Declare OpMode members.
@@ -29,15 +30,34 @@ public class BlueA2Wnew extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
+            int Decider =2;
+            if (Decider ==1) {
 
-            MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
-            MecDriv(-0.6,-0.6,-0.6,-0.6,1250);//backward
-            MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
-            MecDriv(-0.6,-0.6,-0.6,-0.6,1250);//backwardMec
-            MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
-            MecDriv(-0.6,-0.6,-0.6,-0.6,1250);//backward
-            MecDriv(-0.6, 0.6, -0.6, 0.6, 1000);// robot rotates left
-            MecDriv(0.6, -0.6, 0.6, -0.6, 1000);// robot rotates right
+                MecDriv(0.6, 0.6, 0.6, 0.6, 1.2); //forward
+                MecDriv(-0.6, 0.6, 0.6, -0.6, 0.4);//left
+                MecDriv(0.6, 0.6, 0.6, 0.6, 0.2); //forward
+                //MecDriv(0.6, -0.6, -0.6, 0.6, 1.250);//Strafe right
+                // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
+                //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
+                //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
+
+            } else if(Decider==2) {
+                MecDriv(0.6, 0.6, 0.6, 0.6, 1.2); //forward
+                MecDriv(-0.6, 0.6, 0.6, -0.6, 0.4);//left
+                MecDriv(0.6, 0.6, 0.6, 0.6, 1.250); //forward
+                MecDriv(0.6, -0.6, -0.6, 0.6, 1.250);//Backward
+                // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
+                //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
+                //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
+            }else{
+                MecDriv(0.6, 0.6, 0.6, 0.6, 1.2); //forward
+                MecDriv(0.6, -0.6, -0.6, -0.6, 0.4);//right
+                MecDriv(0.6, 0.6, 0.6, 0.6, 1.250); //forward
+                MecDriv(-0.6, 0.6, 0.6, -0.6, 0.4);//Strafe left
+                MecDriv(-0.6, -0.6, -0.6, -0.6,0.4); //backwards
+               // MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
+               // MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
+            }
 
 
 
@@ -75,12 +95,14 @@ public class BlueA2Wnew extends LinearOpMode {
             robot.rightBack.setPower(RBP);
             robot.leftBack.setPower(LBP);
             robot.leftFront.setPower(LFP);
-
+            telemetry.addData("Time expired", "Run Time:"+ runtime.toString());
+            telemetry.update();
         }
         robot.rightFront.setPower(0.0);
         robot.rightBack.setPower(0.0);
         robot.leftBack.setPower(0.0);
         robot.leftFront.setPower(0.0);
+        sleep(1000);
 
     }
 }
