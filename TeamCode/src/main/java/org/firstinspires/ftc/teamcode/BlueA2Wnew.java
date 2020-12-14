@@ -27,9 +27,10 @@ public class BlueA2Wnew extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
         runtime.reset();
+        int count=0;
 
         // run until the end of the match (driver presses STOP)
-        while (opModeIsActive()) {
+        while (opModeIsActive()&&count>1) {
             int Decider =2;
             if (Decider ==1) {
 
