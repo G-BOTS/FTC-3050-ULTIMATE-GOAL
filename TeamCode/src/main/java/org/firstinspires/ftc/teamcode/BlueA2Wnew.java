@@ -15,7 +15,7 @@ public class BlueA2Wnew extends LinearOpMode {
     // Declare OpMode members.
     HardwareUltimate robot = new HardwareUltimate();
     private ElapsedTime runtime = new ElapsedTime();
-
+    int count=0;
 
     @Override
     public void runOpMode() {
@@ -27,7 +27,7 @@ public class BlueA2Wnew extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
         runtime.reset();
-        int count=0;
+
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()&&count>1) {
@@ -35,7 +35,7 @@ public class BlueA2Wnew extends LinearOpMode {
             if (Decider ==1) {
 
                 MecDriv(0.6, 0.6, 0.6, 0.6, 1.2); //forward
-                MecDriv(-0.6, 0.6, 0.6, -0.6, 0.4);//left
+                MecDriv(0.6, -0.6, 0.6, -0.6, 0.4);//left
                 MecDriv(0.6, 0.6, 0.6, 0.6, 0.2); //forward
                 //MecDriv(0.6, -0.6, -0.6, 0.6, 1.250);//Strafe right
                 // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
@@ -44,17 +44,17 @@ public class BlueA2Wnew extends LinearOpMode {
 
             } else if(Decider==2) {
                 MecDriv(0.6, 0.6, 0.6, 0.6, 1.2); //forward
-                MecDriv(-0.6, 0.6, 0.6, -0.6, 0.4);//left
+                MecDriv(0.6, -0.6, 0.6, -0.6, 0.4);//left
                 MecDriv(0.6, 0.6, 0.6, 0.6, 1.250); //forward
-                MecDriv(0.6, -0.6, -0.6, 0.6, 1.250);//Backward
+                MecDriv(-0.6, -0.6, -0.6, -0.6, 1.250);//Backward
                 // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
             }else{
                 MecDriv(0.6, 0.6, 0.6, 0.6, 1.2); //forward
-                MecDriv(0.6, -0.6, -0.6, -0.6, 0.4);//right
+                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.4);//right
                 MecDriv(0.6, 0.6, 0.6, 0.6, 1.250); //forward
-                MecDriv(-0.6, 0.6, 0.6, -0.6, 0.4);//Strafe left
+                MecDriv(0.6, -0.6, 0.6, -0.6, 0.4);//Strafe left
                 MecDriv(-0.6, -0.6, -0.6, -0.6,0.4); //backwards
                // MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                // MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
@@ -104,6 +104,8 @@ public class BlueA2Wnew extends LinearOpMode {
         robot.leftBack.setPower(0.0);
         robot.leftFront.setPower(0.0);
         sleep(1000);
-
+        count =count+1;
     }
+
+
 }
