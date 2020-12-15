@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @Autonomous
-//@Disabled
+@Disabled
 
 public class BlueA extends LinearOpMode
 {

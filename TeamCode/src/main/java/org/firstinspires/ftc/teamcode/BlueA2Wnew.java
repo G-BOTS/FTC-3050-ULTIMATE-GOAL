@@ -15,7 +15,7 @@ public class BlueA2Wnew extends LinearOpMode {
     // Declare OpMode members.
     HardwareUltimate robot = new HardwareUltimate();
     private ElapsedTime runtime = new ElapsedTime();
-    int count=0;
+   public int count = 0;
 
     @Override
     public void runOpMode() {
@@ -30,31 +30,34 @@ public class BlueA2Wnew extends LinearOpMode {
 
 
         // run until the end of the match (driver presses STOP)
-        while (opModeIsActive()&&count>1) {
+        while (opModeIsActive() && count<1) {
             int Decider =2;
             if (Decider ==1) {
 
-                MecDriv(0.6, 0.6, 0.6, 0.6, 1.2); //forward
-                MecDriv(0.6, -0.6, 0.6, -0.6, 0.4);//left
-                MecDriv(0.6, 0.6, 0.6, 0.6, 0.2); //forward
+                MecDriv(0.6, 0.6, 0.6, 0.6, 0.3); //forward
+                MecDriv(0.6, -0.6, 0.6, -0.6, 1.0);//left
+                MecDriv(0.6, 0.6, 0.6, 0.6, 1.8); //forward
+                DropOfWob();
                 //MecDriv(0.6, -0.6, -0.6, 0.6, 1.250);//Strafe right
                 // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
 
             } else if(Decider==2) {
-                MecDriv(0.6, 0.6, 0.6, 0.6, 1.2); //forward
-                MecDriv(0.6, -0.6, 0.6, -0.6, 0.4);//left
-                MecDriv(0.6, 0.6, 0.6, 0.6, 1.250); //forward
+                MecDriv(0.6, 0.6, 0.6, 0.6, 0.3); //forward
+                MecDriv(0.6, -0.6, 0.6, -0.6, 0.8);//left
+                MecDriv(0.6, 0.6, 0.6, 0.6, 2.90); //forward
+                DropOfWob();
                 MecDriv(-0.6, -0.6, -0.6, -0.6, 1.250);//Backward
-                // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
+                  // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
             }else{
-                MecDriv(0.6, 0.6, 0.6, 0.6, 1.2); //forward
-                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.4);//right
-                MecDriv(0.6, 0.6, 0.6, 0.6, 1.250); //forward
-                MecDriv(0.6, -0.6, 0.6, -0.6, 0.4);//Strafe left
+                MecDriv(0.6, 0.6, 0.6, 0.6, 0.3); //forward
+                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8);//right
+                MecDriv(0.6, 0.6, 0.6, 0.6, 2.250); //forward
+                MecDriv(0.6, -0.6, 0.6, -0.6, 0.8);//Strafe left
+                DropOfWob();
                 MecDriv(-0.6, -0.6, -0.6, -0.6,0.4); //backwards
                // MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                // MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
@@ -104,8 +107,18 @@ public class BlueA2Wnew extends LinearOpMode {
         robot.leftBack.setPower(0.0);
         robot.leftFront.setPower(0.0);
         sleep(1000);
-        count =count+1;
+        count ++;
     }
-
+    public void DropOfWob(){
+        robot.ExtArm.setPower(0.9);
+        sleep(1000);
+        robot.ExtArm.setPower(0.0);
+        sleep(250);
+        robot.WobbleClaw.setPosition (0.6); //Drop off Wobble Goal in Target Zone A
+        sleep(250);
+        robot.ExtArm.setPower(-0.9);
+        sleep(500);
+        robot.ExtArm.setPower(0.0);
+    }
 
 }
