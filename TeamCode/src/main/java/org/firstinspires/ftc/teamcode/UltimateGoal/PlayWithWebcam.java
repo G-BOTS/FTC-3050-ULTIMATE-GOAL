@@ -93,6 +93,19 @@ public class PlayWithWebcam extends LinearOpMode {
         telemetry.addData(">", "Press Play to start op mode");
         telemetry.update();
         waitForStart();
+        //Drive Strait forward for 1.5 seconds at a a power of .6
+        robot.leftBack.setPower(0.6);
+        robot.rightBack.setPower(0.6);
+        robot.leftFront.setPower(0.6);
+        robot.rightFront.setPower(0.6);
+        sleep(400);//previus 1850
+
+        //Stop all motors and pause for 2 seconds
+        robot.leftBack.setPower(.0);
+        robot.rightBack.setPower(.0);
+        robot.leftFront.setPower(.0);
+        robot.rightFront.setPower(.0);
+        sleep(2000);
 
 
         if (opModeIsActive()) {
@@ -107,6 +120,7 @@ public class PlayWithWebcam extends LinearOpMode {
                             //empty list. no objects  recognized.
                             telemetry.addData("TFOD", "No Items detected.");
                             telemetry.addData("Target Zone", "A");
+                            Decider=1;
 
 
                         } else {
@@ -140,7 +154,7 @@ public class PlayWithWebcam extends LinearOpMode {
                             int Decider = 2;
                             if (Decider == 1) {
 
-                                MecDriv(0.6, 0.6, 0.6, 0.6, 0.3); //forward
+                                MecDriv(0.6, 0.6, 0.6, 0.6, 0.1); //forward
                                 MecDriv(0.6, -0.6, 0.6, -0.6, 1.0);//left
                                 MecDriv(0.6, 0.6, 0.6, 0.6, 1.8); //forward
                                 DropOfWob();
@@ -150,7 +164,7 @@ public class PlayWithWebcam extends LinearOpMode {
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
 
                             } else if (Decider == 2) {
-                                MecDriv(0.6, 0.6, 0.6, 0.6, 0.3); //forward
+                                MecDriv(0.6, 0.6, 0.6, 0.6, 0.1); //forward
                                 MecDriv(0.6, -0.6, 0.6, -0.6, 0.8);//left
                                 MecDriv(0.6, 0.6, 0.6, 0.6, 2.90); //forward
                                 DropOfWob();
@@ -159,7 +173,7 @@ public class PlayWithWebcam extends LinearOpMode {
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
                             } else {
-                                MecDriv(0.6, 0.6, 0.6, 0.6, 0.3); //forward
+                                MecDriv(0.6, 0.6, 0.6, 0.6, 0.1); //forward
                                 MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8);//right
                                 MecDriv(0.6, 0.6, 0.6, 0.6, 2.250); //forward
                                 MecDriv(0.6, -0.6, 0.6, -0.6, 0.8);//Strafe left
