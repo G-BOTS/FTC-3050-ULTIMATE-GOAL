@@ -175,10 +175,10 @@ public class PlayWithWebcam extends LinearOpMode {
                             } else {
                                 MecDriv(0.6, 0.6, 0.6, 0.6, 0.1); //forward
                                 MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8);//right
-                                MecDriv(0.6, 0.6, 0.6, 0.6, 2.250); //forward
+                                MecDriv(0.6, 0.6, 0.6, 0.6, 2.10); //forward
                                 MecDriv(0.6, -0.6, 0.6, -0.6, 0.8);//Strafe left
                                 DropOfWob();
-                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.4); //backwards
+                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.2); //backwards
                                 // MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 // MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
                             }
