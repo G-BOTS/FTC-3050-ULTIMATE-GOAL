@@ -31,7 +31,7 @@ public class BlueA2Wnew extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive() && count<1) {
-            int Decider =2;
+            int Decider = 2;
             if (Decider ==1) {
 
                 MecDriv(0.6, 0.6, 0.6, 0.6, 0.3); //forward

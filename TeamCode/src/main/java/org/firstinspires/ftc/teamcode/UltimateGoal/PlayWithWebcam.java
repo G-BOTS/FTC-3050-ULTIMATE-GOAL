@@ -151,7 +151,7 @@ public class PlayWithWebcam extends LinearOpMode {
                         telemetry.update();
                         // run until the end of the match (driver presses STOP)
                         while (opModeIsActive() && count < 1) {
-                            int Decider = 2;
+                            //int Decider = 2;
                             if (Decider == 1) {
 
                                 MecDriv(0.6, 0.6, 0.6, 0.6, 0.1); //forward
