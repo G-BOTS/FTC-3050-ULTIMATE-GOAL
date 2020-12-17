@@ -1,11 +1,3 @@
-// Simple autonomous program that drives bot forward until end of period
-// or touch sensor is hit. If touched, backs up a bit and turns 90 degrees
-// right and keeps going. Demonstrates obstacle avoidance and use of the
-// REV Hub's built in IMU in place of a gyro. Also uses gamepad1 buttons to
-// simulate touch sensor press and supports left as well as right turn.
-//
-// Also uses IMU to drive in a straight line when not avoiding an obstacle.
-
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
@@ -23,11 +15,12 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.robotcore.external.navigation.Position;
 import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
-@TeleOp(name="GyroTest", group="Skystone")
-@Disabled
-public class GyroTest extends LinearOpMode
+@TeleOp(name="GyroStraight", group="Skystone")
+//@Disabled
+public class GyroStraight extends LinearOpMode
 {
-
+    HardwareUltimate robot= new HardwareUltimate();
+    //DcMotor                 leftDrive, rightDrive;
     //TouchSensor             touch;
     BNO055IMU               imu;
     Orientation             lastAngles = new Orientation();
@@ -39,6 +32,14 @@ public class GyroTest extends LinearOpMode
     public void runOpMode() throws InterruptedException
     {
 
+        //leftDrive = hardwareMap.dcMotor.get("left_drive");
+        //rightDrive = hardwareMap.dcMotor.get("right_drive");
+
+        //leftDrive.setDirection(DcMotor.Direction.REVERSE);
+
+       // leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+      //rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.init(hardwareMap);
 
         // get a reference to touch sensor.
         //touch = hardwareMap.touchSensor.get("touch_sensor");
@@ -70,7 +71,7 @@ public class GyroTest extends LinearOpMode
         telemetry.addData("Mode", "waiting for start");
         telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
         telemetry.update();
-
+        double MotPwr=0.6;
 
         // wait for start button.
 
@@ -92,8 +93,34 @@ public class GyroTest extends LinearOpMode
             telemetry.addData("2 global heading", globalAngle);
             telemetry.addData("3 correction", correction);
             telemetry.update();
+            if (correction == 0) {
+                robot.leftBack.setPower(MotPwr);
+                robot.rightBack.setPower(MotPwr);
+                robot.leftFront.setPower(MotPwr);
+                robot.rightFront.setPower(MotPwr);
+                sleep(400);//previus 1850
 
+            }else if(correction>0) {
 
+                robot.leftBack.setPower(MotPwr - correction);
+                robot.rightBack.setPower(MotPwr + correction);
+                robot.leftFront.setPower(MotPwr + correction);
+                robot.rightFront.setPower(MotPwr - correction);
+                sleep(400);//previus 1850
+            }else{
+                robot.leftBack.setPower(MotPwr + correction);
+                robot.rightBack.setPower(MotPwr - correction);
+                robot.leftFront.setPower(MotPwr - correction);
+                robot.rightFront.setPower(MotPwr + correction);
+                sleep(400);//previus 1850
+            }
+
+            //Stop all motors and pause for 2 seconds
+            robot.leftBack.setPower(.0);
+            robot.rightBack.setPower(.0);
+            robot.leftFront.setPower(.0);
+            robot.rightFront.setPower(.0);
+            sleep(5000);
 
             //leftDrive.setPower(power - correction);
             //rightDrive.setPower(power + correction);
@@ -110,12 +137,12 @@ public class GyroTest extends LinearOpMode
             {
                 // backup.
                 //leftDrive.setPower(power);
-               // rightDrive.setPower(power);
+                //rightDrive.setPower(power);
 
                 sleep(500);
 
                 // stop.
-               // leftDrive.setPower(0);
+                //leftDrive.setPower(0);
                 //rightDrive.setPower(0);
 
                 // turn 90 degrees right.
@@ -128,7 +155,7 @@ public class GyroTest extends LinearOpMode
 
         // turn the motors off.
         //rightDrive.setPower(0);
-       // leftDrive.setPower(0);
+        //leftDrive.setPower(0);
     }
 
     /**
@@ -219,7 +246,7 @@ public class GyroTest extends LinearOpMode
 
         // set power to rotate.
         //leftDrive.setPower(leftPower);
-        //rightDrive.setPower(rightPower);
+       // rightDrive.setPower(rightPower);
 
         // rotate until turn is completed.
         if (degrees < 0)

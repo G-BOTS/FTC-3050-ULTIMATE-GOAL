@@ -155,8 +155,8 @@ public class PlayWithWebcam extends LinearOpMode {
                             if (Decider == 1) {
 
                                 MecDriv(0.6, 0.6, 0.6, 0.6, 0.1); //forward
-                                MecDriv(0.6, -0.6, 0.6, -0.6, 1.0);//left
-                                MecDriv(0.6, 0.6, 0.6, 0.6, 1.8); //forward
+                                MecDriv(0.58, -0.6, 0.61, -0.6, 1.0);//left
+                                MecDriv(0.6, 0.6, 0.6, 0.6, 1.35); //forward
                                 DropOfWob();
                                 //MecDriv(0.6, -0.6, -0.6, 0.6, 1.250);//Strafe right
                                 // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
@@ -165,7 +165,7 @@ public class PlayWithWebcam extends LinearOpMode {
 
                             } else if (Decider == 2) {
                                 MecDriv(0.6, 0.6, 0.6, 0.6, 0.1); //forward
-                                MecDriv(0.6, -0.6, 0.6, -0.6, 0.8);//left
+                                MecDriv(0.58, -0.6, 0.61, -0.6, 0.8);//left
                                 MecDriv(0.6, 0.6, 0.6, 0.6, 2.90); //forward
                                 DropOfWob();
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 1.250);//Backward
@@ -237,7 +237,7 @@ public class PlayWithWebcam extends LinearOpMode {
             robot.rightBack.setPower(0.0);
             robot.leftBack.setPower(0.0);
             robot.leftFront.setPower(0.0);
-            sleep(1000);
+            sleep(500);
             count++;
         }
         public void DropOfWob () {
