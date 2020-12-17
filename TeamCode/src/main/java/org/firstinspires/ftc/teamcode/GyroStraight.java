@@ -259,7 +259,7 @@ public class GyroStraight extends LinearOpMode
         else    // left turn.
             while (opModeIsActive() && getAngle() < degrees) {}
 
-        // turn the motors off.
+        // turn the motors off for now
         //rightDrive.setPower(0);
         //leftDrive.setPower(0);
 
