@@ -15,7 +15,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.robotcore.external.navigation.Position;
 import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
-@Autonomous
+@Autonomous(name="GyroStraight", group="AltG")
 //@Disabled
 public class GyroStraight extends LinearOpMode
 {
@@ -26,7 +26,7 @@ public class GyroStraight extends LinearOpMode
     Orientation             lastAngles = new Orientation();
     double                  globalAngle, power = .30, correction;
     boolean                 aButton, bButton, touched;
-
+ 
     // called when init button is  pressed.
     @Override
     public void runOpMode() throws InterruptedException

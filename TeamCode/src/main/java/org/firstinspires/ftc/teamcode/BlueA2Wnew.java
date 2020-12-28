@@ -9,7 +9,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 
 @Autonomous
-//@Disabled
+
+@Disabled
 public class BlueA2Wnew extends LinearOpMode {
 
     // Declare OpMode members.
