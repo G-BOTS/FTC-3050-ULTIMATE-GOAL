@@ -100,7 +100,7 @@ public class GyroStraight extends LinearOpMode
                 robot.rightFront.setPower(MotPwr);
                 sleep(400);//previus 1850
 
-            }else if(correction>0) {
+            }else if(correction > 0) {
 
                 robot.leftBack.setPower(MotPwr - correction);
                 robot.rightBack.setPower(MotPwr + correction);
