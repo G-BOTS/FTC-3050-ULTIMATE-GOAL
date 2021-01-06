@@ -104,8 +104,8 @@ public class MecDrivGy extends LinearOpMode {
 
             // Determine new target position, and pass to motor controller
             runtime.reset();
-            ErAngle = 0;
-            correction = 0;
+           // ErAngle = 0;
+            //correction = 0;
 
 
             //robot.leftFront.setPower(Math.abs(speed));
@@ -121,6 +121,8 @@ public class MecDrivGy extends LinearOpMode {
                 if ((LFP > 0 && LBP > 0) && (RFP > 0 && RBP > 0)) { //check to see that the robot is driving forward
                     angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                     ErAngle = angles.firstAngle - 0;
+                    telemetry.addData("error",ErAngle);
+                    telemetry.update();
                     if (ErAngle == 0) {
                         LFPP = LFP;
                         LBPP = LBP;
@@ -147,6 +149,8 @@ public class MecDrivGy extends LinearOpMode {
                 if ((LFP < 0 && LBP < 0) && (RFP < 0 && RBP < 0)) { //check to see that the robot is driving backward
                     angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                     ErAngle = angles.firstAngle - 180;
+                    telemetry.addData("error",ErAngle);
+                    telemetry.update();
                     if (ErAngle == 0) {
                         LFPP = LFP;
                         LBPP = LBP;
@@ -173,6 +177,8 @@ public class MecDrivGy extends LinearOpMode {
                 if ((LFP < 0 && LBP > 0) && (RFP > 0 && RBP < 0)) { //check to see that the robot  Strafe left
                     angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                     ErAngle = angles.firstAngle - 90;
+                    telemetry.addData("error",ErAngle);
+                    telemetry.update();
                     if (ErAngle == 0) {
                         LFPP = LFP;
                         LBPP = LBP;
@@ -199,6 +205,8 @@ public class MecDrivGy extends LinearOpMode {
                 if ((LFP > 0 && LBP < 0) && (RFP < 0 && RBP > 0)) { //check to see that the robot strafe right
                     angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                     ErAngle = angles.firstAngle - 90;
+                    telemetry.addData("error",ErAngle);
+                    telemetry.update();
                     if (ErAngle == 0) {
                         LFPP = LFP;
                         LBPP = LBP;
