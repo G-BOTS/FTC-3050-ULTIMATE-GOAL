@@ -13,7 +13,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 @Autonomous
-//@Disabled
+@Disabled //this is the origanal file that a lot of changes have been made
 
 public class MecDrivGy extends LinearOpMode {
     /* Declare OpMode members. */
