@@ -16,6 +16,7 @@ public class HardwareUltimate {
     public DcMotor leftFront = null;
     public DcMotor rightFront = null;
     public DcMotor Elevator = null;
+    public DcMotor Shooter =null;
     //public DcMotor arm = null;
     // public DcMotor rightIntake = null;
     //public DcMotor  armDrive    = null;
@@ -78,6 +79,7 @@ public class HardwareUltimate {
         leftFront = hwMap.get(DcMotor.class, "left_Front");
         rightFront = hwMap.get(DcMotor.class, "right_Front");
         Elevator = hwMap.get(DcMotor.class, "ele_Vator");
+        Shooter = hwMap.get(DcMotor.class,"shooter");
        // imu = hwMap.get(BNO055IMU.class, "imu");
         //arm = hwMap.get(DcMotor.class, "wob_Arm");
         //rightElv = hwMap.get(DcMotor.class, "right_elevator");
@@ -103,13 +105,14 @@ public class HardwareUltimate {
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        //Elevator.setDirection(DcMotor.Direction.FORWARD);
-       // Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-       // Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        //arm.setDirection(DcMotor.Direction.FORWARD);
-        //arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        //arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        Elevator.setDirection(DcMotor.Direction.FORWARD);
+        Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+       Shooter.setDirection(DcMotor.Direction.FORWARD);
+        Shooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        Shooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
         //leftIntake.setDirection(DcMotor.Direction.FORWARD);
@@ -122,7 +125,7 @@ public class HardwareUltimate {
         leftFront.setPower(0);
         rightFront.setPower(0);
         Elevator.setPower(0);
-        //arm.setPower(0);
+      Shooter.setPower(0);
         //rightIntake.setPower(0);
 
         // Set all motors to run without encoders.
