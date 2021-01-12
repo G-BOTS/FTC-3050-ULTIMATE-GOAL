@@ -73,7 +73,7 @@ public class MecDrivGy extends LinearOpMode {
 
         gyroDrive(0.4, 0.40, 0.40, 0.40, 5);  // drive forward
 
-        // gyroDrive(-0.6, -0.6, -0.6, -0.6, 1);  // drive backward
+         gyroDrive(-0.6, -0.6, -0.6, -0.6, 1);  // drive backward
 
         //gyroDrive(0.6, -0.6, -0.6, 0.6, 1);  // Strafe left
 
