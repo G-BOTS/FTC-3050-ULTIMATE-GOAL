@@ -76,6 +76,9 @@ public class TeleopULT extends LinearOpMode {
             } else {
                 robot.Elevator.setPower(0.0);
             }
+            if(gamepad1.a) {
+                robot.Lifter.setPosition(0.4);
+            }
 
 
         }

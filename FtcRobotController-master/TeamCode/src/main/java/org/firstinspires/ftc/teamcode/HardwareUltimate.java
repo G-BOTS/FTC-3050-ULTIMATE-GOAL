@@ -24,7 +24,7 @@ public class HardwareUltimate {
 
     public Servo WobbleClaw; // = null;
     public CRServo ExtArm;//  = null;
-    //public Servo pickup;
+    public Servo Lifter;
     //public Servo capstone;
     //public Servo dropper;
     //public Servo serv40;
@@ -139,11 +139,11 @@ public class HardwareUltimate {
         // Define and initialize ALL installed servos.
         WobbleClaw = hwMap.get(Servo.class, "WobbleClaw");
         ExtArm = hwMap.get(CRServo.class, "Ext_Arm");
-        //pickup = hwMap.get(Servo.class, "pick_up");
+        Lifter = hwMap.get(Servo.class, "Lift_er");
         //capstone = hwMap.get(Servo.class, "cap_stone");
 //
         WobbleClaw.setPosition(-.8);
-        //left_hand.setPosition(0.95);
+        Lifter.setPosition(0.95);
         //right_hand.setPosition(0.1);
         //pickup.setPosition(0.8);
         //capstone.setPosition(0.4);
