@@ -55,7 +55,7 @@ public class TeleopULT extends LinearOpMode {
                 robot.Shooter.setPower(0);
             }
             if (gamepad2.x) {
-                robot.WobbleClaw.setPosition(-0.9);
+                robot.WobbleClaw.setPosition(-0.98);
             }
 
             if (gamepad2.b) {
@@ -77,7 +77,7 @@ public class TeleopULT extends LinearOpMode {
                 robot.Elevator.setPower(0.0);
             }
             if(gamepad1.a) {
-                robot.Lifter.setPosition(0.4);
+                robot.Lifter.setPosition(0.1);
             }
 
 
