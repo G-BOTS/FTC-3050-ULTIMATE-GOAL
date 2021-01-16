@@ -157,7 +157,7 @@ public class Blue2 extends LinearOpMode {
                             if (Decider == 1) {
 
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 1.45); //forward
-                                MecDriv(0.58, -0.6, 0.61, -0.6, 1.2);//left
+                                MecDriv(0.58, -0.6, 0.61, -0.6, 1.1);//left
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 0.1); //forward
                                 DropOfWob();
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 0.1);//backward
