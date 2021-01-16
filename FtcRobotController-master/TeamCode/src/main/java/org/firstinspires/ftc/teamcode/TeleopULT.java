@@ -81,25 +81,25 @@ public class TeleopULT extends LinearOpMode {
                 if (counter == 1) {
                     robot.Lifter.setPosition(0.38);
                     sleep(1000);
-                    robot.Launcher.setPosition(0.4);
+                    robot.Launcher.setPosition(0.6);
                     sleep(450);
-                    robot.Launcher.setPosition(0.6) ;
+                    robot.Launcher.setPosition(0.4);
                     sleep(450);
 
                 } else if (counter == 2) {
                     robot.Lifter.setPosition(0.34);
                     sleep(1000);
-                    robot.Launcher.setPosition(0.4);
-                    sleep(450);
                     robot.Launcher.setPosition(0.6);
+                    sleep(450);
+                    robot.Launcher.setPosition(0.4);
                     sleep(450);
 
                 } else if(counter==3){
                     robot.Lifter.setPosition(0.30);
                     sleep(1000);
-                    robot.Launcher.setPosition(0.4);
-                    sleep(450);
                     robot.Launcher.setPosition(0.6);
+                    sleep(450);
+                    robot.Launcher.setPosition(0.4);
                     sleep(450);
                 }else{
                     counter=0;
