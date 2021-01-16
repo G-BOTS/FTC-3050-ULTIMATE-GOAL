@@ -28,7 +28,7 @@ import org.firstinspires.ftc.teamcode.HardwareUltimate;
  */
 @Autonomous
 // @Disabled
-public class Blue2 extends LinearOpMode {
+public class Blue1 extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "UltimateGoal.tflite";
     private static final String LABEL_FIRST_ELEMENT = "Quad";
     private static final String LABEL_SECOND_ELEMENT = "Single";
@@ -99,6 +99,17 @@ public class Blue2 extends LinearOpMode {
         robot.leftFront.setPower(0.6);
         robot.rightFront.setPower(0.6);
         sleep(400);//previus 1850
+        robot.leftBack.setPower(0.6);
+        robot.rightBack.setPower(-0.6);
+        robot.leftFront.setPower(0.6);
+        robot.rightFront.setPower(-0.6);
+        sleep(400);//previus 1850
+        robot.leftBack.setPower(0.6);
+        robot.rightBack.setPower(0.6);
+        robot.leftFront.setPower(0.6);
+        robot.rightFront.setPower(0.6);
+        sleep(400);
+
 
         //Stop all motors and pause for 2 seconds
         robot.leftBack.setPower(.0);
@@ -170,13 +181,13 @@ public class Blue2 extends LinearOpMode {
                                 MecDriv(0.6,0.6,-0.6,-0.6,0.7);// rotates left
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 1.0); //forward
                                 DropOfWob();
-                                 MecDriv(0.6, -0.6, 0.6, -0.6,1.60); //left
+                                MecDriv(0.6, -0.6, 0.6, -0.6,1.60); //left
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
                             } else {
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 0.1); //forward
                                 MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8);//right
-                                MecDriv(0.6, 0.6, 0.615, 0.615, 2.00); //forward
+                                MecDriv(0.6, 0.6, 0.615, 0.615, 2.10); //forward
                                 MecDriv(0.6, -0.6, 0.6, -0.6, 0.8);//Strafe left
                                 DropOfWob();
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 0.5); //backwards
@@ -251,34 +262,6 @@ public class Blue2 extends LinearOpMode {
         robot.ExtArm.setPower(-0.9);
         sleep(500);
         robot.ExtArm.setPower(0.0);
-    }
-    public void ShootRing(){
-        runtime.reset();
-        while (runtime.time() <4) {
-            robot.Shooter.setPower(.98);
-            //sleep(1200);
-            robot.Lifter.setPosition(-0.5);
-            sleep(200);
-            robot.Launcher.setPosition(-0.6);
-            sleep(200);
-            robot.Launcher.setPosition(-0.4);
-            sleep(200);
-
-            robot.Lifter.setPosition(-0.6);
-            sleep(200);
-            robot.Launcher.setPosition(-0.6);
-            sleep(200);
-            robot.Launcher.setPosition(-0.4);
-            sleep(200);
-
-            robot.Lifter.setPosition(-0.7);
-            sleep(200);
-            robot.Launcher.setPosition(-0.6);
-            sleep(200);
-            robot.Launcher.setPosition(-0.4);
-            sleep(200);
-        }
-
     }
 
 }

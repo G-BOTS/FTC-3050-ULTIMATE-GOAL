@@ -25,6 +25,7 @@ public class HardwareUltimate {
     public Servo WobbleClaw; // = null;
     public CRServo ExtArm;//  = null;
     public Servo Lifter;
+    public Servo Launcher;
     //public Servo capstone;
     //public Servo dropper;
     //public Servo serv40;
@@ -125,7 +126,7 @@ public class HardwareUltimate {
         leftFront.setPower(0);
         rightFront.setPower(0);
         Elevator.setPower(0);
-      Shooter.setPower(0);
+        Shooter.setPower(0);
         //rightIntake.setPower(0);
 
         // Set all motors to run without encoders.
@@ -140,10 +141,12 @@ public class HardwareUltimate {
         WobbleClaw = hwMap.get(Servo.class, "WobbleClaw");
         ExtArm = hwMap.get(CRServo.class, "Ext_Arm");
         Lifter = hwMap.get(Servo.class, "Lift_er");
+        Launcher =hwMap.get(Servo.class,"Launch");
         //capstone = hwMap.get(Servo.class, "cap_stone");
 //
         WobbleClaw.setPosition(-.8);
         Lifter.setPosition(-.2);
+        Launcher.setPosition (-.5);
         //right_hand.setPosition(0.1);
         //pickup.setPosition(0.8);
         //capstone.setPosition(0.4);
