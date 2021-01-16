@@ -22,10 +22,10 @@ public class HardwareUltimate {
     //public DcMotor  armDrive    = null;
     //public DcMotor  leftIntake  = null;
 
-    public Servo WobbleClaw; // = null;
-    public CRServo ExtArm;//  = null;
-    public Servo Lifter;
-    public Servo Launcher;
+    public Servo WobbleClaw=null; // = null;
+    public CRServo ExtArm=null;//  = null;
+    public Servo Lifter =null;
+    public Servo Launcher=null;
     //public Servo capstone;
     //public Servo dropper;
     //public Servo serv40;
@@ -144,9 +144,9 @@ public class HardwareUltimate {
         Launcher =hwMap.get(Servo.class,"Launch");
         //capstone = hwMap.get(Servo.class, "cap_stone");
 //
-        WobbleClaw.setPosition(-.8);
-        Lifter.setPosition(-.2);
-        Launcher.setPosition (-.5);
+        WobbleClaw.setPosition(-0.8);
+        Lifter.setPosition(0.55);
+        Launcher.setPosition (0.4);
         //right_hand.setPosition(0.1);
         //pickup.setPosition(0.8);
         //capstone.setPosition(0.4);

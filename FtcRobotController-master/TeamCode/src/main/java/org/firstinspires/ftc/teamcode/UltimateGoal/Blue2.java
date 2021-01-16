@@ -106,6 +106,8 @@ public class Blue2 extends LinearOpMode {
         robot.leftFront.setPower(.0);
         robot.rightFront.setPower(.0);
         sleep(2000);
+        //ShootRing();
+
 
 
         if (opModeIsActive()) {
@@ -278,6 +280,7 @@ public class Blue2 extends LinearOpMode {
             robot.Launcher.setPosition(-0.4);
             sleep(200);
         }
+        robot.Shooter.setPower(0.0);
 
     }
 

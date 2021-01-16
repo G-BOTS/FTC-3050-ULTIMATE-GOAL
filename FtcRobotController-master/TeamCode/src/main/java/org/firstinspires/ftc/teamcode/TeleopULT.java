@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 //@Disabled
 public class TeleopULT extends LinearOpMode {
     public double slowerSpeed = .2;     //This is the variable for speed adjustment using the right bumper
-    // Declare Motors (and other Variables here)
+    public double counter = 0;
     HardwareUltimate robot = new HardwareUltimate();   // Use  ultimate goal hardware
     ElapsedTime runtime = new ElapsedTime();
 
@@ -76,8 +76,36 @@ public class TeleopULT extends LinearOpMode {
             } else {
                 robot.Elevator.setPower(0.0);
             }
-            if(gamepad1.a) {
-                robot.Lifter.setPosition(0.1);
+            if (gamepad1.a ) {
+                counter = counter + 1;
+                if (counter == 1) {
+                    robot.Lifter.setPosition(0.38);
+                    sleep(1000);
+                    robot.Launcher.setPosition(0.4);
+                    sleep(450);
+                    robot.Launcher.setPosition(0.6) ;
+                    sleep(450);
+
+                } else if (counter == 2) {
+                    robot.Lifter.setPosition(0.34);
+                    sleep(1000);
+                    robot.Launcher.setPosition(0.4);
+                    sleep(450);
+                    robot.Launcher.setPosition(0.6);
+                    sleep(450);
+
+                } else if(counter==3){
+                    robot.Lifter.setPosition(0.30);
+                    sleep(1000);
+                    robot.Launcher.setPosition(0.4);
+                    sleep(450);
+                    robot.Launcher.setPosition(0.6);
+                    sleep(450);
+                }else{
+                    counter=0;
+                    robot.Lifter.setPosition(0.55);
+                }
+
             }
 
 
