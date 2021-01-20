@@ -78,6 +78,10 @@ public class TeleopULT extends LinearOpMode {
             }
             if (gamepad1.a ) {
                 counter = counter + 1;
+                robot.leftBack.setPower(0.0);
+                robot.rightBack.setPower(0.0);
+                robot.leftFront.setPower(0.0);
+                robot.rightFront.setPower(0.0);
                 if (counter == 1) {
                     robot.Lifter.setPosition(0.38);
                     sleep(1000);
