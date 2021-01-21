@@ -139,13 +139,13 @@ public class Blue2SH extends LinearOpMode {
                                 //check lable to see which target zone to go after
                                 if (recognition.getLabel().equals("Single")) {
                                     telemetry.addData("Target zone", "B");
-                                   // Decider =3;
+                                    Decider =3;
                                 } else if (recognition.getLabel().equals("Quad")) {
                                     telemetry.addData("Target zone", "C");
-                                    //Decider=2;
+                                    Decider=2;
                                 } else {
                                     telemetry.addData("Target zone", "UKNOWN");
-                                   // Decider=1;
+                                    Decider=1;
                                 }
                             }
 
@@ -153,7 +153,7 @@ public class Blue2SH extends LinearOpMode {
                         telemetry.update();
                         // run until the end of the match (driver presses STOP)
                         while (opModeIsActive() && count < 1) {
-                            int Decider = 3;
+                           // int Decider = 3;
                             if (Decider == 1) {
 
                                 MecDriv(-0.6, 0.6, -0.60, 0.6, 0.6); //right
