@@ -139,13 +139,13 @@ public class Blue2SH extends LinearOpMode {
                                 //check lable to see which target zone to go after
                                 if (recognition.getLabel().equals("Single")) {
                                     telemetry.addData("Target zone", "B");
-                                    Decider =3;
+                                   // Decider =3;
                                 } else if (recognition.getLabel().equals("Quad")) {
                                     telemetry.addData("Target zone", "C");
-                                    Decider=2;
+                                    //Decider=2;
                                 } else {
                                     telemetry.addData("Target zone", "UKNOWN");
-                                    Decider=1;
+                                   // Decider=1;
                                 }
                             }
 
@@ -153,15 +153,15 @@ public class Blue2SH extends LinearOpMode {
                         telemetry.update();
                         // run until the end of the match (driver presses STOP)
                         while (opModeIsActive() && count < 1) {
-                            //int Decider = 2;
+                            int Decider = 3;
                             if (Decider == 1) {
 
                                 MecDriv(-0.6, 0.6, -0.60, 0.6, 0.6); //right
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 1.2);//forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,-0.6,0.6,-0.6,1.45);//left
-                                MecDriv(0.6,0.6,0.62,0.62,0.35);//forward
+                                MecDriv(0.6,-0.62,0.62,-0.6,1.8);//left
+                                MecDriv(0.6,0.6,0.62,0.62,0.5);//forward
                                 DropOfWob();
                                 //MecDriv(0.6,0.6,0.6,0.6,.2);
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 0.2);//backward
@@ -170,11 +170,11 @@ public class Blue2SH extends LinearOpMode {
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right
 
                             } else if (Decider == 2) {
-                                MecDriv(-0.6, 0.6, -0.6, 0.6, 1.45);//right
-                                MecDriv(0.6, 0.6, 0.62, 0.62, 1.1); //forward
+                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.6);//right
+                                MecDriv(0.6, 0.6, 0.62, 0.62, 1.2); //forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,1.1);//forward
+                                MecDriv(0.6,0.6,0.6,0.6,1.9);//forward
                                 MecDriv(0.6,0.6,-0.6,-0.6,0.7);// rotates left
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 1.0); //forward
                                 DropOfWob();
@@ -182,8 +182,8 @@ public class Blue2SH extends LinearOpMode {
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
                             } else {
-                                MecDriv(-0.6, 0.6, -0.6, 0.6, 1.45);//right
-                                MecDriv(0.6, 0.6, 0.615, 0.615, 1.1); //forward
+                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.6);//right
+                                MecDriv(0.6, 0.6, 0.615, 0.615, 1.2); //forward
                                 sleep(500);
                                 ShootRing();
                                 MecDriv(0.6, -0.6, 0.6, -0.6, 0.8);//Strafe left
@@ -272,7 +272,7 @@ public class Blue2SH extends LinearOpMode {
             robot.Launcher.setPosition(0.6);
             sleep(200);
             robot.Launcher.setPosition(0.4);
-            sleep(1000);
+            sleep(2000);
 
             robot.leftBack.setPower(-0.6);
             robot.rightBack.setPower(0.6);
@@ -283,7 +283,7 @@ public class Blue2SH extends LinearOpMode {
             robot.rightBack.setPower(0.0);
             robot.leftFront.setPower(0.0);
             robot.rightFront.setPower(0.0);
-            sleep(1000);
+            sleep(2000);
 
             robot.Lifter.setPosition(0.37);
             sleep(300);
