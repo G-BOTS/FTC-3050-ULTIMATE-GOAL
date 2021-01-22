@@ -15,7 +15,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 
 @Autonomous()
-//@Disabled
+@Disabled
 public class MyTestGy extends LinearOpMode {
     HardwareUltimate robot = new HardwareUltimate();
     BNO055IMU imu;

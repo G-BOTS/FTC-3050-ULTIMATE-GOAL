@@ -16,7 +16,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Position;
 import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
 @Autonomous(name="GyroStraight", group="AltG")
-//@Disabled
+@Disabled
 public class GyroStraight extends LinearOpMode
 {
     HardwareUltimate robot= new HardwareUltimate();
