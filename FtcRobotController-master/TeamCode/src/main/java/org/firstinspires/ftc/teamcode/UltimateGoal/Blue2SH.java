@@ -98,14 +98,14 @@ public class Blue2SH extends LinearOpMode {
         robot.rightBack.setPower(0.6);
         robot.leftFront.setPower(0.6);
         robot.rightFront.setPower(0.6);
-        sleep(400);//previus 1850
+        sleep(500);//previus 1850
 
         //Stop all motors and pause for 2 seconds
         robot.leftBack.setPower(.0);
         robot.rightBack.setPower(.0);
         robot.leftFront.setPower(.0);
         robot.rightFront.setPower(.0);
-        sleep(500);
+        sleep(1000);
         //ShootRing();
 
 
@@ -139,13 +139,13 @@ public class Blue2SH extends LinearOpMode {
                                 //check lable to see which target zone to go after
                                 if (recognition.getLabel().equals("Single")) {
                                     telemetry.addData("Target zone", "B");
-                                    Decider =3;
+                                    Decider = 3;
                                 } else if (recognition.getLabel().equals("Quad")) {
                                     telemetry.addData("Target zone", "C");
-                                    Decider=2;
+                                    Decider = 2;
                                 } else {
                                     telemetry.addData("Target zone", "UKNOWN");
-                                    Decider=1;
+                                    Decider = 1;
                                 }
                             }
 
@@ -157,11 +157,11 @@ public class Blue2SH extends LinearOpMode {
                             if (Decider == 1) {
 
                                 MecDriv(-0.6, 0.6, -0.60, 0.6, 0.6); //right
-                                MecDriv(0.6, 0.6, 0.62, 0.62, 1.2);//forward
+                                MecDriv(0.6, 0.6, 0.62, 0.62, 1.1);//forward
                                 sleep(500);
                                 ShootRing();
                                 MecDriv(0.6,-0.62,0.62,-0.6,1.8);//left
-                                MecDriv(0.6,0.6,0.62,0.62,0.5);//forward
+                                MecDriv(0.6,0.6,0.62,0.62,0.4);//forward
                                 DropOfWob();
                                 //MecDriv(0.6,0.6,0.6,0.6,.2);
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 0.2);//backward
@@ -171,19 +171,19 @@ public class Blue2SH extends LinearOpMode {
 
                             } else if (Decider == 2) {
                                 MecDriv(-0.6, 0.6, -0.6, 0.6, 0.6);//right
-                                MecDriv(0.6, 0.6, 0.62, 0.62, 1.2); //forward
+                                MecDriv(0.6, 0.6, 0.62, 0.62, 1.1); //forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,1.5);//forward
+                                MecDriv(0.6,0.6,0.6,0.6,1.8);//forward
                                 MecDriv(0.6,0.6,-0.6,-0.6,0.7);// rotates left
-                                MecDriv(0.6, 0.6, 0.62, 0.62, 1.0); //forward
+                                MecDriv(0.6, 0.6, 0.62, 0.62, 0.9); //forward
                                 DropOfWob();
                                 MecDriv(0.6, -0.6, 0.6, -0.6,1.60); //left
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
                             } else {
                                 MecDriv(-0.6, 0.6, -0.6, 0.6, 0.6);//right
-                                MecDriv(0.6, 0.6, 0.615, 0.615, 1.2); //forward
+                                MecDriv(0.6, 0.6, 0.615, 0.615, 1.1); //forward
                                 sleep(500);
                                 ShootRing();
                                 MecDriv(0.6,0.6,0.6,0.6,0.8);//forward
@@ -263,9 +263,9 @@ public class Blue2SH extends LinearOpMode {
         robot.ExtArm.setPower(0.0);
     }
     public void ShootRing(){
-        runtime.reset();
+        //runtime.reset();
         int tel=0;
-        while ((runtime.time() <10) && (tel<1)) {
+        while (opModeIsActive()  && (tel<1)) {
             robot.Shooter.setPower(.98);
             sleep(2000);
             robot.Lifter.setPosition(0.42);
@@ -273,7 +273,8 @@ public class Blue2SH extends LinearOpMode {
             robot.Launcher.setPosition(0.6);
             sleep(200);
             robot.Launcher.setPosition(0.4);
-            sleep(2000);
+            robot.Lifter.setPosition(0.58);
+            sleep(200);
 
             robot.leftBack.setPower(-0.6);
             robot.rightBack.setPower(0.6);
@@ -284,7 +285,7 @@ public class Blue2SH extends LinearOpMode {
             robot.rightBack.setPower(0.0);
             robot.leftFront.setPower(0.0);
             robot.rightFront.setPower(0.0);
-            sleep(2000);
+            sleep(200);
 
             robot.Lifter.setPosition(0.37);
             sleep(300);
@@ -292,6 +293,8 @@ public class Blue2SH extends LinearOpMode {
             sleep(200);
             robot.Launcher.setPosition(0.4);
             sleep(200);
+            robot.Lifter.setPosition(0.58);
+            sleep(200);
 
             robot.leftBack.setPower(-0.6);
             robot.rightBack.setPower(0.6);
@@ -303,13 +306,14 @@ public class Blue2SH extends LinearOpMode {
             robot.leftFront.setPower(0.0);
             robot.rightFront.setPower(0.0);
 
-            robot.Lifter.setPosition(0.33);
+            robot.Lifter.setPosition(0.34);//initial valu 33
             sleep(300);
             robot.Launcher.setPosition(0.6);
             sleep(200);
             robot.Launcher.setPosition(0.4);
             sleep(200);
-            robot.Lifter.setPosition(0.38);
+            robot.Lifter.setPosition(0.58);
+            sleep(200);
             tel=tel+1;
         }
         robot.Shooter.setPower(0.0);
