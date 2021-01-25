@@ -28,7 +28,7 @@ import org.firstinspires.ftc.teamcode.HardwareUltimate;
  */
 @Autonomous
 // @Disabled
-public class Blue2SH extends LinearOpMode {
+public class Blue2SHmod extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "UltimateGoal.tflite";
     private static final String LABEL_FIRST_ELEMENT = "Quad";
     private static final String LABEL_SECOND_ELEMENT = "Single";
@@ -94,11 +94,11 @@ public class Blue2SH extends LinearOpMode {
         telemetry.update();
         waitForStart();
         //Drive Strait forward for 1.5 seconds at a a power of .6
-        robot.leftBack.setPower(0.6);
-        robot.rightBack.setPower(0.6);
-        robot.leftFront.setPower(0.6);
-        robot.rightFront.setPower(0.6);
-        sleep(500);//previus 1850
+        robot.leftBack.setPower(0.3);
+        robot.rightBack.setPower(0.3);
+        robot.leftFront.setPower(0.3);
+        robot.rightFront.setPower(0.3);
+        sleep(1000);//previus 1850
 
         //Stop all motors and pause for 2 seconds
         robot.leftBack.setPower(.0);
@@ -153,7 +153,7 @@ public class Blue2SH extends LinearOpMode {
                         telemetry.update();
                         // run until the end of the match (driver presses STOP)
                         while (opModeIsActive() && count < 1) {
-                           // int Decider = 3;
+                            // int Decider = 3;
                             if (Decider == 1) {
 
                                 MecDriv(-0.6, 0.6, -0.60, 0.6, 0.6); //right
@@ -170,12 +170,12 @@ public class Blue2SH extends LinearOpMode {
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right
 
                             } else if (Decider == 2) {
-                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.6);//right
-                                MecDriv(0.6, 0.6, 0.62, 0.62, 1.1); //forward
+                                MecDriv(-0.3, 0.3, -0.3, 0.3, 1.6);//right
+                                MecDriv(0.3, 0.3, 0.3, 0.3, 2.2); //forward
                                 sleep(500);
                                 ShootRing();
                                 MecDriv(0.6,0.6,0.6,0.6,1.75);//forward
-                                MecDriv(0.6,0.6,-0.6,-0.6,0.7);// rotates left
+                                MecDriv(0.6,0.6,-0.6,-0.6,0.65);// rotates left
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 1.0); //forward 0.9
                                 DropOfWob();
                                 MecDriv(0.6, -0.6, 0.6, -0.6,1.60); //left
@@ -276,11 +276,11 @@ public class Blue2SH extends LinearOpMode {
             robot.Lifter.setPosition(0.58);
             sleep(200);
 
-            robot.leftBack.setPower(-0.6);
-            robot.rightBack.setPower(0.6);
-            robot.leftFront.setPower(0.62);
-            robot.rightFront.setPower(-0.62);
-            sleep(300);
+            robot.leftBack.setPower(-0.3);
+            robot.rightBack.setPower(0.3);
+            robot.leftFront.setPower(0.3);
+            robot.rightFront.setPower(-0.3);
+            sleep(600);
             robot.leftBack.setPower(0.0);
             robot.rightBack.setPower(0.0);
             robot.leftFront.setPower(0.0);
@@ -296,18 +296,18 @@ public class Blue2SH extends LinearOpMode {
             robot.Lifter.setPosition(0.58);
             sleep(200);
 
-            robot.leftBack.setPower(-0.6);
-            robot.rightBack.setPower(0.6);
-            robot.leftFront.setPower(0.62);
-            robot.rightFront.setPower(-0.62);
-            sleep(300);
+            robot.leftBack.setPower(-0.3);
+            robot.rightBack.setPower(0.3);
+            robot.leftFront.setPower(0.3);
+            robot.rightFront.setPower(-0.3);
+            sleep(600);
             robot.leftBack.setPower(0.0);
             robot.rightBack.setPower(0.0);
             robot.leftFront.setPower(0.0);
             robot.rightFront.setPower(0.0);
             sleep(1000);
 
-            robot.Lifter.setPosition(0.335);//initial value 33
+            robot.Lifter.setPosition(0.32);//initial value 33
             sleep(300);
             robot.Launcher.setPosition(0.6);
             sleep(200);
