@@ -164,7 +164,7 @@ public class Blue2SHmod extends LinearOpMode {
                                 MecDriv(0.6,0.6,0.62,0.62,0.45);//forward
                                 DropOfWob();
                                 //MecDriv(0.6,0.6,0.6,0.6,.2);
-                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.2);//backward
+                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.1);//backward
                                 // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right
@@ -253,7 +253,7 @@ public class Blue2SHmod extends LinearOpMode {
     }
     public void DropOfWob () {
         robot.ExtArm.setPower(0.9);
-        sleep(3000);
+        sleep(3000);//used to be 3s
         robot.ExtArm.setPower(0.0);
         sleep(250);
         robot.WobbleClaw.setPosition(0.6); //Drop off Wobble Goal in Target Zone A
