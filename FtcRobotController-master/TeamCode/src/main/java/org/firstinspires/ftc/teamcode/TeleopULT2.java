@@ -77,8 +77,9 @@ public class TeleopULT2 extends LinearOpMode {
                 robot.Elevator.setPower(0.0);
             }
             if (gamepad2.left_bumper) {
+                robot.Elevator.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 robot.Elevator.setPower(0.6);
-                robot.Elevator.setTargetPosition(-200);//this does not work yet
+                robot.Elevator.setTargetPosition(-200);//this should work
             } else {
                 robot.Elevator.setTargetPosition(0);
             }
