@@ -11,6 +11,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import java.util.List;
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
@@ -98,6 +99,7 @@ public class Blue2SHtest extends LinearOpMode {
         robot.rightBack.setPower(0.3);
         robot.leftFront.setPower(0.3);
         robot.rightFront.setPower(0.3);
+
         sleep(1000);//previus 1850
 
         //Stop all motors and pause for 2 seconds
@@ -105,6 +107,10 @@ public class Blue2SHtest extends LinearOpMode {
         robot.rightBack.setPower(.0);
         robot.leftFront.setPower(.0);
         robot.rightFront.setPower(.0);
+        telemetry.addData("range", String.format("%.01f mm", robot.sDistanceL.getDistance(DistanceUnit.MM)));
+        telemetry.addData("range", String.format("%.01f cm", robot.sDistanceR.getDistance(DistanceUnit.CM)));
+        telemetry.addData("range", String.format("%.01f m", robot.sDistanceL.getDistance(DistanceUnit.METER)));
+        telemetry.addData("range", String.format("%.01f in", robot.sDistanceR.getDistance(DistanceUnit.INCH)));
         sleep(1000);
         //ShootRing();
 
