@@ -34,6 +34,7 @@ public class Blue2SHtest extends LinearOpMode {
     private static final String LABEL_FIRST_ELEMENT = "Quad";
     private static final String LABEL_SECOND_ELEMENT = "Single";
     public int Decider=1;
+    public double enc1,enc2,tim1,tim2,sPower;
     //cameraName = hardwareMap.get(WebcamName.Class, "Webcam 1");
     /*
      * IMPORTANT: You need to obtain your own license key to use Vuforia. The string below with which
@@ -271,11 +272,21 @@ public class Blue2SHtest extends LinearOpMode {
         robot.ExtArm.setPower(0.0);
     }
     public void ShootRing(){
-        //runtime.reset();
+        runtime.reset();
         int tel=0;
         while (opModeIsActive()  && (tel<1)) {
-            robot.Shooter.setPower(.98);
-            sleep(2000);
+
+            while (opModeIsActive()&&((enc2-enc1)/(tim2-tim1))<10) {
+                sPower=sPower +0.5;
+                robot.Shooter.setPower(sPower);
+                enc1=robot.Shooter.getCurrentPosition();
+                tim1=runtime.milliseconds();
+                enc2=robot.Shooter.getCurrentPosition();
+                tim2=runtime.milliseconds();
+            }
+            //sPower=sPower +0.5;
+            //robot.Shooter.setPower(.98);
+            //sleep(2000);
             robot.Lifter.setPosition(0.42);
             sleep(300);
             robot.Launcher.setPosition(0.6);
