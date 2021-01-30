@@ -28,7 +28,7 @@ import org.firstinspires.ftc.teamcode.HardwareUltimate;
  * is explained below.
  */
 @Autonomous
- @Disabled
+// @Disabled
 public class Blue2SHtest extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "UltimateGoal.tflite";
     private static final String LABEL_FIRST_ELEMENT = "Quad";
