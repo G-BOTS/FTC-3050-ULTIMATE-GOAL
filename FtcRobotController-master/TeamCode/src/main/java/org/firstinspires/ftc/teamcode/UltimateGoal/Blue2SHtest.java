@@ -276,6 +276,7 @@ public class Blue2SHtest extends LinearOpMode {
         int tel=0;
         while (opModeIsActive()  && (tel<1)) {
 
+
             while (opModeIsActive()&&((enc2-enc1)/(tim2-tim1))<10) {
                 sPower=sPower +0.5;
                 robot.Shooter.setPower(sPower);
