@@ -49,12 +49,11 @@ public class TestBedULT extends LinearOpMode {
             tim1 = runtime.milliseconds();
             enc2 = robot.Shooter.getCurrentPosition();
             tim2 = runtime.milliseconds();
+            //motor rpm 1620 rps 27 tics per r 103.6 therfore 2797 tics per rev
             while (opModeIsActive() && runtime.seconds() < 5) {
-
-
-                if ((enc2 - enc1) / (tim2 - tim1) < 10) {
+                if ((enc2 - enc1) / (tim2 - tim1) < 2750) {
                     ShPwr = ShPwr + 0.02;
-                } else if ((enc2 - enc1) / (tim2 - tim1) > 12) {
+                } else if ((enc2 - enc1) / (tim2 - tim1) > 2800) {
                     ShPwr = ShPwr - 0.02;
                 } else {
                 }
