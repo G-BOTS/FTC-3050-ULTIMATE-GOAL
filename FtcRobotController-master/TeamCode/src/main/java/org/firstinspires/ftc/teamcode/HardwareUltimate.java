@@ -28,8 +28,8 @@ public class HardwareUltimate {
     public CRServo ExtArm = null;//  = null;
     public Servo Lifter = null;
     public Servo Launcher = null;
-    public DistanceSensor sDistanceL= null;
-    public DistanceSensor sDistanceR = null;
+   // public DistanceSensor sDistanceL= null;
+   // public DistanceSensor sDistanceR = null;
     //public Servo capston;
     //public Servo dropper;
     //public Servo serv40;
@@ -85,8 +85,8 @@ public class HardwareUltimate {
         rightFront = hwMap.get(DcMotor.class, "right_Front");
         Elevator = hwMap.get(DcMotor.class, "ele_Vator");
         Shooter = hwMap.get(DcMotor.class, "shooter");
-        sDistanceL = hwMap.get(DistanceSensor.class, "dis_l");
-        sDistanceR = hwMap.get(DistanceSensor.class, "dis_r");
+        //sDistanceL = hwMap.get(DistanceSensor.class, "dis_l");
+       // sDistanceR = hwMap.get(DistanceSensor.class, "dis_r");
 
 
         // imu = hwMap.get(BNO055IMU.class, "imu");
@@ -154,7 +154,7 @@ public class HardwareUltimate {
 //
         WobbleClaw.setPosition(-0.8);
         Lifter.setPosition(0.58); //higer value drops the level
-        Launcher.setPosition(0.42);//lower value further back
+        Launcher.setPosition(0.5);//lower value further back 0.42
         //right_hand.setPosition(0.1);
         //pickup.setPosition(0.8);
         //capstone.setPosition(0.4);

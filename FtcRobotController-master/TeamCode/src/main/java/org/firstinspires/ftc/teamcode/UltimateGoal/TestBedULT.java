@@ -21,7 +21,7 @@ import org.firstinspires.ftc.teamcode.HardwareUltimate;
 
 
 @Autonomous
-// @Disabled
+ @Disabled
 public class TestBedULT extends LinearOpMode {
     HardwareUltimate robot = new HardwareUltimate();
     private ElapsedTime runtime = new ElapsedTime();
@@ -47,6 +47,7 @@ public class TestBedULT extends LinearOpMode {
             robot.Shooter.setPower(ShPwr);
             enc1 = robot.Shooter.getCurrentPosition();
             tim1 = runtime.milliseconds();
+            sleep(20);
             enc2 = robot.Shooter.getCurrentPosition();
             tim2 = runtime.milliseconds();
             //motor rpm 1620 rps 27 tics per r 103.6 therfore 2797 tics per rev
@@ -60,6 +61,7 @@ public class TestBedULT extends LinearOpMode {
                 robot.Shooter.setPower(ShPwr);
                 enc1 = robot.Shooter.getCurrentPosition();
                 tim1 = runtime.milliseconds();
+                sleep(20);
                 enc2 = robot.Shooter.getCurrentPosition();
                 tim2 = runtime.milliseconds();
             }

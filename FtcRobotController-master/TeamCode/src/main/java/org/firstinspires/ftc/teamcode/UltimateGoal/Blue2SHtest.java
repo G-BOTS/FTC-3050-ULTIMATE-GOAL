@@ -28,7 +28,7 @@ import org.firstinspires.ftc.teamcode.HardwareUltimate;
  * is explained below.
  */
 @Autonomous
-// @Disabled
+ @Disabled
 public class Blue2SHtest extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "UltimateGoal.tflite";
     private static final String LABEL_FIRST_ELEMENT = "Quad";
@@ -108,10 +108,10 @@ public class Blue2SHtest extends LinearOpMode {
         robot.rightBack.setPower(.0);
         robot.leftFront.setPower(.0);
         robot.rightFront.setPower(.0);
-        telemetry.addData("range", String.format("%.01f mm", robot.sDistanceL.getDistance(DistanceUnit.MM)));
-        telemetry.addData("range", String.format("%.01f cm", robot.sDistanceR.getDistance(DistanceUnit.CM)));
-        telemetry.addData("range", String.format("%.01f m", robot.sDistanceL.getDistance(DistanceUnit.METER)));
-        telemetry.addData("range", String.format("%.01f in", robot.sDistanceR.getDistance(DistanceUnit.INCH)));
+        //telemetry.addData("range", String.format("%.01f mm", robot.sDistanceL.getDistance(DistanceUnit.MM)));
+        //telemetry.addData("range", String.format("%.01f cm", robot.sDistanceR.getDistance(DistanceUnit.CM)));
+       // telemetry.addData("range", String.format("%.01f m", robot.sDistanceL.getDistance(DistanceUnit.METER)));
+        //telemetry.addData("range", String.format("%.01f in", robot.sDistanceR.getDistance(DistanceUnit.INCH)));
         sleep(1000);
         //ShootRing();
 
