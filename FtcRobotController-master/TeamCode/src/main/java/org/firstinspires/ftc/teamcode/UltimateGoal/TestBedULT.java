@@ -43,19 +43,19 @@ public class TestBedULT extends LinearOpMode {
         enc2 = 0;
 
         while (opModeIsActive()) {
-            ShPwr = 0.4;
+            ShPwr = 0.7;
             robot.Shooter.setPower(ShPwr);
             enc1 = robot.Shooter.getCurrentPosition();
             tim1 = runtime.milliseconds();
-            sleep(200);
+            sleep(20);
             enc2 = robot.Shooter.getCurrentPosition();
             tim2 = runtime.milliseconds();
-            //motor rpm 1620 rps 27 tics per r 103.6 therfore 2797 tics per rev
-            while (opModeIsActive() && runtime.seconds() < 5) {
+            //motor rpm 1620 rps 27 tics per r 103.6 therefore 2797 tics per sec
+            while (opModeIsActive() && runtime.seconds() < 10) {
                 if ((enc2 - enc1) / (tim2 - tim1) < 1.750) {
-                    ShPwr = ShPwr + 0.02;
+                    ShPwr = ShPwr + 0.01;
                 } else if ((enc2 - enc1) / (tim2 - tim1) > 1.800) {
-                    ShPwr = ShPwr - 0.02;
+                    ShPwr = ShPwr - 0.01;
                 } else {
                 }
                 robot.Shooter.setPower(ShPwr);
@@ -69,6 +69,7 @@ public class TestBedULT extends LinearOpMode {
                 telemetry.update();
             }
             robot.Shooter.setPower(0);
+            sleep(20);
         }
     }
 }

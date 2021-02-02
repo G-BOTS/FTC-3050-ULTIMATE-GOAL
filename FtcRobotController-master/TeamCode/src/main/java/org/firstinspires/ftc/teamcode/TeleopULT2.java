@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp
-@Disabled
+//@Disabled
 public class TeleopULT2 extends LinearOpMode {
     public double slowerSpeed = .2;     //This is the variable for speed adjustment using the right bumper
     public double counter = 0;
@@ -77,13 +77,18 @@ public class TeleopULT2 extends LinearOpMode {
                 robot.Elevator.setPower(0.0);
             }
             if (gamepad2.left_bumper) {
-                robot.Elevator.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                robot.Elevator.setPower(0.6);
-                robot.Elevator.setTargetPosition(-200);//this should work
+                robot.inTake.setPower(0.4);
             } else {
-                robot.Elevator.setTargetPosition(0);
+                robot.inTake.setPower(0.0);
             }
-            if (gamepad1.a ) {
+
+            if (gamepad2.right_bumper) {
+                robot.belt.setPower(0.4);
+            } else {
+                robot.belt.setPower(0.0);
+            }
+
+            if (gamepad1.a) {
                 counter = counter + 1;
                 robot.leftBack.setPower(0.0);
                 robot.rightBack.setPower(0.0);
@@ -105,15 +110,15 @@ public class TeleopULT2 extends LinearOpMode {
                     robot.Launcher.setPosition(0.4);
                     sleep(450);
 
-                } else if(counter==3){
+                } else if (counter == 3) {
                     robot.Lifter.setPosition(0.33);
                     sleep(1000);
                     robot.Launcher.setPosition(0.6);
                     sleep(450);
                     robot.Launcher.setPosition(0.4);
                     sleep(450);
-                }else{
-                    counter=0;
+                } else {
+                    counter = 0;
                     robot.Lifter.setPosition(0.6);
                     sleep(450);
                 }

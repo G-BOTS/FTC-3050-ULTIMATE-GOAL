@@ -19,8 +19,8 @@ public class HardwareUltimate {
     public DcMotor rightFront = null;
     public DcMotor Elevator = null;
     public DcMotor Shooter = null;
-    //public DcMotor arm = null;
-    // public DcMotor rightIntake = null;
+   public DcMotor inTake = null;
+    public DcMotor belt = null;
     //public DcMotor  armDrive    = null;
     //public DcMotor  leftIntake  = null;
 
@@ -85,8 +85,8 @@ public class HardwareUltimate {
         rightFront = hwMap.get(DcMotor.class, "right_Front");
         Elevator = hwMap.get(DcMotor.class, "ele_Vator");
         Shooter = hwMap.get(DcMotor.class, "shooter");
-        //sDistanceL = hwMap.get(DistanceSensor.class, "dis_l");
-       // sDistanceR = hwMap.get(DistanceSensor.class, "dis_r");
+        inTake = hwMap.get(DcMotor.class, "in_take");
+       belt = hwMap.get(DcMotor.class, "belt");
 
 
         // imu = hwMap.get(BNO055IMU.class, "imu");
@@ -124,8 +124,10 @@ public class HardwareUltimate {
         Shooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
-        //leftIntake.setDirection(DcMotor.Direction.FORWARD);
-        //rightIntake.setDirection(DcMotor.Direction.FORWARD);
+        inTake.setDirection(DcMotor.Direction.FORWARD);
+        inTake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        belt.setDirection(DcMotor.Direction.FORWARD);
+        belt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
         // Set all motors to zero power
@@ -135,7 +137,8 @@ public class HardwareUltimate {
         rightFront.setPower(0);
         Elevator.setPower(0);
         Shooter.setPower(0);
-        //rightIntake.setPower(0);
+        inTake.setPower(0);
+        belt.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
