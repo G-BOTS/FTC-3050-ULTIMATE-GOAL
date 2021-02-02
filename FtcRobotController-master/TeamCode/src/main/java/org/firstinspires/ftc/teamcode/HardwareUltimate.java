@@ -124,7 +124,7 @@ public class HardwareUltimate {
         Shooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
-        inTake.setDirection(DcMotor.Direction.FORWARD);
+        inTake.setDirection(DcMotor.Direction.REVERSE);
         inTake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         belt.setDirection(DcMotor.Direction.FORWARD);
         belt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);

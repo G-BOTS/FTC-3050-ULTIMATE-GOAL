@@ -77,13 +77,13 @@ public class TeleopULT2 extends LinearOpMode {
                 robot.Elevator.setPower(0.0);
             }
             if (gamepad2.left_bumper) {
-                robot.inTake.setPower(0.4);
+                robot.inTake.setPower(0.8);
             } else {
                 robot.inTake.setPower(0.0);
             }
 
             if (gamepad2.right_bumper) {
-                robot.belt.setPower(0.4);
+                robot.belt.setPower(0.8);
             } else {
                 robot.belt.setPower(0.0);
             }
