@@ -32,7 +32,7 @@ public class TestBedULT extends LinearOpMode {
         telemetry.addData(">", "Press Play to start op mode");
         telemetry.update();
         robot.init(hardwareMap);
-        double enc1, enc2, tim1, tim2, ShPwr;
+        double enc1, enc2, tim1, tim2, ShPwr, disL,disR;
 
         waitForStart();
 
@@ -70,6 +70,11 @@ public class TestBedULT extends LinearOpMode {
             }
             robot.Shooter.setPower(0);
             sleep(20);
+            while   (opModeIsActive()&&runtime.seconds()<20){
+                disL=robot.sDistanceL.getDistance(DistanceUnit.MM);
+                disR=robot.sDistanceR.getDistance(DistanceUnit.MM);
+
+            }
         }
     }
 }
