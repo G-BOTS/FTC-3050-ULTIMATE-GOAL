@@ -28,8 +28,8 @@ public class HardwareUltimate {
     public CRServo ExtArm = null;//  = null;
     public Servo Lifter = null;
     public Servo Launcher = null;
-    public DistanceSensor sDistanceL = null;
-    public DistanceSensor sDistanceR = null;
+   // public DistanceSensor sDistanceL = null;
+    //public DistanceSensor sDistanceR = null;
     //public Servo capston;
     //public Servo dropper;
     //public Servo serv40;
@@ -87,8 +87,8 @@ public class HardwareUltimate {
         Shooter = hwMap.get(DcMotor.class, "shooter");
         inTake = hwMap.get(DcMotor.class, "in_take");
         belt = hwMap.get(DcMotor.class, "belt");
-        sDistanceL = hwMap.get(DistanceSensor.class, "dis_left");
-        sDistanceR = hwMap.get(DistanceSensor.class, "dis_right");
+        //sDistanceL = hwMap.get(DistanceSensor.class, "dis_left");
+        //sDistanceR = hwMap.get(DistanceSensor.class, "dis_right");
 
 
         // imu = hwMap.get(BNO055IMU.class, "imu");
