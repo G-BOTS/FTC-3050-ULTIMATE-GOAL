@@ -160,7 +160,8 @@ public class Blue2SHmod extends LinearOpMode {
                                 MecDriv(0.3, 0.29, 0.3, 0.31, 2.2);//forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,-0.62,0.62,-0.6,2.0);//left
+                               // MecDriv(0.6,-0.62,0.62,-0.6,2.0);//left
+                                MecDriv(0.61,-0.6,0.6,-0.61,2.0); //Strafe Left
                                 MecDriv(0.6,0.6,0.62,0.62,0.35);//forward
                                 DropOfWob();
                                 MecDriv(-0.6,-0.6,-0.6,-0.6,.1);

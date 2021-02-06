@@ -71,8 +71,8 @@ public class TestBedULT extends LinearOpMode {
             robot.Shooter.setPower(0);
             sleep(20);
             while   (opModeIsActive()&&runtime.seconds()<20){
-                disL=robot.sDistanceL.getDistance(DistanceUnit.CM);
-                disR=robot.sDistanceR.getDistance(DistanceUnit.CM);
+               // disL=robot.sDistanceL.getDistance(DistanceUnit.CM);
+               // disR=robot.sDistanceR.getDistance(DistanceUnit.CM);
 
             }
         }
