@@ -31,6 +31,7 @@ public class TeleopULT2 extends LinearOpMode {
         robot.Shooter.setMode((DcMotor.RunMode.RUN_WITHOUT_ENCODER));
 
         robot.WobbleClaw.setPosition(-.9);
+        robot.Launcher.setPosition(0.4);
 
         waitForStart();
         runtime.reset();
@@ -77,16 +78,16 @@ public class TeleopULT2 extends LinearOpMode {
                 robot.Elevator.setPower(0.0);
             }
             if (gamepad2.left_bumper) {
-                robot.inTake.setPower(1.0);
-                robot.belt.setPower(0.8);
+                robot.inTake.setPower(0.5);
+                robot.belt.setPower(1.0);
             } else {
                 robot.inTake.setPower(0.0);
                 robot.belt.setPower(0.0);
             }
 
             if (gamepad2.right_bumper) {
-                robot.inTake.setPower(-0.8);
-                robot.belt.setPower(-0.8);
+                robot.inTake.setPower(-0.5);
+                robot.belt.setPower(-1.0);
             } else {
                 robot.inTake.setPower(0.0);
                 robot.belt.setPower(0.0);
@@ -107,7 +108,7 @@ public class TeleopULT2 extends LinearOpMode {
                     sleep(450);
 
                 } else if (counter == 2) {
-                    robot.Lifter.setPosition(0.37);
+                    robot.Lifter.setPosition(0.368);//used to be 0.37
                     sleep(1000);
                     robot.Launcher.setPosition(0.6);
                     sleep(450);
@@ -115,7 +116,7 @@ public class TeleopULT2 extends LinearOpMode {
                     sleep(450);
 
                 } else if (counter == 3) {
-                    robot.Lifter.setPosition(0.33);
+                    robot.Lifter.setPosition(0.341);//used to be 0.33
                     sleep(1000);
                     robot.Launcher.setPosition(0.6);
                     sleep(450);
