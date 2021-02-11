@@ -171,8 +171,8 @@ public class Blue2SHmod extends LinearOpMode {
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right t
 
                             } else if (Decider == 2) {
-                                MecDriv(-0.3, 0.3, -0.3, 0.3, 1.6);//right
-                                MecDriv(0.4, 0.4, 0.430, 0.430, 1.8); //forward
+                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8);//right
+                                MecDriv(0.4, 0.4, 0.430, 0.430, 1.6); //forward
                                 sleep(500);
                                 ShootRing();
                                 MecDriv(0.6,0.6,0.6,0.6,1.75);//forward
@@ -183,8 +183,8 @@ public class Blue2SHmod extends LinearOpMode {
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right},,
                             } else {
-                                MecDriv(-0.3, 0.3, -0.3, 0.3, 1.6);//right
-                                MecDriv(0.3, 0.3, 0.430, 0.430, 1.8); //forward
+                                MecDriv(-0.6, 0.6, -0.6, 0.3, 0.8);//right
+                                MecDriv(0.3, 0.3, 0.430, 0.430, 1.6); //forward
                                 sleep(500);
                                 ShootRing();
                                 MecDriv(0.6,0.6,0.6,0.6,0.8);//forward
@@ -267,7 +267,7 @@ public class Blue2SHmod extends LinearOpMode {
         //runtime.reset();
         int tel=0;
         while (opModeIsActive()  && (tel<1)) {
-            robot.Shooter.setPower(0.94); //use to be .98 shot to high
+            robot.Shooter.setPower(0.92); //use to be .94 shot to high
             robot.Launcher.setPosition(0.4);
             sleep(2000);
             robot.Lifter.setPosition(0.44);
