@@ -157,7 +157,7 @@ public class Blue2SHmod extends LinearOpMode {
                             if (Decider == 1) {//no rings
 
                                 MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8); //right
-                                MecDriv(0.40, 0.40, 0.43, 0.43, 1.8);//forward
+                                MecDriv(0.40, 0.40, 0.43, 0.43, 1.6);//forward was 1.8
                                 sleep(500);
                                 ShootRing();
                                // MecDriv(0.6,-0.62,0.62,-0.6,2.0);//left
