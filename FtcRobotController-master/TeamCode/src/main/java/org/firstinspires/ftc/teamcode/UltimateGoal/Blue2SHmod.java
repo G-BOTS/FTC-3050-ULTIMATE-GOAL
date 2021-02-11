@@ -181,7 +181,7 @@ public class Blue2SHmod extends LinearOpMode {
                                 DropOfWob();
                                 MecDriv(0.6, -0.6, 0.6, -0.6,1.60); //left
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
-                                //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
+                                //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right},,
                             } else {
                                 MecDriv(-0.3, 0.3, -0.3, 0.3, 1.6);//right
                                 MecDriv(0.3, 0.3, 0.430, 0.430, 1.8); //forward
