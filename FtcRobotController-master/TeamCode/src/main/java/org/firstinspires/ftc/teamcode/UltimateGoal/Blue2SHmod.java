@@ -161,7 +161,7 @@ public class Blue2SHmod extends LinearOpMode {
                                 sleep(500);
                                 ShootRing();
                                // MecDriv(0.6,-0.62,0.62,-0.6,2.0);//left
-                                MecDriv(0.6,-0.61,0.61,-0.6,2.0); //Strafe Left
+                                MecDriv(0.6,-0.61,0.61,-0.6,2.1); //Strafe Left
                                 MecDriv(0.6,0.6,0.62,0.62,0.4);//forward
                                 DropOfWob();
                                 MecDriv(-0.6,-0.6,-0.6,-0.6,.1);
@@ -175,7 +175,7 @@ public class Blue2SHmod extends LinearOpMode {
                                 MecDriv(0.4, 0.4, 0.430, 0.430, 1.6); //forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,1.75);//forward
+                                MecDriv(0.6,0.6,0.6,0.6,1.65);//forward
                                 MecDriv(0.6,0.6,-0.6,-0.6,0.65);// rotates left
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 1.0); //forward 0.9
                                 DropOfWob();
@@ -187,7 +187,7 @@ public class Blue2SHmod extends LinearOpMode {
                                 MecDriv(0.3, 0.3, 0.430, 0.430, 1.6); //forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,0.8);//forward
+                                MecDriv(0.6,0.6,0.6,0.6,0.9);//forward
                                 MecDriv(0.6, -0.61, 0.61, -0.6, 1.3);//Strafe left  1.0
                                 DropOfWob();
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 0.5); //backwards
@@ -267,7 +267,7 @@ public class Blue2SHmod extends LinearOpMode {
         //runtime.reset();
         int tel=0;
         while (opModeIsActive()  && (tel<1)) {
-            robot.Shooter.setPower(0.90); //use to be .94 shot to high
+            robot.Shooter.setPower(0.88); //use to be .94 shot to high
             robot.Launcher.setPosition(0.4);
             sleep(2000);
             robot.Lifter.setPosition(0.44);
