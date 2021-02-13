@@ -161,11 +161,11 @@ public class Blue2SHmod extends LinearOpMode {
                                 sleep(500);
                                 ShootRing();
                                // MecDriv(0.6,-0.62,0.62,-0.6,2.0);//left
-                                MecDriv(0.6,-0.61,0.61,-0.6,2.1); //Strafe Left
-                                MecDriv(0.6,0.6,0.62,0.62,0.4);//forward
+                                MecDriv(0.6,-0.61,0.61,-0.6,2.15); //Strafe Left
+                               MecDriv(-0.6,-0.6,-0.62,-0.62,0.2);//backward
                                 DropOfWob();
-                                MecDriv(-0.6,-0.6,-0.6,-0.6,.1);
-                               // MecDriv(-0.6, -0.6, -0.6, -0.6, 0.1);//backward
+                                //MecDriv(-0.6,-0.6,-0.6,-0.6,.1);
+                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.4);//backward
                                 // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right t
@@ -187,7 +187,7 @@ public class Blue2SHmod extends LinearOpMode {
                                 MecDriv(0.3, 0.3, 0.430, 0.430, 1.6); //forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,0.9);//forward
+                                MecDriv(0.6,0.6,0.6,0.6,1.1);//forward
                                 MecDriv(0.6, -0.61, 0.61, -0.6, 1.3);//Strafe left  1.0
                                 DropOfWob();
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 0.5); //backwards
