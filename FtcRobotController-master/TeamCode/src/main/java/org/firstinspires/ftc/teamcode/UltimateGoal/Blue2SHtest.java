@@ -163,19 +163,19 @@ public class Blue2SHtest extends LinearOpMode {
                             // int Decider = 3;
                             if (Decider == 1) {
 
-                                MecDriv(-0.3, 0.3, -0.3, 0.3, 1.6); //right
-                                MecDriv(0.3, 0.3, 0.3, 0.3, 2.2);//forward
+                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8); //right
+                                MecDriv(0.40, 0.40, 0.43, 0.43, 1.6);//forward was 1.8
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.62,0.62,0.45);
-                                MecDriv(0.6,0.6,-0.6,-0.6,0.65);//rotates left
+                                MecDriv(0.6,0.6,0.6,0.6,0.3);// forward
+                                MecDriv(0.6,0.6,-0.6,-0.6,0.69); //rotate left
                                 MecDriv(0.6,0.6,0.62,0.62,1.0);//forward
                                 DropOfWob();
-                                //MecDriv(0.6,0.6,0.6,0.6,.2);
-                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.2);//backward
+                                //MecDriv(-0.6,-0.6,-0.6,-0.6,.1);
+                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.4);//backward
                                 // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
-                                //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right
+                                //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right t
 
                             } else if (Decider == 2) {
                                 MecDriv(-0.3, 0.3, -0.3, 0.3, 1.6);//right
