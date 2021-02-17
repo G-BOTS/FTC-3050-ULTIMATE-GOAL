@@ -96,12 +96,12 @@ public class Blue2SHtest extends LinearOpMode {
         telemetry.update();
         waitForStart();
         //Drive Strait forward for 1.5 seconds at a a power of .6
-        robot.leftBack.setPower(0.3);
-        robot.rightBack.setPower(0.3);
-        robot.leftFront.setPower(0.3);
-        robot.rightFront.setPower(0.3);
+        robot.leftBack.setPower(0.4);
+        robot.rightBack.setPower(0.4);
+        robot.leftFront.setPower(0.4);
+        robot.rightFront.setPower(0.4);
 
-        sleep(1000);//previus 1850
+        sleep(900);//previus 1850
 
         //Stop all motors and pause for 2 seconds
         robot.leftBack.setPower(.0);
@@ -167,8 +167,8 @@ public class Blue2SHtest extends LinearOpMode {
                                 MecDriv(0.40, 0.40, 0.43, 0.43, 1.6);//forward was 1.8
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,0.3);// forward
-                                MecDriv(0.6,0.6,-0.6,-0.6,0.69); //rotate left
+                                MecDriv(0.6,0.6,0.6,0.6,0.4);// forward
+                                MecDriv(0.6,0.6,-0.6,-0.6,0.72); //rotate left
                                 MecDriv(0.6,0.6,0.62,0.62,1.0);//forward
                                 DropOfWob();
                                 //MecDriv(-0.6,-0.6,-0.6,-0.6,.1);
