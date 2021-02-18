@@ -98,7 +98,7 @@ public class Blue2SHmod extends LinearOpMode {
         robot.rightBack.setPower(0.4);
         robot.leftFront.setPower(0.4);
         robot.rightFront.setPower(0.4);
-        sleep(900);//previus 1850
+        sleep(600);//previus 1850
 
         //Stop all motors and pause for 2 seconds
         robot.leftBack.setPower(.0);
@@ -156,13 +156,15 @@ public class Blue2SHmod extends LinearOpMode {
                             // int Decider = 3;
                             if (Decider == 1) {//no rings
 
-                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8); //right
-                                MecDriv(0.40, 0.40, 0.43, 0.43, 1.6);//forward was 1.8
+                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.78); //right
+                                MecDriv(0.40, 0.40, 0.43, 0.43, 1.0);//forward was 1.6
                                 sleep(500);
                                 ShootRing();
-                               // MecDriv(0.6,-0.62,0.62,-0.6,2.0);//left
-                                MecDriv(0.6,-0.61,0.61,-0.6,2.15); //Strafe Left
-                               MecDriv(-0.6,-0.6,-0.62,-0.62,0.2);//backward
+                                MecDriv(0.6,0.6,0.6,0.6,1.1);//forward
+                                MecDriv(0.6,0.6,-0.6,-0.6,0.74);//rotate left
+                                MecDriv(0.6,0.60,0.6,0.6,1);//forward
+                                //MecDriv(0.6,-0.61,0.61,-0.6,2.15); //Strafe Left
+                               //MecDriv(-0.6,-0.6,-0.62,-0.62,0.2);//backward
                                 DropOfWob();
                                 //MecDriv(-0.6,-0.6,-0.6,-0.6,.1);
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 0.4);//backward
@@ -170,25 +172,25 @@ public class Blue2SHmod extends LinearOpMode {
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right t
 
-                            } else if (Decider == 2) {
-                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8);//right
-                                MecDriv(0.4, 0.4, 0.430, 0.430, 1.6); //forward
+                            } else if (Decider == 2) {// 4 rings
+                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.78);//right
+                                MecDriv(0.4, 0.4, 0.430, 0.430, 1.0); //forward
                                 sleep(500);
                                 ShootRing();
                                 MecDriv(0.6,0.6,0.6,0.6,1.65);//forward
-                                MecDriv(0.6,0.6,-0.6,-0.6,0.65);// rotates left
+                                MecDriv(0.6,0.6,-0.6,-0.6,0.74);// rotates left
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 1.0); //forward 0.9
                                 DropOfWob();
                                 MecDriv(0.6, -0.6, 0.6, -0.6,1.60); //left
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right},,
-                            } else {
-                                MecDriv(-0.6, 0.6, -0.6, 0.3, 0.8);//right
-                                MecDriv(0.3, 0.3, 0.430, 0.430, 1.6); //forward
+                            } else {//1 ring
+                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.78);//right
+                                MecDriv(0.4, 0.4, 0.430, 0.430, 1.0); //forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,1.1);//forward
-                                MecDriv(0.6, -0.61, 0.61, -0.6, 1.3);//Strafe left  1.0
+                                MecDriv(0.6,0.6,0.6,0.6,1.3);//forward
+                                MecDriv(0.6, -0.61, 0.61, -0.6, 1.4);//Strafe left  1.0
                                 DropOfWob();
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 0.5); //backwards
                                 // MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
@@ -267,7 +269,7 @@ public class Blue2SHmod extends LinearOpMode {
         //runtime.reset();
         int tel=0;
         while (opModeIsActive()  && (tel<1)) {
-            robot.Shooter.setPower(0.88); //use to be .94 shot to high
+            robot.Shooter.setPower(1.0); //use to be .88 shot to high
             robot.Launcher.setPosition(0.4);
             sleep(2000);
             robot.Lifter.setPosition(0.44);
@@ -278,11 +280,11 @@ public class Blue2SHmod extends LinearOpMode {
             robot.Lifter.setPosition(0.58);
             sleep(200);
 
-            robot.leftBack.setPower(-0.3);
-            robot.rightBack.setPower(0.3);
-            robot.leftFront.setPower(0.3);
-            robot.rightFront.setPower(-0.3);
-            sleep(600);
+            robot.leftBack.setPower(-0.4);
+            robot.rightBack.setPower(0.4);
+            robot.leftFront.setPower(0.4);
+            robot.rightFront.setPower(-0.4);
+            sleep(400);
             robot.leftBack.setPower(0.0);
             robot.rightBack.setPower(0.0);
             robot.leftFront.setPower(0.0);
@@ -298,11 +300,11 @@ public class Blue2SHmod extends LinearOpMode {
             robot.Lifter.setPosition(0.58);
             sleep(200);
 
-            robot.leftBack.setPower(-0.3);
-            robot.rightBack.setPower(0.3);
-            robot.leftFront.setPower(0.3);
-            robot.rightFront.setPower(-0.3);
-            sleep(600);
+            robot.leftBack.setPower(-0.4);
+            robot.rightBack.setPower(0.4);
+            robot.leftFront.setPower(0.4);
+            robot.rightFront.setPower(-0.4);
+            sleep(400);
             robot.leftBack.setPower(0.0);
             robot.rightBack.setPower(0.0);
             robot.leftFront.setPower(0.0);

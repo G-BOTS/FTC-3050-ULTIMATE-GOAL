@@ -194,8 +194,8 @@ public class Blue2SHtest extends LinearOpMode {
                                 MecDriv(0.3, 0.3, 0.3, 0.3, 2.1); //forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,0.8);//forward
-                                MecDriv(0.6, -0.62, 0.62, -0.6, 0.65);//rotates left
+                                MecDriv(0.6,0.6,0.6,0.6,1.0);//forward0.8
+                                MecDriv(0.6, -0.62, 0.62, -0.6, 0.74);//rotates left 0.65
                                 MecDriv(0.6,0.6,0.6,0.6,0.6);//Forward
                                 DropOfWob();
                                 MecDriv(0.6, -0.6, 0.6, -0.6, 0.5); //strafe left
