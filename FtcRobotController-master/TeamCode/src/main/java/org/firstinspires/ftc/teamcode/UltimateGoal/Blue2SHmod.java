@@ -161,7 +161,7 @@ public class Blue2SHmod extends LinearOpMode {
                                 sleep(500);
                                 ShootRing();
                                 MecDriv(0.6,0.6,0.6,0.6,1.1);//forward
-                                MecDriv(0.6,0.6,-0.6,-0.6,0.74);//rotate left
+                                MecDriv(0.6,0.6,-0.6,-0.6,0.72);//rotate left
                                 MecDriv(0.6,0.60,0.6,0.6,1);//forward
                                 //MecDriv(0.6,-0.61,0.61,-0.6,2.15); //Strafe Left
                                //MecDriv(-0.6,-0.6,-0.62,-0.62,0.2);//backward
@@ -173,12 +173,12 @@ public class Blue2SHmod extends LinearOpMode {
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right t
 
                             } else if (Decider == 2) {// 4 rings
-                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.78);//right
+                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.5);//right0.78
                                 MecDriv(0.4, 0.4, 0.430, 0.430, 1.0); //forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,1.65);//forward
-                                MecDriv(0.6,0.6,-0.6,-0.6,0.74);// rotates left
+                                MecDriv(0.6,0.6,0.6,0.6,2.2);//forward
+                                MecDriv(0.6,0.6,-0.6,-0.6,0.72);// rotates left
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 1.0); //forward 0.9
                                 DropOfWob();
                                 MecDriv(0.6, -0.6, 0.6, -0.6,1.60); //left
@@ -269,7 +269,7 @@ public class Blue2SHmod extends LinearOpMode {
         //runtime.reset();
         int tel=0;
         while (opModeIsActive()  && (tel<1)) {
-            robot.Shooter.setPower(1.0); //use to be .88 shot to high
+            robot.Shooter.setPower(0.9); //use to be .88 shot to high
             robot.Launcher.setPosition(0.4);
             sleep(2000);
             robot.Lifter.setPosition(0.44);
