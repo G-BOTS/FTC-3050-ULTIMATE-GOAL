@@ -28,7 +28,7 @@ import org.firstinspires.ftc.teamcode.HardwareUltimate;
  * is explained below.
  */
 @Autonomous
-// @Disabled
+//@Disabled
 public class Blue2SHtest extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "UltimateGoal.tflite";
     private static final String LABEL_FIRST_ELEMENT = "Quad";
@@ -164,11 +164,11 @@ public class Blue2SHtest extends LinearOpMode {
                             if (Decider == 1) {
 
                                 MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8); //right
-                                MecDriv(0.40, 0.40, 0.43, 0.43, 1.6);//forward was 1.8
+                                MecDriv(0.40, 0.40, 0.43, 0.43, 1.8);//forward was 1.8
                                 sleep(500);
                                 ShootRing();
                                 MecDriv(0.6,0.6,0.6,0.6,0.4);// forward
-                                MecDriv(0.6,0.6,-0.6,-0.6,0.72); //rotate left
+                                MecDriv(0.6,0.6,-0.6,-0.6,0.74); //rotate left
                                 MecDriv(0.6,0.6,0.62,0.62,1.0);//forward
                                 DropOfWob();
                                 //MecDriv(-0.6,-0.6,-0.6,-0.6,.1);
