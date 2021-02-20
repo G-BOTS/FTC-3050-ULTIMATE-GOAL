@@ -61,7 +61,7 @@ public class TestBedULT extends LinearOpMode {
                 robot.Shooter.setPower(ShPwr);
                 enc1 = robot.Shooter.getCurrentPosition();
                 tim1 = runtime.milliseconds();
-                sleep(200);
+                sleep(20);
                 enc2 = robot.Shooter.getCurrentPosition();
                 tim2 = runtime.milliseconds();
                 telemetry.addData("", (enc2 - enc1) / (tim2 - tim1));

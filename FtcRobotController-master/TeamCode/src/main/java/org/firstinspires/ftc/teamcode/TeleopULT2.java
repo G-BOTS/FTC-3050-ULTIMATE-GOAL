@@ -131,6 +131,7 @@ public class TeleopULT2 extends LinearOpMode {
                     robot.Launcher.setPosition(0.6);
                     sleep(250);
                     robot.Launcher.setPosition(0.4);
+                    sleep(200);
                     robot.Lifter.setPosition(0.58);
                     sleep(250);
                 } else {
