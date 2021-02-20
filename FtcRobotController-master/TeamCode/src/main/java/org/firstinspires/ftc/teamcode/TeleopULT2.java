@@ -111,7 +111,7 @@ public class TeleopULT2 extends LinearOpMode {
                 robot.rightFront.setPower(0.0);
                 if (counter == 1) {
                     robot.Lifter.setPosition(0.44);//0.42
-                    sleep(1000);
+                    sleep(500);//1000
                     robot.Launcher.setPosition(0.6);
                     sleep(450);
                     robot.Launcher.setPosition(0.4);
@@ -119,20 +119,20 @@ public class TeleopULT2 extends LinearOpMode {
 
                 } else if (counter == 2) {
                     robot.Lifter.setPosition(0.38);//used to be 0.368
-                    sleep(1000);
+                    sleep(250);//500
                     robot.Launcher.setPosition(0.6);
-                    sleep(450);
+                    sleep(250);//450
                     robot.Launcher.setPosition(0.4);
-                    sleep(450);
+                    sleep(250);//450
 
                 } else if (counter == 3) {
                     robot.Lifter.setPosition(0.343);//used to be 0.341
-                    sleep(1000);
+                    sleep(250);//500
                     robot.Launcher.setPosition(0.6);
-                    sleep(450);
+                    sleep(250);
                     robot.Launcher.setPosition(0.4);
                     robot.Lifter.setPosition(0.58);
-                    sleep(450);
+                    sleep(250);
                 } else {
                     counter = 0;
                     robot.Lifter.setPosition(0.6);
