@@ -179,7 +179,7 @@ public class Blue2SHmod extends LinearOpMode {
                                 ShootRing();
                                 MecDriv(0.6,0.6,0.6,0.6,2.2);//forward
                                 MecDriv(0.6,0.6,-0.6,-0.6,0.72);// rotates left
-                                MecDriv(0.6, 0.6, 0.62, 0.62, 1.0); //forward 0.9
+                                MecDriv(0.6, 0.6, 0.62, 0.62, 0.98); //forward 0.9
                                 DropOfWob();
                                 MecDriv(0.6, -0.6, 0.6, -0.6,1.60); //left
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
