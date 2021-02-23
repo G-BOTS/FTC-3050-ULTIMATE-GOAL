@@ -271,11 +271,11 @@ public class Blue2SHmod extends LinearOpMode {
         while (opModeIsActive()  && (tel<1)) {
             robot.Shooter.setPower(0.88); //use to be .88 shot to high
             robot.Launcher.setPosition(0.4);
-            sleep(2000);
+            sleep(2000);//2000
             robot.Lifter.setPosition(0.44);
-            sleep(300);
+            sleep(250);
             robot.Launcher.setPosition(0.6);
-            sleep(200);
+            sleep(250);
             robot.Launcher.setPosition(0.4);
             robot.Lifter.setPosition(0.58);
             sleep(200);
@@ -291,7 +291,7 @@ public class Blue2SHmod extends LinearOpMode {
             robot.rightFront.setPower(0.0);
             sleep(200);
 
-            robot.Lifter.setPosition(0.38);
+            robot.Lifter.setPosition(0.395);
             sleep(400);
             robot.Launcher.setPosition(0.6);
             sleep(200);

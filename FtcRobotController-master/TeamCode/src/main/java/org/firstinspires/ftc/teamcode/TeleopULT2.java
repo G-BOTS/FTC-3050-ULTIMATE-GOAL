@@ -51,7 +51,7 @@ public class TeleopULT2 extends LinearOpMode {
                 robot.rightFront.setPower(-gamepad1.left_stick_y - gamepad1.left_stick_x - gamepad1.right_stick_x);
             }
             if (gamepad1.left_bumper) {
-                robot.Shooter.setPower(0.9);
+                robot.Shooter.setPower(0.92);
             } else {
                 robot.Shooter.setPower(0);
             }
@@ -88,7 +88,7 @@ public class TeleopULT2 extends LinearOpMode {
                 robot.Elevator.setPower(0.0);
             }
             if (gamepad2.left_bumper) {
-                robot.inTake.setPower(0.8);
+                robot.inTake.setPower(0.65);//0.8
                 robot.belt.setPower(1.0);
             } else {
                 robot.inTake.setPower(0.0);
