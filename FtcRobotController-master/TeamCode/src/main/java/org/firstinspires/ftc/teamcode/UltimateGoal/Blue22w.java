@@ -157,7 +157,7 @@ public class Blue22w extends LinearOpMode {
                             if (Decider == 1) {//no rings
 
                                 //MecDriv(-0.6, 0.6, -0.6, 0.6, 0.5); //right
-                                MecDriv(0.40, 0.40, 0.43, 0.43, 1.0);//forward was 1.6
+                                MecDriv(0.40, 0.40, 0.43, 0.43, 0.9);//forward was 1.6
                                 sleep(500);
                                 ShootRing();
                                 MecDriv(0.6,0.6,0.6,0.6,1.2);//forward
@@ -167,7 +167,7 @@ public class Blue22w extends LinearOpMode {
                                 //MecDriv(-0.6,-0.6,-0.62,-0.62,0.2);//backward
                                 DropOfWob();
                                 MecDriv(-0.6,-0.6,-0.6,-0.6,0.7);//backwords
-                                MecDriv(0.6,-0.6,0.6,-0.6,2.5);//left
+                                MecDriv(0.6,-0.6,0.6,-0.6,2.6);//left
                                 MecDriv(0.6,0.6,0.6,0.6,0.1);//forward
                                 robot.WobbleClaw.setPosition(0.5);
                                 robot.ExtArm.setPower(0.9);
@@ -180,10 +180,11 @@ public class Blue22w extends LinearOpMode {
                                 robot.ExtArm.setPower(-0.9);
                                 sleep(500);
                                 robot.ExtArm.setPower(0);
-                                MecDriv(-0.6,0.6,-0.6,0.6,2.4);//right
+                                MecDriv(-0.6,0.6,-0.6,0.6,2.6);//right
+                                MecDriv(0.6, 0.6, 0.6, 0.6, 0.4);//forward
 
                                 DropOfWob();
-                                MecDriv(0.6, 0.6, 0.6, 0.6, 0.3);//forward
+                                //MecDriv(0.6, 0.6, 0.6, 0.6, 0.3);//forward
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 0.1);//backward..
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6,0.72); //rotate right
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
