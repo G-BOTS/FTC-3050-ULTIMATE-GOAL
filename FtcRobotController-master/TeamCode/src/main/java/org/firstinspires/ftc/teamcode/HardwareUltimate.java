@@ -157,8 +157,8 @@ public class HardwareUltimate {
         Launcher = hwMap.get(Servo.class, "Launch");
         //capstone = hwMap.get(Servo.class, "cap_stone");
 //
-        WobbleClaw.setPosition(-0.8);
-        Lifter.setPosition(0.58); //higer value drops the level
+        WobbleClaw.setPosition(0.9);
+        Lifter.setPosition(0.58); //higher value drops the level
         Launcher.setPosition(0.5);//lower value further back 0.42
         //right_hand.setPosition(0.1);
         //pickup.setPosition(0.8);

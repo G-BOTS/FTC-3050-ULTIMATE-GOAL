@@ -5,6 +5,7 @@ package org.firstinspires.ftc.teamcode.UltimateGoal;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -186,9 +187,6 @@ public class Blue22w extends LinearOpMode {
                                 DropOfWob();
                                 //MecDriv(0.6, 0.6, 0.6, 0.6, 0.3);//forward
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 0.1);//backward..
-                                //MecDriv(-0.6, -0.6, 0.6, 0.6,0.72); //rotate right
-                                //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
-                                //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right t
 
                             } else if (Decider == 2) {// 4 rings
                                 MecDriv(-0.6, 0.6, -0.6, 0.6, 0.5);//right0.78
@@ -203,16 +201,22 @@ public class Blue22w extends LinearOpMode {
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right},,
                             } else {//1 ring
-                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.5);//right
-                                MecDriv(0.4, 0.4, 0.430, 0.430, 1.0); //forward
+
+                                MecDriv(0.4, 0.4, 0.430, 0.430, 0.9); //forward
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,1.3);//forward
-                                MecDriv(0.6, -0.61, 0.61, -0.6, 1.25);//Strafe left  1.0
+                                PickupRing();
+                                MecDriv(0.6,0.6,0.6,0.6,1.4);//forward
+
                                 DropOfWob();
-                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.5); //backwards
-                                // MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
-                                // MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
+                                MecDriv(-0.6, -0.6, -0.6, -0.6, 1.8); //backwards
+                                 MecDriv(0.6, 0.6, -0.6, -0.6, 0.72);// robot rotates left
+                                 MecDriv(0.6, 0.6, 0.6, 0.6, 0.2);// forward}
+                                MecDriv(-0.6,-0.6,-0.6,-0.6,0.3);//backward
+                                MecDriv(0.6,0.6,0.6,0.6,0.72);//rotates right
+                                MecDriv(0.6,0.6,0.6,0.6,0.3);//forward
+                                DropOfWob();
+                                MecDriv(0.6,0.6,0.6,0.6,0.6);//backward
                             }
 
                         }
@@ -340,6 +344,20 @@ public class Blue22w extends LinearOpMode {
             tel=tel+1;
         }
         robot.Shooter.setPower(0.0);
+
+    }
+    public void PickupRing(){
+     //while (opModeIsActive()) {
+         robot.Elevator.setPower(0.6);
+         sleep(200);
+         robot.Elevator.setPower(0.0);
+         robot.inTake.setPower(0.65);
+         robot.belt.setPower(1.0);
+         MecDriv(0.4,0.4,04.,0.4,0.3);
+         sleep(1000);
+         robot.inTake.setPower(0);
+         robot.belt.setPower(0);
+         ShootRing();
 
     }
 

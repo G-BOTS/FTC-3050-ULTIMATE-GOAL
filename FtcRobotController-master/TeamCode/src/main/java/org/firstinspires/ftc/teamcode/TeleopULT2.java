@@ -66,11 +66,11 @@ public class TeleopULT2 extends LinearOpMode {
 
 
             if (gamepad2.x) {
-                robot.WobbleClaw.setPosition(0.0);
+                robot.WobbleClaw.setPosition(0.2);
             }
 
             if (gamepad2.b) {
-                robot.WobbleClaw.setPosition(0.4);
+                robot.WobbleClaw.setPosition(0.9);//was 0.4
             }
             if (gamepad2.dpad_left) {
                 robot.ExtArm.setPower(1);
