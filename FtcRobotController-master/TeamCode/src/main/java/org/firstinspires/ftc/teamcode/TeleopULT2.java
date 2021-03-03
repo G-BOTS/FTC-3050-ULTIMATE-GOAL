@@ -60,9 +60,14 @@ public class TeleopULT2 extends LinearOpMode {
                 sleep(250);
                 robot.Lifter.setPosition(0.58);
                 sleep(250);
-            } //else{
-            //bot.Lifter.setPosition(0.58);
-            //sleep(250);}
+            }
+            if (gamepad1.x) {
+                robot.RingTapper.setPosition(0.88);
+                sleep(200);
+            } else {
+                robot.RingTapper.setPosition(0.4);
+                sleep(200);
+            }
 
 
             if (gamepad2.x) {

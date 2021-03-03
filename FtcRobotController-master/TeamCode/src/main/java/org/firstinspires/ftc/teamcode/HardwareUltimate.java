@@ -28,6 +28,7 @@ public class HardwareUltimate {
     public CRServo ExtArm = null;//  = null;
     public Servo Lifter = null;
     public Servo Launcher = null;
+    public  Servo RingTapper= null;
    // public DistanceSensor sDistanceL = null;
     //public DistanceSensor sDistanceR = null;
     //public Servo capston;
@@ -127,8 +128,10 @@ public class HardwareUltimate {
 
 
         inTake.setDirection(DcMotor.Direction.REVERSE);
+        inTake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         inTake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         belt.setDirection(DcMotor.Direction.FORWARD);
+        belt.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         belt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
@@ -155,11 +158,13 @@ public class HardwareUltimate {
         ExtArm = hwMap.get(CRServo.class, "Ext_Arm");
         Lifter = hwMap.get(Servo.class, "Lift_er");
         Launcher = hwMap.get(Servo.class, "Launch");
+        RingTapper=hwMap.get(Servo.class,"Rtpr");
         //capstone = hwMap.get(Servo.class, "cap_stone");
 //
         WobbleClaw.setPosition(0.9);
         Lifter.setPosition(0.58); //higher value drops the level
         Launcher.setPosition(0.5);//lower value further back 0.42
+        RingTapper.setPosition(0.4);
         //right_hand.setPosition(0.1);
         //pickup.setPosition(0.8);
         //capstone.setPosition(0.4);
