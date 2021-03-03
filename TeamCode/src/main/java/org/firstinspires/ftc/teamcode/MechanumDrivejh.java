@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 @TeleOp
-//@Disabled
+@Disabled
 public class MechanumDrivejh extends LinearOpMode {
     // Declare Motors (and other Variables here)
     HardwareUltimate robot = new HardwareUltimate();   // Use  ultimate goal hardware

@@ -2,19 +2,19 @@ package org.firstinspires.ftc.teamcode.UltimateGoal;
 
 
 
-        import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-        import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-        import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-        import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-        import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
-        import java.util.List;
-        import org.firstinspires.ftc.robotcore.external.ClassFactory;
-        import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-        import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
-        import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
-        import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
-        import org.firstinspires.ftc.teamcode.HardwareUltimate;
+import java.util.List;
+import org.firstinspires.ftc.robotcore.external.ClassFactory;
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
+import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
+import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
+import org.firstinspires.ftc.teamcode.HardwareUltimate;
 
 /**
  * This 2020-2021 OpMode illustrates the basics of using the TensorFlow Object Detection API to
@@ -28,7 +28,7 @@ package org.firstinspires.ftc.teamcode.UltimateGoal;
  */
 @Autonomous
  @Disabled
-public class PlayWithWebcam extends LinearOpMode {
+public class Blue2 extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "UltimateGoal.tflite";
     private static final String LABEL_FIRST_ELEMENT = "Quad";
     private static final String LABEL_SECOND_ELEMENT = "Single";
@@ -106,6 +106,8 @@ public class PlayWithWebcam extends LinearOpMode {
         robot.leftFront.setPower(.0);
         robot.rightFront.setPower(.0);
         sleep(2000);
+        //ShootRing();
+
 
 
         if (opModeIsActive()) {
@@ -155,30 +157,31 @@ public class PlayWithWebcam extends LinearOpMode {
                             if (Decider == 1) {
 
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 1.45); //forward
-                                MecDriv(0.58, -0.6, 0.61, -0.6, 1.2);//left
-                                MecDriv(-0.6, -0.6, -0.62, -0.62, 0.1); //forward
+                                MecDriv(0.58, -0.6, 0.61, -0.6, 1.1);//left
+                                MecDriv(0.6, 0.6, 0.62, 0.62, 0.1); //forward
                                 DropOfWob();
-                                //MecDriv(0.6, -0.6, -0.6, 0.6, 1.250);//Strafe right
+                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.1);//backward
                                 // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right
 
                             } else if (Decider == 2) {
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 0.1); //forward
-                                MecDriv(0.58, -0.6, 0.61, -0.6, 0.8);//left
-                                MecDriv(0.6, 0.6, 0.62, 0.62, 2.60); //forward
+                                MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8);//right
+                                MecDriv(0.6, 0.6, 0.62, 0.62, 2.75); //forward
+                                MecDriv(0.6,0.6,-0.6,-0.6,0.7);// rotates left
+                                MecDriv(0.6, 0.6, 0.62, 0.62, 1.0); //forward
                                 DropOfWob();
-                                MecDriv(-0.6, -0.6, -0.6, -0.6, 1.250);//Backward
-                                // MecDriv(0.6, 0.6, 0.6, 0.6,1250); //forward
+                                 MecDriv(0.6, -0.6, 0.6, -0.6,1.60); //left
                                 //MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
                             } else {
                                 MecDriv(0.6, 0.6, 0.62, 0.62, 0.1); //forward
                                 MecDriv(-0.6, 0.6, -0.6, 0.6, 0.8);//right
-                                MecDriv(0.6, 0.6, 0.615, 0.615, 2.10); //forward
+                                MecDriv(0.6, 0.6, 0.615, 0.615, 2.00); //forward
                                 MecDriv(0.6, -0.6, 0.6, -0.6, 0.8);//Strafe left
                                 DropOfWob();
-                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.2); //backwards
+                                MecDriv(-0.6, -0.6, -0.6, -0.6, 0.5); //backwards
                                 // MecDriv(0.6, 0.6, -0.6, -0.6, 1.0);// robot rotates left
                                 // MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right}
                             }
@@ -194,62 +197,91 @@ public class PlayWithWebcam extends LinearOpMode {
         }
     }
 
-        /**
-         * Initialize the Vuforia localization engine.
+    /**
+     * Initialize the Vuforia localization engine.
+     */
+    private void initVuforia () {
+        /*
+         * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
          */
-        private void initVuforia () {
-            /*
-             * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
-             */
-            VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
+        VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
-            parameters.vuforiaLicenseKey = VUFORIA_KEY;
-            parameters.cameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
+        parameters.vuforiaLicenseKey = VUFORIA_KEY;
+        parameters.cameraName = hardwareMap.get(WebcamName.class, "Webcam 1");
 
-            //  Instantiate the Vuforia engine
-            vuforia = ClassFactory.getInstance().createVuforia(parameters);
+        //  Instantiate the Vuforia engine
+        vuforia = ClassFactory.getInstance().createVuforia(parameters);
 
-            // Loading trackables is not necessary for the TensorFlow Object Detection engine.
-        }
+        // Loading trackables is not necessary for the TensorFlow Object Detection engine.
+    }
 
-        /**
-         * Initialize the TensorFlow Object Detection engine.
-         */
-        private void initTfod () {
-            int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier(
-                    "tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
-            TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
-            tfodParameters.minResultConfidence = 0.8f;
-            tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
-            tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABEL_FIRST_ELEMENT, LABEL_SECOND_ELEMENT);
+    /**
+     * Initialize the TensorFlow Object Detection engine.
+     */
+    private void initTfod () {
+        int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier(
+                "tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
+        tfodParameters.minResultConfidence = 0.8f;
+        tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
+        tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABEL_FIRST_ELEMENT, LABEL_SECOND_ELEMENT);
+    }
+    public void MecDriv ( double RFP, double RBP, double LBP, double LFP, double duration){
+        runtime.reset();
+        while (opModeIsActive() && runtime.time() < duration) {
+            robot.rightFront.setPower(RFP);
+            robot.rightBack.setPower(RBP);
+            robot.leftBack.setPower(LBP);
+            robot.leftFront.setPower(LFP);
+            telemetry.addData("Time expired", "Run Time:" + runtime.toString());
+            telemetry.update();
         }
-        public void MecDriv ( double RFP, double RBP, double LBP, double LFP, double duration){
-            runtime.reset();
-            while (opModeIsActive() && runtime.time() < duration) {
-                robot.rightFront.setPower(RFP);
-                robot.rightBack.setPower(RBP);
-                robot.leftBack.setPower(LBP);
-                robot.leftFront.setPower(LFP);
-                telemetry.addData("Time expired", "Run Time:" + runtime.toString());
-                telemetry.update();
-            }
-            robot.rightFront.setPower(0.0);
-            robot.rightBack.setPower(0.0);
-            robot.leftBack.setPower(0.0);
-            robot.leftFront.setPower(0.0);
-            sleep(500);
-            count++;
+        robot.rightFront.setPower(0.0);
+        robot.rightBack.setPower(0.0);
+        robot.leftBack.setPower(0.0);
+        robot.leftFront.setPower(0.0);
+        sleep(500);
+        count++;
+    }
+    public void DropOfWob () {
+        robot.ExtArm.setPower(0.9);
+        sleep(1000);
+        robot.ExtArm.setPower(0.0);
+        sleep(250);
+        robot.WobbleClaw.setPosition(0.6); //Drop off Wobble Goal in Target Zone A
+        sleep(250);
+        robot.ExtArm.setPower(-0.9);
+        sleep(500);
+        robot.ExtArm.setPower(0.0);
+    }
+    public void ShootRing(){
+        runtime.reset();
+        while (runtime.time() <4) {
+            robot.Shooter.setPower(.98);
+            //sleep(1200);
+            robot.Lifter.setPosition(-0.5);
+            sleep(200);
+            robot.Launcher.setPosition(-0.6);
+            sleep(200);
+            robot.Launcher.setPosition(-0.4);
+            sleep(200);
+
+            robot.Lifter.setPosition(-0.6);
+            sleep(200);
+            robot.Launcher.setPosition(-0.6);
+            sleep(200);
+            robot.Launcher.setPosition(-0.4);
+            sleep(200);
+
+            robot.Lifter.setPosition(-0.7);
+            sleep(200);
+            robot.Launcher.setPosition(-0.6);
+            sleep(200);
+            robot.Launcher.setPosition(-0.4);
+            sleep(200);
         }
-        public void DropOfWob () {
-            robot.ExtArm.setPower(0.9);
-            sleep(1000);
-            robot.ExtArm.setPower(0.0);
-            sleep(250);
-            robot.WobbleClaw.setPosition(0.6); //Drop off Wobble Goal in Target Zone A
-            sleep(250);
-            robot.ExtArm.setPower(-0.9);
-            sleep(500);
-            robot.ExtArm.setPower(0.0);
-        }
+        robot.Shooter.setPower(0.0);
 
     }
+
+}

@@ -1,10 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -15,15 +18,20 @@ public class HardwareUltimate {
     public DcMotor leftFront = null;
     public DcMotor rightFront = null;
     public DcMotor Elevator = null;
-    //public DcMotor arm = null;
-    // public DcMotor rightIntake = null;
+    public DcMotor Shooter = null;
+    public DcMotor inTake = null;
+    public DcMotor belt = null;
     //public DcMotor  armDrive    = null;
     //public DcMotor  leftIntake  = null;
 
-    public Servo WobbleClaw; // = null;
-    public CRServo ExtArm;//  = null;
-    //public Servo pickup;
-    //public Servo capstone;
+    public Servo WobbleClaw = null; // = null;
+    public CRServo ExtArm = null;//  = null;
+    public Servo Lifter = null;
+    public Servo Launcher = null;
+    public  Servo RingTapper= null;
+   // public DistanceSensor sDistanceL = null;
+    //public DistanceSensor sDistanceR = null;
+    //public Servo capston;
     //public Servo dropper;
     //public Servo serv40;
 //    public Servo serv41;
@@ -33,6 +41,8 @@ public class HardwareUltimate {
 //    public Servo serv45;
 //    public Servo serv24;
 //    public Servo serv25;
+
+    //public BNO055IMU imu;
 
     //public ColorSensor sensorColor;
     //public ColorSensor sensorColorleft;
@@ -75,6 +85,14 @@ public class HardwareUltimate {
         leftFront = hwMap.get(DcMotor.class, "left_Front");
         rightFront = hwMap.get(DcMotor.class, "right_Front");
         Elevator = hwMap.get(DcMotor.class, "ele_Vator");
+        Shooter = hwMap.get(DcMotor.class, "shooter");
+        inTake = hwMap.get(DcMotor.class, "in_take");
+        belt = hwMap.get(DcMotor.class, "belt");
+        //sDistanceL = hwMap.get(DistanceSensor.class, "dis_left");
+        //sDistanceR = hwMap.get(DistanceSensor.class, "dis_right");
+
+
+        // imu = hwMap.get(BNO055IMU.class, "imu");
         //arm = hwMap.get(DcMotor.class, "wob_Arm");
         //rightElv = hwMap.get(DcMotor.class, "right_elevator");
         //armDrive = hwMap.get(DcMotor.class, "arm_drive" );
@@ -99,17 +117,22 @@ public class HardwareUltimate {
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        //Elevator.setDirection(DcMotor.Direction.FORWARD);
-       // Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-       // Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        //arm.setDirection(DcMotor.Direction.FORWARD);
-        //arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        //arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        Elevator.setDirection(DcMotor.Direction.FORWARD);
+        Elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        Elevator.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        Shooter.setDirection(DcMotor.Direction.FORWARD);
+        Shooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        Shooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
-        //leftIntake.setDirection(DcMotor.Direction.FORWARD);
-        //rightIntake.setDirection(DcMotor.Direction.FORWARD);
+        inTake.setDirection(DcMotor.Direction.REVERSE);
+        inTake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        inTake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        belt.setDirection(DcMotor.Direction.FORWARD);
+        belt.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        belt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
         // Set all motors to zero power
@@ -118,8 +141,9 @@ public class HardwareUltimate {
         leftFront.setPower(0);
         rightFront.setPower(0);
         Elevator.setPower(0);
-        //arm.setPower(0);
-        //rightIntake.setPower(0);
+        Shooter.setPower(0);
+        inTake.setPower(0);
+        belt.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
@@ -132,11 +156,15 @@ public class HardwareUltimate {
         // Define and initialize ALL installed servos.
         WobbleClaw = hwMap.get(Servo.class, "WobbleClaw");
         ExtArm = hwMap.get(CRServo.class, "Ext_Arm");
-        //pickup = hwMap.get(Servo.class, "pick_up");
+        Lifter = hwMap.get(Servo.class, "Lift_er");
+        Launcher = hwMap.get(Servo.class, "Launch");
+        RingTapper=hwMap.get(Servo.class,"Rtpr");
         //capstone = hwMap.get(Servo.class, "cap_stone");
 //
-        WobbleClaw.setPosition(-.8);
-        //left_hand.setPosition(0.95);
+        WobbleClaw.setPosition(0.9);
+        Lifter.setPosition(0.58); //higher value drops the level
+        Launcher.setPosition(0.5);//lower value further back 0.42
+        RingTapper.setPosition(0.4);
         //right_hand.setPosition(0.1);
         //pickup.setPosition(0.8);
         //capstone.setPosition(0.4);

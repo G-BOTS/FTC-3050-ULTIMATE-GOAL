@@ -16,7 +16,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Position;
 import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
 @Autonomous(name="GyroStraight", group="AltG")
-//@Disabled
+@Disabled
 public class GyroStraight extends LinearOpMode
 {
     HardwareUltimate robot= new HardwareUltimate();
@@ -71,7 +71,7 @@ public class GyroStraight extends LinearOpMode
         telemetry.addData("Mode", "waiting for start");
         telemetry.addData("imu calib status", imu.getCalibrationStatus().toString());
         telemetry.update();
-        double MotPwr=0.6;
+        double MotPwr=0.4;
 
         // wait for start button.
 
@@ -87,7 +87,8 @@ public class GyroStraight extends LinearOpMode
         while (opModeIsActive())
         {
             // Use gyro to drive in a straight line.
-            correction = checkDirection();
+            correction =- 0.1;
+            lastAngles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
 
             telemetry.addData("1 imu heading", lastAngles.firstAngle);
             telemetry.addData("2 global heading", globalAngle);
@@ -98,7 +99,7 @@ public class GyroStraight extends LinearOpMode
                 robot.rightBack.setPower(MotPwr);
                 robot.leftFront.setPower(MotPwr);
                 robot.rightFront.setPower(MotPwr);
-                sleep(400);//previus 1850
+                sleep(4000);//previus 1850
 
             }else if(correction > 0) {
 
@@ -106,13 +107,13 @@ public class GyroStraight extends LinearOpMode
                 robot.rightBack.setPower(MotPwr + correction);
                 robot.leftFront.setPower(MotPwr + correction);
                 robot.rightFront.setPower(MotPwr - correction);
-                sleep(400);//previus 1850
+                sleep(4000);//previus 1850
             }else{
                 robot.leftBack.setPower(MotPwr + correction);
                 robot.rightBack.setPower(MotPwr - correction);
                 robot.leftFront.setPower(MotPwr - correction);
                 robot.rightFront.setPower(MotPwr + correction);
-                sleep(400);//previus 1850
+                sleep(4000);//previus 1850
             }
 
             //Stop all motors and pause for 2 seconds
