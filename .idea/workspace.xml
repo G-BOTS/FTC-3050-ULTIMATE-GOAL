@@ -23,12 +23,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66624f41-25d6-4d3f-accc-6c3c162990d5" name="Default Changelist" comment="testing new TeleopULT3">
+    <list default="true" id="66624f41-25d6-4d3f-accc-6c3c162990d5" name="Default Changelist" comment="fixed the intake intermittency">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/HardwareUltimate.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/HardwareUltimate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleopULT2.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleopULT2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleopULT3.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleopULT3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/UltimateGoal/Blue22w.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/UltimateGoal/Blue22w.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +200,21 @@
       <option name="project" value="LOCAL" />
       <updated>1614810388002</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed the intake intermittend">
+      <created>1614816266960</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614816266960</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixed the intake intermittency">
+      <created>1614816542175</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1614816542175</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,7 +268,9 @@
     <MESSAGE value="Updated gradle files" />
     <MESSAGE value="UP-TO-DATE 3/2/2021 Version 6.2" />
     <MESSAGE value="testing new TeleopULT3" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing new TeleopULT3" />
+    <MESSAGE value="fixed the intake intermittend" />
+    <MESSAGE value="fixed the intake intermittency" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the intake intermittency" />
   </component>
   <component name="WindowStateProjectService">
     <state x="654" y="275" key="#Notifications" timestamp="1610147735237">
@@ -283,22 +297,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1610150912084" />
-    <state width="745" height="2" key="GridCell.Tab.0.bottom" timestamp="1614814024475">
+    <state width="745" height="2" key="GridCell.Tab.0.bottom" timestamp="1614821207043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614814024475" />
-    <state width="745" height="2" key="GridCell.Tab.0.center" timestamp="1614814024475">
+    <state width="745" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1614821207043" />
+    <state width="745" height="2" key="GridCell.Tab.0.center" timestamp="1614821207043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1614814024475" />
-    <state width="745" height="2" key="GridCell.Tab.0.left" timestamp="1614814024474">
+    <state width="745" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1614821207043" />
+    <state width="745" height="2" key="GridCell.Tab.0.left" timestamp="1614821207043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1614814024474" />
-    <state width="745" height="2" key="GridCell.Tab.0.right" timestamp="1614814024475">
+    <state width="745" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1614821207043" />
+    <state width="745" height="2" key="GridCell.Tab.0.right" timestamp="1614821207043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1614814024475" />
+    <state width="745" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1614821207043" />
     <state x="407" y="173" key="MultipleFileMergeDialog" timestamp="1614746312748">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -311,10 +325,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="100" y="100" width="1336" height="624" key="ShowDiffWithBranchDialog/0.0.1536.824@0.0.1536.824" timestamp="1610148143432" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1614810391139">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1614816545455">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1614810391139" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1614816545455" />
     <state x="127" y="146" key="VcsDiffUtil.ChangesDialog" timestamp="1609978322249">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
