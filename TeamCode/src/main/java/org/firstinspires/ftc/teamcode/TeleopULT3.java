@@ -28,9 +28,11 @@ public class TeleopULT3 extends LinearOpMode {
         robot.Elevator.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.Elevator.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.Shooter.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.Shooter.setMode((DcMotor.RunMode.RUN_WITHOUT_ENCODER));
+        robot.Shooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //robot.inTake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //robot.belt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        robot.WobbleClaw.setPosition(-.9);
+        robot.WobbleClaw.setPosition(-0.9);
         robot.Launcher.setPosition(0.4);
 
         waitForStart();
@@ -61,94 +63,19 @@ public class TeleopULT3 extends LinearOpMode {
                 robot.Lifter.setPosition(0.58);
                 sleep(250);
             }
-            if (gamepad1.x) {
-                robot.RingTapper.setPosition(0.88);
-                sleep(200);
-            } else {
-                robot.RingTapper.setPosition(0.4);
-                sleep(200);
-            }
-
-
-            if (gamepad2.x) {
-                robot.WobbleClaw.setPosition(0.2);
-            }
-
-            if (gamepad2.b) {
-                robot.WobbleClaw.setPosition(0.9);//was 0.4
-            }
-            if (gamepad2.dpad_left) {
-                robot.ExtArm.setPower(1);
-            } else if (gamepad2.dpad_right) {
-                robot.ExtArm.setPower(-1);
-            } else {
-                robot.ExtArm.setPower(0.0);
-            }
-
-            if (gamepad2.dpad_up) {
-                robot.Elevator.setPower(0.8);
-            } else if (gamepad2.dpad_down) {
-                robot.Elevator.setPower(-0.4);
-            } else {
-                robot.Elevator.setPower(0.0);
-            }
-            if (gamepad2.right_bumper) {
-                robot.inTake.setPower(0.65);//0.8
-                robot.belt.setPower(1.0);
-            } else {
-                robot.inTake.setPower(0.0);
-                robot.belt.setPower(0.0);
-            }
-
             if (gamepad2.left_bumper) {
-                robot.inTake.setPower(-0.5);
-                robot.belt.setPower(-1.0);
-            } else {
+                robot.inTake.setPower(0.6);
+                robot.belt.setPower(1.0);
+
+            }   else {
                 robot.inTake.setPower(0.0);
                 robot.belt.setPower(0.0);
             }
-
-            if (gamepad1.a) {
-                counter = counter + 1;
-                robot.leftBack.setPower(0.0);
-                robot.rightBack.setPower(0.0);
-                robot.leftFront.setPower(0.0);
-                robot.rightFront.setPower(0.0);
-                if (counter == 1) {
-                    robot.Lifter.setPosition(0.44);//0.42
-                    sleep(500);//1000
-                    robot.Launcher.setPosition(0.6);
-                    sleep(450);
-                    robot.Launcher.setPosition(0.4);
-                    sleep(450);
-
-                } else if (counter == 2) {
-                    robot.Lifter.setPosition(0.395);//used to be 0.38
-                    sleep(250);//500
-                    robot.Launcher.setPosition(0.6);
-                    sleep(250);//450
-                    robot.Launcher.setPosition(0.4);
-                    sleep(250);//450
-
-                } else if (counter == 3) {
-                    robot.Lifter.setPosition(0.343);//used to be 0.341
-                    sleep(250);//500
-                    robot.Launcher.setPosition(0.6);
-                    sleep(250);
-                    robot.Launcher.setPosition(0.4);
-                    sleep(200);
-                    robot.Lifter.setPosition(0.58);
-                    sleep(250);
-                } else {
-                    counter = 0;
-                    robot.Lifter.setPosition(0.6);
-                    sleep(450);
-                }
-
-            }
-
 
         }
+
+
+
     }
 }
 
