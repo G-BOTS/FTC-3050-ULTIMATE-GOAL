@@ -365,14 +365,14 @@ public class Blue22w extends LinearOpMode {
     public void PickupWobbleGoal(){
         robot.WobbleClaw.setPosition(0.2);
         robot.ExtArm.setPower(0.9);
-        sleep(500);
+        sleep(700);
         robot.ExtArm.setPower(0);
         robot.WobbleClaw.setPosition(0.9);
         robot.Elevator.setPower(0.4);
         sleep(1000);
         robot.Elevator.setPower(0.1);
         robot.ExtArm.setPower(-0.9);
-        sleep(500);
+        sleep(700);
         robot.ExtArm.setPower(0);
         robot.Elevator.setPower(0);
 
