@@ -23,10 +23,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66624f41-25d6-4d3f-accc-6c3c162990d5" name="Default Changelist" comment="add left triger">
+    <list default="true" id="66624f41-25d6-4d3f-accc-6c3c162990d5" name="Default Changelist" comment="One ring auto">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleopULT2.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TeleopULT2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/UltimateGoal/Blue22w.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/UltimateGoal/Blue22w.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +33,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.43.1:5555]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -236,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614894790048</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="One ring auto">
+      <created>1614911182769</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1614911182769</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,7 +301,8 @@
     <MESSAGE value="work on auto" />
     <MESSAGE value="work on auto 22" />
     <MESSAGE value="add left triger" />
-    <option name="LAST_COMMIT_MESSAGE" value="add left triger" />
+    <MESSAGE value="One ring auto" />
+    <option name="LAST_COMMIT_MESSAGE" value="One ring auto" />
   </component>
   <component name="WindowStateProjectService">
     <state x="654" y="275" key="#Notifications" timestamp="1610147735237">
@@ -350,10 +357,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="100" y="100" width="1336" height="624" key="ShowDiffWithBranchDialog/0.0.1536.824@0.0.1536.824" timestamp="1610148143432" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1614822282086">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1614911188001">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1614822282086" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1614911188001" />
     <state x="127" y="146" key="VcsDiffUtil.ChangesDialog" timestamp="1609978322249">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

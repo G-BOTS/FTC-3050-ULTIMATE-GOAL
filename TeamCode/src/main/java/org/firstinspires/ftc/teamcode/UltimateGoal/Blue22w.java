@@ -205,13 +205,13 @@ public class Blue22w extends LinearOpMode {
                             } else {//1 ring
 
                                 MecDriv(0.4, 0.4, 0.430, 0.430, 0.65); //forward
-                                MecDriv(0.6,-0.6,0.6,-0.6,0.2);//strafe left
+                                MecDriv(0.6,-0.6,0.6,-0.6,0.3);//strafe left, was .2
                                 sleep(500);
                                 ShootRing();
                                 PickupRing();
                                 ShootOne();
                                 MecDriv(0.6,0.6,0.6,0.6,1.6);//forward
-                                MecDriv(0.6,-0.6,0.6,-0.6,0.2);//strafe left
+                                MecDriv(0.6,-0.6,0.6,-0.6,0.35);//strafe left,was .2
                                 DropOfWob();
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 1.8); //backwards
                                  MecDriv(0.6, 0.6, -0.6, -0.6, 0.72);// robot rotates left
@@ -336,9 +336,9 @@ public class Blue22w extends LinearOpMode {
          robot.Elevator.setPower(0.6);
          sleep(200);
          robot.Elevator.setPower(0.0);
-         robot.inTake.setPower(0.65);
+         robot.inTake.setPower(0.45);//was .65
          robot.belt.setPower(1.0);
-         MecDriv(0.4,0.4,04.,0.4,0.3);
+         MecDriv(0.3,0.3,03.,0.3,0.3);//was .2 forward--.3 duration, .3p-.3d
          sleep(3000);
          robot.inTake.setPower(0);
          robot.belt.setPower(0);
