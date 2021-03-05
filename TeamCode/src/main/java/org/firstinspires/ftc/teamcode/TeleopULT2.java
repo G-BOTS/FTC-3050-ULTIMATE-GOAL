@@ -61,12 +61,12 @@ public class TeleopULT2 extends LinearOpMode {
                 robot.Lifter.setPosition(0.58);
                 sleep(250);
             }
-            if (gamepad1.x) {
+            /*if (gamepad1.x) {
                 robot.RingTapper.setPosition(0.88);
 
             } else {
                 robot.RingTapper.setPosition(0.4);
-            }
+            }*/
             if(gamepad1.left_trigger>0.5){
                 robot.RingTapper.setPosition(0.88);
             }else {
@@ -75,11 +75,11 @@ public class TeleopULT2 extends LinearOpMode {
 
 
             if (gamepad2.x) {
-                robot.WobbleClaw.setPosition(0.2);
+                robot.WobbleClaw.setPosition(0.9);
             }
 
             if (gamepad2.b) {
-                robot.WobbleClaw.setPosition(0.9);//was 0.4
+                robot.WobbleClaw.setPosition(0.2);//was 0.4
             }
             if (gamepad2.dpad_left) {
                 robot.ExtArm.setPower(1);

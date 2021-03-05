@@ -158,18 +158,18 @@ public class Blue22w extends LinearOpMode {
                             if (Decider == 1) {//no rings
 
                                 //MecDriv(-0.6, 0.6, -0.6, 0.6, 0.5); //right
-                                MecDriv(0.40, 0.40, 0.43, 0.43, 0.9);//forward was 1.6
+                                MecDriv(0.40, 0.40, 0.43, 0.43, 1.2);//forward was 0.9
                                 sleep(500);
                                 ShootRing();
-                                MecDriv(0.6,0.6,0.6,0.6,1.18);//forward 1.2
-                                MecDriv(0.6,0.6,-0.6,-0.6,0.72);//rotate left
+                                MecDriv(0.6,0.6,0.6,0.6,1.0);//forward 1.18
+                                MecDriv(0.6,0.6,-0.6,-0.6,0.8);//rotate left
                                 MecDriv(0.6,0.60,0.6,0.6,0.6);//forward
                                 //MecDriv(0.6,-0.61,0.61,-0.6,2.15); //Strafe Left
                                 //MecDriv(-0.6,-0.6,-0.62,-0.62,0.2);//backward
                                 DropOfWob();
                                 MecDriv(-0.6,-0.6,-0.6,-0.6,0.7);//backwords
-                                MecDriv(0.6,-0.6,0.6,-0.6,2.60);//left
-                                MecDriv(0.6,0.6,0.6,0.6,0.2);//forward
+                                MecDriv(0.6,-0.6,0.6,-0.6,2.70);//left2.6
+                                MecDriv(0.6,0.6,0.6,0.6,0.15);//forward
                                 PickupWobbleGoal();
                                /*robot.WobbleClaw.setPosition(0.2);
                                 robot.ExtArm.setPower(0.9);
@@ -204,12 +204,14 @@ public class Blue22w extends LinearOpMode {
                                 //MecDriv(-0.6, -0.6, 0.6, 0.6, 1.0);// robot rotates right},,
                             } else {//1 ring
 
-                                MecDriv(0.4, 0.4, 0.430, 0.430, 0.9); //forward
+                                MecDriv(0.4, 0.4, 0.430, 0.430, 0.65); //forward
+                                MecDriv(0.6,-0.6,0.6,-0.6,0.2);//strafe left
                                 sleep(500);
                                 ShootRing();
                                 PickupRing();
-                                MecDriv(0.6,0.6,0.6,0.6,1.4);//forward
-
+                                ShootOne();
+                                MecDriv(0.6,0.6,0.6,0.6,1.6);//forward
+                                MecDriv(0.6,-0.6,0.6,-0.6,0.2);//strafe left
                                 DropOfWob();
                                 MecDriv(-0.6, -0.6, -0.6, -0.6, 1.8); //backwards
                                  MecDriv(0.6, 0.6, -0.6, -0.6, 0.72);// robot rotates left
@@ -304,16 +306,6 @@ public class Blue22w extends LinearOpMode {
             robot.Lifter.setPosition(0.58);
             sleep(200);
 
-            /*robot.leftBack.setPower(-0.4);
-            robot.rightBack.setPower(0.4);
-            robot.leftFront.setPower(0.4);
-            robot.rightFront.setPower(-0.4);
-            sleep(400);
-            robot.leftBack.setPower(0.0);
-            robot.rightBack.setPower(0.0);
-            robot.leftFront.setPower(0.0);
-            robot.rightFront.setPower(0.0);
-            sleep(200);*/
 
             robot.Lifter.setPosition(0.395);
             sleep(400);
@@ -324,16 +316,7 @@ public class Blue22w extends LinearOpMode {
             robot.Lifter.setPosition(0.58);
             sleep(200);
 
-            /*robot.leftBack.setPower(-0.4);
-            robot.rightBack.setPower(0.4);
-            robot.leftFront.setPower(0.4);
-            robot.rightFront.setPower(-0.4);
-            sleep(400);
-            robot.leftBack.setPower(0.0);
-            robot.rightBack.setPower(0.0);
-            robot.leftFront.setPower(0.0);
-            robot.rightFront.setPower(0.0);
-            sleep(1000);*/
+
 
             robot.Lifter.setPosition(0.343);//initial value 33
             sleep(300);
@@ -356,7 +339,7 @@ public class Blue22w extends LinearOpMode {
          robot.inTake.setPower(0.65);
          robot.belt.setPower(1.0);
          MecDriv(0.4,0.4,04.,0.4,0.3);
-         sleep(1000);
+         sleep(3000);
          robot.inTake.setPower(0);
          robot.belt.setPower(0);
          ShootRing();
@@ -365,7 +348,7 @@ public class Blue22w extends LinearOpMode {
     public void PickupWobbleGoal(){
         robot.WobbleClaw.setPosition(0.2);
         robot.ExtArm.setPower(0.9);
-        sleep(1000);
+        sleep(1500);
         robot.ExtArm.setPower(0);
         robot.WobbleClaw.setPosition(0.9);
         sleep(600);
@@ -376,6 +359,9 @@ public class Blue22w extends LinearOpMode {
         sleep(700);
         robot.ExtArm.setPower(0);
         robot.Elevator.setPower(0);
+
+    }
+    public void ShootOne(){
 
     }
 
