@@ -167,8 +167,8 @@ public class Blue22walt extends LinearOpMode {
                                 //MecDriv(0.6,-0.61,0.61,-0.6,2.15); //Strafe Left
                                 //MecDriv(-0.6,-0.6,-0.62,-0.62,0.2);//backward
                                 DropOfWob();
-                                MecDriv(-0.6,-0.6,-0.6,-0.6,0.7);//backwords
-                                MecDriv(0.6,-0.6,0.6,-0.6,2.70);//left2.6
+                                MecDriv(-0.6,-0.6,-0.6,-0.6,0.55);//backwords
+                                MecDriv(0.6,-0.6,0.6,-0.6,2.5);//left 2.6, 2.7,
                                 MecDriv(0.6,0.6,0.6,0.6,0.15);//forward
                                 PickupWobbleGoal();
                                /*robot.WobbleClaw.setPosition(0.2);
@@ -205,23 +205,24 @@ public class Blue22walt extends LinearOpMode {
                             } else {//1 ring
 
                                 MecDriv(0.4, 0.4, 0.430, 0.430, 0.55); //forward0.65
-                                MecDriv(0.6,-0.6,0.6,-0.6,0.23);//strafe left, was .2
+                                MecDriv(0.6,-0.6,0.6,-0.6,0.19);//strafe left, was .2
                                 //sleep(500);
                                 ShootRing();
                                 PickupRing();
                                 //MecDriv(0.3,0.3,0.3,0.3,0.3);//
-                                MecDriv(0.8,0.8,0.8,0.8,0.9);//forward1.75
-                                //MecDriv(0.9,-0.9,0.9,-0.9,0.3);//strafe left,was .65
+                                MecDriv(0.7,0.7,0.7,0.7,0.8);//forward1.75,.9,.8
+                                MecDriv(0.9,-0.9,0.9,-0.9,0.15);//strafe left,was .65,0.2,0.25
                                 DropOfWob();
-                                MecDriv(-0.9,-0.9,-0.9,-0.9,0.2);//backwards
-                                MecDriv(-0.8,-0.8,0.8,0.8,1.0);//rotate right
-                                MecDriv(1.0, 1.0, 1.0, 1.0, 1.1); //forward
+                                MecDriv(-0.6,-0.6,-0.6,-0.6,0.3);//backwards
+                                MecDriv(-0.7,-0.7,0.7,0.7,1.17);//rotate right was 1.1, 1.18
+                                MecDriv(0.8, 0.8, 0.8, 0.8, 1.1); //forward was 0.9
+                                //MecDriv(-0.6,0.6,-0.6,0.6,0.2);//strafe right, .1
                                 //MecDriv(1.0, 1.0, -1.0, -1.0, 0.4);// robot rotates left
                                 //MecDriv(0.6, 0.6, 0.6, 0.6, 0.1);// forward}
                                 PickupWobbleGoal();
                                 MecDriv(-1.0,-1.0,-1.0,-1.0,0.8);//backward
-                                MecDriv(-1.0,-1.0,1.0,1.0,0.75);//rotates right
-                                MecDriv(1.0,1.0,1.0,1.0,0.2);//forward
+                                MecDriv(-1.0,-1.0,1.0,1.0,0.75);//rotates right was 0.7, 0.77
+                                MecDriv(1.0,1.0,1.0,1.0,0.3);//forward
                                 DropOfWob();
                                 MecDriv(-1.0,-1.0,-1.0,-1.0,0.05);//backward
                             }
@@ -285,7 +286,7 @@ public class Blue22walt extends LinearOpMode {
     }
     public void DropOfWob () {
         robot.ExtArm.setPower(1.0);//.9
-        sleep(750);//used to be 1s
+        sleep(600);//used to be 1s
         robot.ExtArm.setPower(0.0);
         sleep(250);
         robot.WobbleClaw.setPosition(0.2); //Drop off Wobble Goal in Target Zone A
@@ -340,9 +341,9 @@ public class Blue22walt extends LinearOpMode {
         sleep(200);
         robot.Elevator.setPower(0.0);
         sleep(700);
-        robot.inTake.setPower(0.45);//was .65
+        robot.inTake.setPower(0.35);//was .65
         robot.belt.setPower(1.0);
-        MecDriv(0.9,0.9,0.9,0.9,0.2);//was .lbp set to 1 instead of 0.3
+        MecDriv(0.7,0.7,0.7,0.7,0.3);//was .lbp set to 1 instead of 0.3,.9 and .1
         sleep(2000);
         MecDriv(0.6,0.6,0.6,0.6,0.8);//0.3
         robot.inTake.setPower(0);
