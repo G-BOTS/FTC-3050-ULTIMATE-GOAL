@@ -29,7 +29,7 @@ import org.firstinspires.ftc.teamcode.HardwareUltimate;
  */
 @Autonomous
 // @Disabled
-public class Blue22w extends LinearOpMode {
+public class Blue22walt extends LinearOpMode {
     private static final String TFOD_MODEL_ASSET = "UltimateGoal.tflite";
     private static final String LABEL_FIRST_ELEMENT = "Quad";
     private static final String LABEL_SECOND_ELEMENT = "Single";
@@ -210,20 +210,20 @@ public class Blue22w extends LinearOpMode {
                                 ShootRing();
                                 PickupRing();
                                 //MecDriv(0.3,0.3,0.3,0.3,0.3);//
-                                MecDriv(1.0,1.0,1.0,1.0,0.7);//forward1.75
-                                MecDriv(0.9,-0.9,0.9,-0.9,0.3);//strafe left,was .65
+                                MecDriv(0.8,0.8,0.8,0.8,0.9);//forward1.75
+                                //MecDriv(0.9,-0.9,0.9,-0.9,0.3);//strafe left,was .65
                                 DropOfWob();
                                 MecDriv(-0.9,-0.9,-0.9,-0.9,0.2);//backwards
-                                MecDriv(-1.0,1.0,-1.0,1.0,0.55);//strafe right,was .2,.7
-                                MecDriv(-1.0, -1.0, -1.0, -1.0, 1.35); //backwards
-                                 MecDriv(1.0, 1.0, -1.0, -1.0, 0.4);// robot rotates left
-                                 MecDriv(0.6, 0.6, 0.6, 0.6, 0.1);// forward}
+                                MecDriv(-0.8,-0.8,0.8,0.8,1.0);//rotate right
+                                MecDriv(1.0, 1.0, 1.0, 1.0, 1.1); //forward
+                                //MecDriv(1.0, 1.0, -1.0, -1.0, 0.4);// robot rotates left
+                                //MecDriv(0.6, 0.6, 0.6, 0.6, 0.1);// forward}
                                 PickupWobbleGoal();
-                                MecDriv(-0.6,-0.6,-0.6,-0.6,0.3);//backward
-                                MecDriv(-1.0,-1.0,1.0,1.0,0.45);//rotates right
-                                MecDriv(1.0,1.0,1.0,1.0,1.0);//forward
+                                MecDriv(-1.0,-1.0,-1.0,-1.0,0.8);//backward
+                                MecDriv(-1.0,-1.0,1.0,1.0,0.75);//rotates right
+                                MecDriv(1.0,1.0,1.0,1.0,0.2);//forward
                                 DropOfWob();
-                                MecDriv(1.0,1.0,1.0,1.0,0.3);//backward
+                                MecDriv(-1.0,-1.0,-1.0,-1.0,0.05);//backward
                             }
 
                         }
@@ -335,19 +335,19 @@ public class Blue22w extends LinearOpMode {
 
     }
     public void PickupRing(){
-     //while (opModeIsActive()) {
-         robot.Elevator.setPower(0.7);
-         sleep(200);
-         robot.Elevator.setPower(0.0);
-         sleep(700);
-         robot.inTake.setPower(0.45);//was .65
-         robot.belt.setPower(1.0);
-         MecDriv(0.9,0.9,0.9,0.9,0.2);//was .lbp set to 1 instead of 0.3
-         sleep(2000);
+        //while (opModeIsActive()) {
+        robot.Elevator.setPower(0.7);
+        sleep(200);
+        robot.Elevator.setPower(0.0);
+        sleep(700);
+        robot.inTake.setPower(0.45);//was .65
+        robot.belt.setPower(1.0);
+        MecDriv(0.9,0.9,0.9,0.9,0.2);//was .lbp set to 1 instead of 0.3
+        sleep(2000);
         MecDriv(0.6,0.6,0.6,0.6,0.8);//0.3
-         robot.inTake.setPower(0);
-         robot.belt.setPower(0);
-         ShootOne();
+        robot.inTake.setPower(0);
+        robot.belt.setPower(0);
+        ShootOne();
 
     }
     public void PickupWobbleGoal(){
@@ -382,3 +382,4 @@ public class Blue22w extends LinearOpMode {
     }
 
 }
+
