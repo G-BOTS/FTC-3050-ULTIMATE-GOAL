@@ -378,9 +378,9 @@ public class Blue22walt extends LinearOpMode {
         robot.Launcher.setPosition(0.4);
         robot.Lifter.setPosition(0.58);
         sleep(250);
-        robot.Shooter.setPower(0);
+        robot.Shooter.setPower(0
+);
 
-    }
-
+}
 }
 
